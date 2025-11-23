@@ -1,0 +1,202 @@
+.heroSection {
+
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.title {
+    font-size: clamp(2.5rem, 8vw, 9rem);
+    font-weight: 300;
+    line-height: 0.85;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    pointer-events: none;
+}
+
+.title2 {
+    font-size: clamp(2.5rem, 8vw, 9rem);
+    font-weight: 500;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+    pointer-events: none;
+}
+
+.ratingNumber {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #bfff00;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.ratingText {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
+
+.starContainer {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 15px;
+}
+
+.padding-lg-only {
+    padding-left: 120px;
+}
+
+@media (max-width: 991px) {
+    .padding-lg-only {
+        padding-left: 0 !important;
+    }
+}
+
+.star {
+    width: 22px;
+    height: 22px;
+    background-color: #2ACC96;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+.feedbackText {
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.divider {
+    border-left: 1px solid #686767;
+    height: 280px;
+    margin: 0 -10px;
+}
+
+.description {
+    color: #A1A1A1;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-align: left;
+    max-width: 380px;
+    padding-top: 10px;
+}
+
+.circularButton {
+    width: 130px;
+    height: 130px;
+    border: 1px solid #2a2a2a;
+    margin-top: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.circularButton:hover {
+    border-color: #bfff00;
+    transform: scale(1.05);
+}
+
+.arrow {
+    font-size: 32px;
+    color: #bfff00;
+    transform: rotate(45deg);
+    display: inline-block;
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 70px;
+    height: auto;
+    pointer-events: none;
+}
+
+/* Stars and Twinkling Animation */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes drift {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+.stars,
+.twinkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200%;
+    display: block;
+    pointer-events: none;
+}
+
+.stars {
+    z-index: 1;
+    background:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 60px 70px, white, transparent),
+        radial-gradient(1px 1px at 50px 50px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 90px 10px, white, transparent),
+        radial-gradient(1px 1px at 150px 120px, white, transparent),
+        radial-gradient(1px 1px at 200px 50px, white, transparent),
+        radial-gradient(2px 2px at 170px 150px, white, transparent),
+        radial-gradient(1px 1px at 240px 90px, white, transparent),
+        radial-gradient(1px 1px at 280px 30px, white, transparent),
+        radial-gradient(2px 2px at 320px 110px, white, transparent),
+        radial-gradient(1px 1px at 10px 140px, white, transparent),
+        radial-gradient(1px 1px at 100px 160px, white, transparent),
+        radial-gradient(2px 2px at 220px 20px, white, transparent),
+        radial-gradient(1px 1px at 180px 200px, white, transparent);
+    background-size: 340px 220px;
+    background-repeat: repeat;
+}
+
+.twinkle {
+    z-index: 2;
+    background:
+        radial-gradient(2px 2px at 40px 60px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 100px 100px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 160px 40px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 220px 120px, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 80px 180px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 300px 80px, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1px 1px at 30px 110px, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(2px 2px at 250px 160px, rgba(255, 255, 255, 0.7), transparent);
+    background-size: 340px 220px;
+    background-repeat: repeat;
+    animation: twinkle 5s ease-in-out infinite;
+}

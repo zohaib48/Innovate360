@@ -1,0 +1,87 @@
+@keyframes slides {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.carouselWrapper {
+    width: 100%;
+}
+
+.textMarquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #bfff00;
+    /* lime green-like background similar to the screenshot */
+    padding: 40px 0;
+}
+
+.textTrack {
+    display: inline-block;
+    animation: slides 35s linear infinite;
+}
+
+.textItem {
+    display: inline-block;
+    margin: 0 32px;
+    font-size: 32px;
+    font-weight: 400;
+    color:black;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.textItem::after {
+    content: '✺';
+    display: inline-block;
+    margin-left: 32px;
+    font-size: 24px;
+}
+
+.logos {
+    overflow: hidden;
+    padding: 30px 0px;
+    white-space: nowrap;
+    position: relative;
+    background-color: white;
+    /* Ensure white background as requested */
+}
+
+.logos:before,
+.logos:after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 250px;
+    height: 100%;
+    z-index: 2;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}
+
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}
+
+.logoItems {
+    display: inline-block;
+    animation: slides 0s infinite linear;
+}
+
+.logos:hover .logoItems {
+    animation-play-state: paused;
+}
+
+.logoItems img {
+    height: 200px;
+    margin: 0 40px;
+    /* Added some margin for spacing between logos */
+}

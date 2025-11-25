@@ -16,8 +16,7 @@
     overflow: hidden;
     white-space: nowrap;
     background-color: #bfff00;
-    /* lime green-like background similar to the screenshot */
-    padding: 40px 0;
+    padding: 30px 0;
 }
 
 .textTrack {
@@ -73,15 +72,17 @@
 
 .logoItems {
     display: inline-block;
-    animation: slides 0s infinite linear;
+    animation: slides 20s infinite linear;
 }
 
-.logos:hover .logoItems {
+/* .logos:hover .logoItems {
     animation-play-state: paused;
-}
+} */
 
 .logoItems img {
-    height: 200px;
-    margin: 0 40px;
-    /* Added some margin for spacing between logos */
+    max-height: 160px;
+    height: auto;
+    width: auto;
+    margin: 0 32px;
+    object-fit: contain;
 }

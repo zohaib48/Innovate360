@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { gsap } from 'gsap';
 
 const NavbarComponent = () => {
   const navRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     // Navigation animation
@@ -11,14 +12,49 @@ const NavbarComponent = () => {
       { y: -50, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
     );
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <Navbar ref={navRef} expand="lg" variant="dark" className="py-3" style={{ backgroundColor: 'transparent' }}>
+    <Navbar
+      ref={navRef}
+      expand="lg"
+      variant={scrolled ? 'light' : 'dark'}
+      className="py-3"
+      style={{
+        backgroundColor: scrolled ? '#ffffff' : 'transparent',
+        backgroundImage: scrolled
+          ? 'none'
+          : `radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+             radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.6), transparent),
+             radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.7), transparent),
+             radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.5), transparent)`,
+        backgroundSize: scrolled ? 'auto' : '340px 180px',
+        backgroundRepeat: scrolled ? 'no-repeat' : 'repeat-x',
+        boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.08)' : 'none',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+        transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
+      }}
+    >
       <Container fluid className="px-5">
-        <Navbar.Brand href="#home" className="d-flex align-items-center fw-semibold fs-5">
-         
-          INNOVATE <div style={{ 
+        <Navbar.Brand
+          href="#home"
+          className="d-flex align-items-center fw-semibold fs-5"
+          style={{ fontFamily: 'Helvetica Neue' }}
+        >
+          INNOVATE
+          <div style={{ 
             width: '36px', 
             height: '36px', 
             backgroundColor: '#bfff00', 
@@ -37,55 +73,71 @@ const NavbarComponent = () => {
         
         <Navbar.Collapse id="navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link href="#home" className="text-white mx-2">Home ▼</Nav.Link>
-            <Nav.Link href="#pages" className="text-white mx-2">Pages ▼</Nav.Link>
-            <Nav.Link href="#service" className="text-white mx-2">Service</Nav.Link>
-            <Nav.Link href="#portfolio" className="text-white mx-2">Portfolio</Nav.Link>
-            <Nav.Link href="#blog" className="text-white mx-2">Blog</Nav.Link>
-            <Nav.Link href="#contact" className="text-white mx-2">Contact</Nav.Link>
-          </Nav>
-          
-          <div className="d-flex align-items-center gap-4">
-            <div style={{ position: 'relative', cursor: 'pointer' }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
-              <Badge 
-                bg="warning" 
-                text="dark"
-                pill
-                style={{ 
-                  position: 'absolute', 
-                  top: '-8px', 
-                  right: '-8px',
-                  fontSize: '11px',
-                  fontWeight: '700'
+            <Nav.Link
+              href="#home"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+                    style={{fontSize:22,letterSpacing:1}}
+            >
+              Home
+              <span
+                style={{
+                  fontSize: '1.0rem',
+                  marginLeft: '4px',
+                  display: 'inline-block',
+                  transform: 'translateY(-1px)',
                 }}
               >
-                0
-              </Badge>
-            </div>
-            
-            <Button 
-              style={{ 
-                backgroundColor: '#bfff00', 
-                color: '#000',
-                border: 'none',
-                fontWeight: '600',
-                fontSize: '15px'
-              }}
-              className="px-4 py-2"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, { y: -2, boxShadow: '0 10px 30px rgba(191, 255, 0, 0.3)', duration: 0.3 });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, { y: 0, boxShadow: '0 0 0 rgba(191, 255, 0, 0)', duration: 0.3 });
-              }}
+                ↓
+              </span>
+            </Nav.Link>
+            <Nav.Link
+              href="#pages"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:22,letterSpacing:1}}
             >
-              Get started <span style={{ fontSize: '18px' }}>→</span>
-            </Button>
-          </div>
+              Pages
+              <span
+                style={{
+                  fontSize: '1.0rem',
+                  marginLeft: '4px',
+                  display: 'inline-block',
+                  transform: 'translateY(-1px)',
+                }}
+              >
+                ↓
+              </span>
+            </Nav.Link>
+            <Nav.Link
+              href="#service"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:22,letterSpacing:1}}
+            >
+              Service
+            </Nav.Link>
+            <Nav.Link
+              href="#portfolio"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:22,letterSpacing:1}}
+            >
+              Portfolio
+            </Nav.Link>
+            <Nav.Link
+              href="#blog"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:22,letterSpacing:1}}
+            >
+              Blog
+            </Nav.Link>
+            <Nav.Link
+              href="#contact"
+              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:22,letterSpacing:1}}
+            >
+              Contact
+            </Nav.Link>
+          </Nav>
+          
+        
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -9,13 +9,17 @@
 
 
 .title {
-    font-size: clamp(2.5rem, 8vw, 9rem);
-    font-weight: 300;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 400;
+
+    margin-top: 30px;
     line-height: 0.85;
     letter-spacing: 2px;
     margin-bottom: 10px;
     pointer-events: none;
 }
+
+
 
 .title2 {
     font-size: clamp(2.5rem, 8vw, 9rem);
@@ -79,16 +83,17 @@
 
 .divider {
     border-left: 1px solid #686767;
-    height: 280px;
+    height: 570px;
     margin: 0 -10px;
 }
 
 .description {
-    color: #A1A1A1;
-    font-size: 1.2rem;
+    color: #fff;
+    font-size: 1.4rem;
     line-height: 1.7;
     text-align: left;
-    max-width: 380px;
+    min-width: 300px;
+    margin-bottom: 60px;
     padding-top: 10px;
 }
 
@@ -96,7 +101,7 @@
     width: 130px;
     height: 130px;
     border: 1px solid #2a2a2a;
-    margin-top: 40px;
+
     border-radius: 50%;
     display: flex;
     align-items: center;

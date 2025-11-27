@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
     "bootstrap": "^5.3.8",
     "gsap": "^3.13.0",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
+    "react-calendly": "^4.4.0",
     "react-dom": "^19.2.0",
     "tsparticles": "^3.9.1"
   },

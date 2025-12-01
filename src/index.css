@@ -53,8 +53,7 @@ body {
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
-  /* Dark background */
+  background-color: #ffffff;
   color: #ffffff;
 }
 
@@ -67,4 +66,27 @@ h1, h2, h3, h4, h5, h6,
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Mobile navbar tweaks */
+@media (max-width: 768px) {
+  /* Let navbar scroll with content on mobile so the collapsed menu
+     pushes the hero section down instead of overlapping it */
+  .navbar {
+    position: relative !important;
+  }
+
+  .navbar-brand img {
+    width: 150px;
+    max-width: 50vw;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }

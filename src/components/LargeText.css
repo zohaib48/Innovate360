@@ -1,0 +1,32 @@
+ .large-text-section {
+  width: 100%;
+  background-color: #fff;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.large-text-paragraph {
+  margin: 0;
+  font-size: clamp(28px, 3.8vw, 70px);
+  text-align: left;
+  font-family: 'Helvetica Neue';
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.large-text-muted {
+  color: #bfbfbf;
+}
+
+@media (max-width: 768px) {
+  .large-text-paragraph {
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+}
+

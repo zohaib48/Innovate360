@@ -2,9 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { gsap } from 'gsap';
 
-const NavbarComponent = () => {
+export const NavbarComponent = () => {
   const navRef = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled , setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     // Navigation animation
@@ -13,7 +14,7 @@ const NavbarComponent = () => {
       { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
     );
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 80);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -28,116 +29,147 @@ const NavbarComponent = () => {
     <Navbar
       ref={navRef}
       expand="lg"
-      variant={scrolled ? 'light' : 'dark'}
+      expanded={expanded}
+      onToggle={(val) => setExpanded(val)}
+      variant={(scrolled && window.innerWidth >= 992) ? 'light' : 'dark'}
+      bg={(scrolled && window.innerWidth >= 992) ? 'light' : 'transparent'}
       className="py-3"
+      fixed="top"
       style={{
-        backgroundColor: scrolled ? '#ffffff' : 'transparent',
-        backgroundImage: scrolled
-          ? 'none'
-          : `radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
-             radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.6), transparent),
-             radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.7), transparent),
-             radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.5), transparent)`,
-        backgroundSize: scrolled ? 'auto' : '340px 180px',
-        backgroundRepeat: scrolled ? 'no-repeat' : 'repeat-x',
-        boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.08)' : 'none',
-        position: 'sticky',
-        top: 0,
+        minHeight: expanded ? 80 : undefined,
+        maxHeight: expanded ? undefined : 80,
         zIndex: 1000,
+        backgroundColor: (scrolled && window.innerWidth >= 992) ? '#ffffff' : 'transparent',
+        boxShadow: (scrolled && window.innerWidth >= 992) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
+        width: '100%',
       }}
     >
-      <Container fluid className="px-5">
+      <Container fluid className="px-5 justify-content-center align-items-center">
         <Navbar.Brand
           href="#home"
           className="d-flex align-items-center fw-semibold fs-5"
           style={{ fontFamily: 'Helvetica Neue' }}
         >
-          INNOVATE
-          <div style={{ 
-            width: '36px', 
-            height: '36px', 
-            backgroundColor: '#bfff00', 
-            borderRadius: '50%', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            color: '#000',
-            fontSize: '18px',
-            fontWeight: '700',
-            marginLeft: '6px'
-          }}>360</div>
+          <img
+            src= {scrolled ?"https://i.postimg.cc/y6XdKjZw/Gemini-Generated-Image-ntpx2wntpx2wntpx-removebg-preview.png":"https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"}
+            alt="Innovate360 Logo"        
+            style={{
+              height: 'auto',
+              width: '220px',
+              marginRight: '10px',
+              objectFit: 'contain'
+            }}
+          />
         </Navbar.Brand>
         
-        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Toggle aria-controls="navbar-nav" className="ms-auto" />
         
-        <Navbar.Collapse id="navbar-nav">
-          <Nav className="mx-auto">
+        <Navbar.Collapse 
+          id="navbar-nav" 
+          className="justify-content-center"
+          style={{
+            backgroundColor: 'transparent'
+          }}
+        >
+          <Nav className="mx-auto text-center">
             <Nav.Link
               href="#home"
               className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-                    style={{fontSize:22,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1}}
+              onMouseEnter={(e) => {
+                const svg = e.currentTarget.querySelector('svg');
+                if (svg) svg.style.transform = 'translateY(2px)';
+              }}
+              onMouseLeave={(e) => {
+                const svg = e.currentTarget.querySelector('svg');
+                if (svg) svg.style.transform = 'translateY(-1px)';
+              }}
             >
               Home
-              <span
+              <svg
                 style={{
-                  fontSize: '1.0rem',
-                  marginLeft: '4px',
+                  width: '14px',
+                  height: '14px',
+                  marginLeft: '6px',
                   display: 'inline-block',
+                  verticalAlign: 'middle',
                   transform: 'translateY(-1px)',
+                  transition: 'transform 0.3s ease',
                 }}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                ↓
-              </span>
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </Nav.Link>
             <Nav.Link
               href="#pages"
-              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:22,letterSpacing:1}}
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:18,letterSpacing:1}}
+              onMouseEnter={(e) => {
+                const svg = e.currentTarget.querySelector('svg');
+                if (svg) svg.style.transform = 'translateY(2px)';
+              }}
+              onMouseLeave={(e) => {
+                const svg = e.currentTarget.querySelector('svg');
+                if (svg) svg.style.transform = 'translateY(-1px)';
+              }}
             >
               Pages
-              <span
+              <svg
                 style={{
-                  fontSize: '1.0rem',
-                  marginLeft: '4px',
+                  width: '14px',
+                  height: '14px',
+                  marginLeft: '6px',
                   display: 'inline-block',
+                  verticalAlign: 'middle',
                   transform: 'translateY(-1px)',
+                  transition: 'transform 0.3s ease',
                 }}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                ↓
-              </span>
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </Nav.Link>
             <Nav.Link
               href="#service"
-              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:22,letterSpacing:1}}
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:18,letterSpacing:1}}
             >
               Service
             </Nav.Link>
             <Nav.Link
               href="#portfolio"
-              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:22,letterSpacing:1}}
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:18,letterSpacing:1}}
             >
               Portfolio
             </Nav.Link>
             <Nav.Link
               href="#blog"
-              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:22,letterSpacing:1}}
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:18,letterSpacing:1}}
             >
               Blog
             </Nav.Link>
             <Nav.Link
               href="#contact"
-              className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:22,letterSpacing:1}}
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
+              style={{fontSize:18,letterSpacing:1}}
             >
               Contact
             </Nav.Link>
           </Nav>
-          
-        
         </Navbar.Collapse>
       </Container>
     </Navbar>

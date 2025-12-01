@@ -1,13 +1,13 @@
 /* Services Section Styles */
 .services-section {
     min-height: 80vh;
-    padding: 60px 100px;
+    padding: 60px 80px;
 }
 
 /* Left Content */
 .services-heading {
-    font-size: 76px;
-    line-height: 1;
+    font-size: 68px;
+    line-height: 1.05;
     color: #000000;
     letter-spacing: 1px;
     font-weight: 500;
@@ -29,13 +29,7 @@
     border-radius: 4px;
 }
 
-.services-cta-btn:hover {
-    background-color: #bfff00 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(154, 255, 0, 0.3);
-}
 
-/* Service Cards */
 .service-card {
     position: relative;
     background: #ffffff;
@@ -48,10 +42,10 @@
     /* Horizontal line under every card */
 }
 
-.service-card:hover {
+/* .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+} */
 
 /* Remove border from last row */
 .col-lg-6:nth-child(5) .service-card,
@@ -106,7 +100,7 @@
 }
 
 .service-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
     color: #5C5C5C;
     letter-spacing: 0.3px;
@@ -124,6 +118,7 @@
 
 .service-link {
     font-size: 15px;
+    font-weight: 500;
     color: #666666;
     transition: all 0.3s ease;
     display: inline-flex !important;
@@ -133,14 +128,17 @@
 .arrow-circle {
     width: 25px;
     height: 25px;
-    border: 1px solid #D0D0D0;
+    border: 2px solid #D0D0D0;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
     transition: all 0.3s ease;
+    transform: rotate(320deg);
 }
+
+
 
 
 
@@ -148,6 +146,7 @@
     background-color: #bfff00;
     border-color: #bfff00;
     color: #000000;
+    transform: rotate(360deg);
 }
 
 /* Responsive Design */
@@ -177,6 +176,24 @@
     }
 }
 
+@media (min-width: 1400px) {
+    .services-section {
+        padding: 80px 140px;
+    }
+
+    .services-heading {
+        font-size: 80px;
+    }
+
+    .service-title {
+        font-size: 24px;
+    }
+
+    .service-description {
+        font-size: 16px;
+    }
+}
+
 /* Remove vertical line on tablets and mobile */
 @media (max-width: 768px) {
     .row.g-4::before {
@@ -189,12 +206,31 @@
 }
 
 @media (max-width: 640px) {
+    .services-section {
+        padding: 40px 20px;
+    }
+
     .services-heading {
-        font-size: 42px;
+        font-size: 34px;
+        line-height: 1.1;
     }
 
     .service-card {
         flex-direction: column;
+        padding: 24px 20px;
+        min-height: auto;
+    }
+
+    .services-subtext {
+        font-size: 16px;
+    }
+
+    .service-title {
+        font-size: 18px;
+    }
+
+    .service-description {
+        font-size: 14px;
     }
 
     .service-icon-wrapper {

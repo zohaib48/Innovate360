@@ -48,115 +48,102 @@ const ServicesSection = () => {
   ];
 
   useEffect(() => {
-    // Set initial state for left content elements
-    gsap.set([headingRef.current, subtextRef.current, buttonRef.current], {
-      y: 60,
-      opacity: 0
-    });
+    if (typeof window === 'undefined') return;
 
-    // Animate heading independently
-    gsap.to(headingRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: headingRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
 
-    // Animate subtext independently
-    gsap.to(subtextRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: subtextRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+    const ctx = gsap.context(() => {
+      if (!headingRef.current || !subtextRef.current || !buttonRef.current) return;
 
-    // Animate button independently
-    gsap.to(buttonRef.current, {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: buttonRef.current,
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+      // Set initial state for left content elements
+      gsap.set([headingRef.current, subtextRef.current, buttonRef.current], {
+        y: 60,
+        opacity: 0
+      });
 
-    // Set initial state for cards
-    gsap.set(cardRefs.current, {
-      y: 80,
-      opacity: 0
-    });
+      // Animate heading independently
+      gsap.to(headingRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
 
-    // Animate cards row by row (2 cards per row)
-    // Row 1: cards 0 and 1
-    gsap.to([cardRefs.current[0], cardRefs.current[1]], {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: cardRefs.current[0],
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+    
+      gsap.to(subtextRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: subtextRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
 
-    // Row 2: cards 2 and 3
-    gsap.to([cardRefs.current[2], cardRefs.current[3]], {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      delay: 0.2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: cardRefs.current[2],
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+      gsap.to(buttonRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: buttonRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
 
-    // Row 3: cards 4 and 5
-    gsap.to([cardRefs.current[4], cardRefs.current[5]], {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      delay: 0.2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: cardRefs.current[4],
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    });
+      const animationVariants = [
+        { from: { x: -80, opacity: 0 }, to: { x: 0, opacity: 1 } },
+        { from: { x: 80, opacity: 0 }, to: { x: 0, opacity: 1 } },
+        { from: { y: 60, opacity: 0 }, to: { y: 0, opacity: 1 } },
+        { from: { x: -60, y: 40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
+        { from: { x: 60, y: -40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
+        { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
+      ];
 
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+
+        const variant = animationVariants[index % animationVariants.length];
+        const rowIndex = Math.floor(index / 2);
+        const rowTrigger = cardRefs.current[rowIndex * 2] || card;
+
+        gsap.set(card, variant.from);
+
+        gsap.to(card, {
+          ...variant.to,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: rowTrigger,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+    }, sectionEl);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section ref={sectionRef} className="services-section bg-white">
       <div className="container-fluid">
-        <div className="row align-items-center g-5">
-          {/* Left Content */}
-          <div className="col-lg-4 col-md-12 mt-0" style={{marginBottom: '5rem'}}>
-            <h2 ref={headingRef} className="services-heading mb-4">
+        <div className="row align-items-start g-5">
+     
+          <div className="col-lg-4 col-md-12 mt-10" style={{marginBottom: '1rem'}}>
+            <h2 ref={headingRef} className="services-heading mb-4 mt-3" style={{marginBottom: '1rem'}}>
               TO PROVIDE<br />
               DIGITAL<br />
-              SOLUTION.
+              SOLUTION
             </h2>
             <p ref={subtextRef} className="services-subtext text-muted mb-4">
               If you're looking for a specialist to build <br />
@@ -168,7 +155,7 @@ const ServicesSection = () => {
             </button>
           </div>
 
-          {/* Right Content - Services Grid */}
+         
           <div className="col-lg-8 col-md-12">
             <div className="row g-4">
               {services.map((service, index) => (

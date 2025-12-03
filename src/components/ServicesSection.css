@@ -54,6 +54,13 @@
     border-bottom: none !important;
 }
 
+/* Add top border to last card in mobile view */
+@media (max-width: 767px) {
+    .col-sm-12:last-child .service-card {
+        border-top: 1px solid #E8E8E8;
+    }
+}
+
 /* Vertical center line */
 .row.g-4 {
     position: relative;
@@ -201,9 +208,7 @@
         display: none;
     }
 
-    .service-card {
-        border-bottom: 2px solid #000;
-    }
+ 
 }
 
 @media (max-width: 640px) {

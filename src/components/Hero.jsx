@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useId } from "react";
 import { gsap } from "gsap/all";
 import ParticlesBackground from "./ParticlesBackground";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Modal } from "react-bootstrap";
 import styles from "./Hero.module.css";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import NavbarComponent from "./NavbarComponent";
@@ -109,7 +109,7 @@ const Hero = () => {
     const attentionAnimation = () => {
       gsap.to(button, {
         scale: 1.08,
-        y: -8,
+        y: 0,
         duration: 0.5,
         ease: "power2.out",
         yoyo: true,
@@ -206,12 +206,12 @@ const Hero = () => {
         {/* Floating Button */}
         <div
           ref={floatingBtnRef}
-          className={styles.floatingButton}
+          className={`${styles.floatingButton} ${!isModalOpen ? styles.visible : styles.hidden}`}
           onClick={() => setIsModalOpen(true)}
         >
           <span >Connect With Us</span>
           <svg 
-            className={styles.floatingButtonIcon}
+            className={styles.primaryCtaIcon}
             width="20" 
             height="20" 
             viewBox="0 0 24 24" 
@@ -224,6 +224,7 @@ const Hero = () => {
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
         </div>
+       
 
         <Container fluid className="px-3 px-md-4 px-lg-5" style={{ position: 'relative', zIndex: 10 }}>
           <Row className="align-items-center" >
@@ -240,11 +241,7 @@ const Hero = () => {
               </p>
               
               <div ref={ctaGroupRef} className={styles.ctaGroup}>
-                <button
-                  className={styles.primaryCta}
-                  onClick={() => setIsModalOpen(true)}
-                >
-               Connect With Us
+              <button onClick={() => setIsModalOpen(true)}  className={styles.btn}><span>Connect With Us </span>
                   <svg 
                     className={styles.primaryCtaIcon}
                     width="20" 
@@ -308,39 +305,56 @@ const Hero = () => {
         </div>
 
         {/* Modal */}
-        {isModalOpen && (
-          <div
-            className={styles.modalOverlay}
-            onClick={() => setIsModalOpen(false)}
-          >
-            <div
-              className={styles.modalContent}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className={styles.closeButton}
-                onClick={() => setIsModalOpen(false)}
-                aria-label="Close modal"
-              >
-                ✕
-              </button>
-
-              <div className={styles.modalHeader}>
+        <Modal 
+          show={isModalOpen} 
+          onHide={() => setIsModalOpen(false)}
+          size="xl"
+          centered
+          style={{zIndex:2000}}
+          className={styles.bookingModal}
+          contentClassName={styles.modalContentCustom}
+          scrollable
+        >
+          <Modal.Header 
+            closeButton 
+            className={`border-0 pb-3 px-4 ${styles.modalHeader}`}
+            onc
+            closeVariant="white"
+            closeStyle={{
+              filter: 'invert(1) grayscale(1) brightness(2)',
+              opacity: 0.8,
+              transition: 'opacity 0.2s ease',
+              width: '1.5rem',
+              height: '1.5rem',
+              backgroundSize: '1.25rem',
               
-                <p className={styles.modalSubtitle}>Choose a time that works best for you</p>
-              </div>
-
-              <div className={styles.calendarContainer}>
-                <Cal
-                  namespace="30min"
-                  calLink="zohaib-shafique-mql6e9/30min"
-                  config={{ layout: "month_view", theme: "dark" }}
-                  style={{ width: "100%", minHeight: "500px", overflow: "hidden", flex: 1 }}
-                />
-              </div>
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 16 16\' fill=\'%23ffffff\'%3e%3cpath d=\'M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z\'/%3e%3c/svg%3e")',
+            }}
+          >
+            <Modal.Title className="w-100">
+              <p className={`text-center mb-0 ${styles.modalSubtitle}`}>Choose a time that works best for you</p>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className={styles.modalBodyCustom}>
+            <div className={styles.calendarContainer}>
+              <Cal
+                namespace="30min"
+                calLink="zohaib-shafique-mql6e9/30min"
+                config={{ 
+                  layout: "month_view", 
+                  theme: "dark",
+                  hideEventTypeDetails: true
+                }}
+                style={{ 
+                  width: "100%",
+                  minHeight: "500px"
+                }}
+              />
             </div>
-          </div>
-        )}
+          </Modal.Body>
+        </Modal>
       </div>
     </>
   );

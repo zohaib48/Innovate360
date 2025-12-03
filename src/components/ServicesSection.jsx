@@ -42,7 +42,7 @@ const ServicesSection = () => {
     },
     {
       icon: '🖥️',
-      title: 'WEB DESIGN',
+      title: 'Web/Interface Design',
       description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
     }
   ];
@@ -146,11 +146,11 @@ const ServicesSection = () => {
               SOLUTION
             </h2>
             <p ref={subtextRef} className="services-subtext text-muted mb-4">
-              If you're looking for a specialist to build <br />
+              If you are looking for a specialist to build <br />
               a meaningful digital project you can <br />
               easily reach us by clicking here
             </p>
-            <button ref={buttonRef} className="btn services-cta-btn px-4 py-3 fw-semibold">
+            <button ref={buttonRef} style={{fontFamily:'Helvetica Neue'}} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">
               Explore Services →
             </button>
           </div>

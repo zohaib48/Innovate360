@@ -43,11 +43,13 @@
 
 .logos {
     overflow: hidden;
-    padding: 30px 0px;
+    padding: 30px 0;
     white-space: nowrap;
     position: relative;
+    display: flex;
+    justify-content: center;
     background-color: white;
-    /* Ensure white background as requested */
+    width: 100%;
 }
 
 .logos:before,
@@ -71,18 +73,83 @@
 }
 
 .logoItems {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     animation: slides 20s infinite linear;
+    height: 100%;
 }
 
 /* .logos:hover .logoItems {
     animation-play-state: paused;
 } */
 
-.logoItems img {
-    max-height: 160px;
+.logoItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 16px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.logoItem:focus {
+    outline: 2px solid #bfff00;
+    outline-offset: 2px;
+}
+
+.logoImage {
+    max-height: 120px;
     height: auto;
     width: auto;
-    margin: 0 32px;
+    max-width: 180px;
     object-fit: contain;
+    transition: transform 0.2s ease;
+    display: block;
+}
+
+/* Make sure the anchor takes full size of its content */
+.logoItem::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+/* Touch feedback */
+.logoItem:active img {
+    transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logoImage {
+        max-height: 80px;
+        max-width: 120px;
+    }
+    
+    .logoItem {
+        margin: 0 8px;
+        padding: 10px;
+        min-width: 80px;
+        min-height: 60px;
+    }
+    
+    .logos:before,
+    .logos:after {
+        width: 60px;
+        
+    }
 }

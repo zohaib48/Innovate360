@@ -80,7 +80,7 @@
       
 
         .heroDescription {
-          font-size: clamp(1rem, 2vw, 1.25rem);
+          font-size: clamp(1rem, 3vw, 1.5rem);
           line-height: 1.7;
           color: rgba(255, 255, 255, 0.8);
           font-family: 'Noyh';
@@ -121,6 +121,69 @@
           position: relative;
           overflow: hidden;
         }
+.btn {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* space for icon + text */
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+ border-radius: 20px;
+ font-family: 'Helvetica Neue';
+  position: relative;
+  color: black; /* initial text/icon color */
+  font-weight: 800;
+  font-size: 18px;
+  background-color: #bfff00; /* initial background */
+  padding: 17px 60px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  transition: color 0.3s ease; /* smooth text/icon color change */
+}
+
+.btn span,
+.btn i {
+  position: relative;
+  z-index: 1; /* stays above hover sweep */
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: #1a7f00; 
+  transition: all .5s ease-in-out;
+  transform: translateX(-85%) translateY(-25%) rotate(45deg);
+}
+
+.btn:hover:after {
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+/* text + icon change on hover */
+.btn:hover {
+  color: white;
+}
+
+/* Ensure the SVG icon inherits the text color on hover */
+.primaryCtaIcon {
+  stroke: currentColor;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.btn:hover .primaryCtaIcon {
+  stroke: white;
+  z-index: 1;
+
+}
+
+
 
         .primaryCta::before {
           content: '';
@@ -309,8 +372,17 @@
           -webkit-tap-highlight-color: transparent;
           overflow: hidden;
         }
+        
+        .floatingButton.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .floatingButton.hidden {
+        display: none;
+        }
 
-        .floatingButton::before {
+        /* .floatingButton::before {
           content: '';
           position: absolute;
           top: 0;
@@ -340,7 +412,47 @@
 
         .floatingButton:hover .floatingButtonIcon {
           transform: rotate(15deg) scale(1.1);
-        }
+        } */
+
+        .floatingButton span,
+.floatingButton i {
+  position: relative;
+  z-index: 1; /* stays above hover sweep */
+}
+
+.floatingButton:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: #1a7f00; 
+  transition: all .5s ease-in-out;
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.floatingButton:hover:after {
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+/* text + icon change on hover */
+.floatingButton:hover {
+  color: white;
+}
+
+/* Ensure the SVG icon inherits the text color on hover */
+.primaryCtaIcon {
+  stroke: currentColor;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.floatingButton:hover .primaryCtaIcon {
+  stroke: white;
+  z-index: 2;
+
+}
 
         .modalOverlay {
           position: fixed;
@@ -455,22 +567,27 @@
         .modalHeader {
           
           flex-shrink: 0;
+           
         }
 
         .modalTitle {
           font-size: clamp(1.25rem, 3.5vw, 2rem);
           font-weight: 700;
+          
           color: #fff;
+         
           
           line-height: 1.2;
         }
 
         .modalSubtitle {
+          
           font-size: clamp(0.875rem, 2vw, 1rem);
           text-align: center;
           color: rgba(255, 255, 255, 0.7);
-          margin-bottom: 0;
-          margin-top: 100px;
+       
+
+       
           line-height: 1.4;
         }
 
@@ -521,6 +638,77 @@
           scrollbar-color: #bfff00 rgba(26, 26, 26, 0.6);
         }
 
+        /* Modal Styles */
+        .bookingModal .modal-content {
+          background: #121212;
+          color: #f8f9fa;
+          border-radius: 12px;
+          border: 1px solid #2d2d2d;
+          overflow: hidden;
+          min-width: 800px;
+          max-height: 90vh;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .modalContentCustom {
+          background: #121212 !important;
+        }
+        
+        .modalBodyCustom {
+          overflow-y: auto;
+          padding: 0;
+          flex: 1;
+          background: #1e1e1e;
+        }
+        
+        /* Scrollbar Styling */
+        .modalBodyCustom::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        .modalBodyCustom::-webkit-scrollbar-track {
+          background: #2d2d2d;
+          border-radius: 4px;
+        }
+        
+        .modalBodyCustom::-webkit-scrollbar-thumb {
+          background: #bfff00;
+          border-radius: 4px;
+        }
+        
+        .modalBodyCustom::-webkit-scrollbar-thumb:hover {
+          background: #a8e000;
+        }
+        
+        /* Firefox Scrollbar */
+        .modalBodyCustom {
+          scrollbar-width: thin;
+          scrollbar-color: #bfff00 #2d2d2d;
+        }
+
+      /* .bookingModal .modal-header {
+          position: sticky;
+          top: 0;
+          background: #121212;
+          z-index: 1050;
+          padding: 1.25rem 2rem 1.5rem;
+          border-bottom: 1px solid #2d2d2d;
+          flex-shrink: 0;
+        } */
+        
+        /* .modalTitle {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #f8f9fa;
+        } */
+        
+        .modalSubtitle {
+          font-size: 0.9rem;
+          color: #adb5bd !important;
+        }
+
+   
       
         @media (max-width: 576px) {
           .heroSection {

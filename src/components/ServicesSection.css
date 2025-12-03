@@ -15,9 +15,10 @@
 }
 
 .services-subtext {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.6;
     color: #666666;
+     font-family: 'Noyh';
 }
 
 .services-cta-btn {

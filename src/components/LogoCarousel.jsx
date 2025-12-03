@@ -10,6 +10,20 @@ const LogoCarousel = () => {
     { weblink: "https://pebblesofficial.com/", imglink: "https://i.postimg.cc/d3f9dPs7/pebbles-removebg-preview-(1).png" }
   ]
   
+  // Handle clicks on logo items
+  const handleLogoClick = (e, url) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(url, "_blank");
+  };
+
+  // Handle touch events for better mobile support
+  const handleTouchStart = (e, url) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(url, "_blank");
+  };
+
   return (
     <div className={styles.carouselWrapper}>
       {/* <div className={styles.textMarquee}>
@@ -29,14 +43,23 @@ const LogoCarousel = () => {
       <div className={styles.logos}>
         <div className={styles.logoItems}>
           {Array.from({ length: 4 }).map((_, loopIndex) =>
-            logos.map((src, index) => (
-              <img
+            logos.map((logo, index) => (
+              <a 
                 key={`${loopIndex}-${index}`}
-                src={src.imglink}
-                onClick={() => window.open(src.weblink, "_blank")}
-                style={{ cursor: "pointer" }}
-                alt={`Logo ${index + 1}`}
-              />
+                href={logo.weblink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.logoItem}
+                onClick={(e) => handleLogoClick(e, logo.weblink)}
+                onTouchStart={(e) => handleTouchStart(e, logo.weblink)}
+              >
+                <img
+                  src={logo.imglink}
+                  alt={`Logo ${index + 1}`}
+                  draggable="false"
+                  className={styles.logoImage}
+                />
+              </a>
             ))
           )}
         </div>

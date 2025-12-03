@@ -58,7 +58,8 @@ export const NavbarComponent = () => {
               height: 'auto',
               width: '220px',
               marginRight: '10px',
-              objectFit: 'contain'
+              objectFit: 'contain',
+              marginTop:'3px',
             }}
           />
         </Navbar.Brand>
@@ -72,11 +73,12 @@ export const NavbarComponent = () => {
             backgroundColor: 'transparent'
           }}
         >
-          <Nav className="mx-auto text-center">
+          <Nav className="mx-auto text-center" style={{textTransform:'uppercase'}}>
             <Nav.Link
               href="#home"
+             
               className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
               onMouseEnter={(e) => {
                 const svg = e.currentTarget.querySelector('svg');
                 if (svg) svg.style.transform = 'translateY(2px)';
@@ -110,7 +112,7 @@ export const NavbarComponent = () => {
             <Nav.Link
               href="#pages"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
               onMouseEnter={(e) => {
                 const svg = e.currentTarget.querySelector('svg');
                 if (svg) svg.style.transform = 'translateY(2px)';
@@ -144,28 +146,28 @@ export const NavbarComponent = () => {
             <Nav.Link
               href="#service"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
             >
               Service
             </Nav.Link>
             <Nav.Link
               href="#portfolio"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
             >
               Portfolio
             </Nav.Link>
             <Nav.Link
               href="#blog"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
             >
               Blog
             </Nav.Link>
             <Nav.Link
               href="#contact"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1}}
+              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
             >
               Contact
             </Nav.Link>

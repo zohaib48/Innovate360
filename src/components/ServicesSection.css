@@ -184,23 +184,6 @@
     }
 }
 
-@media (min-width: 1400px) {
-    .services-section {
-        padding: 80px 140px;
-    }
-
-    .services-heading {
-        font-size: 80px;
-    }
-
-    .service-title {
-        font-size: 24px;
-    }
-
-    .service-description {
-        font-size: 16px;
-    }
-}
 
 /* Remove vertical line on tablets and mobile */
 @media (max-width: 768px) {

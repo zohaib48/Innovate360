@@ -1,0 +1,117 @@
+.my-col {
+  margin-top: 7rem;
+  margin-left: 20px;
+}
+
+@media (min-width: 992px) {
+  .my-col {
+    margin-top: 120px;
+    margin-left: 110px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .my-col {
+    margin-top: 90px;
+    margin-left: 180px;
+  }
+}
+
+
+
+
+.my-m {
+  right: 0;
+  left: 250px;
+}
+
+@media (min-width: 1024px) {
+  .my-m {
+    left: 160px;
+    right: auto;
+  }
+}
+
+@media (min-width: 1600px) {
+  .my-m {
+    left: 290px;
+    right: auto;
+  }
+}
+
+.pause-btn {
+  bottom: 3rem;
+  left: 4rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+ .pause-btn {
+  bottom: 3rem;
+  left: 0.5rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+}
+
+@media (min-width: 1600px) {
+ .pause-btn {
+  bottom: 3rem;
+  left: 4rem;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+}
+
+/* Responsive container padding */
+.responsive-container {
+  padding: 0 3rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    padding: 0 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-container {
+    padding: 0 10rem;
+  }
+}
+
+/* Number Display */
+.number-display {
+  font-size: 13rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .number-display {
+    font-size: 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .number-display {
+    font-size: 10rem;
+  }
+
+  @media (min-width: 1600px) {
+  .number-display {
+    font-size: 15rem;
+  }
+}}

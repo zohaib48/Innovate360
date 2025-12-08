@@ -53,85 +53,96 @@ const ServicesSection = () => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
-    const ctx = gsap.context(() => {
-      if (!headingRef.current || !subtextRef.current || !buttonRef.current) return;
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    const rafId = requestAnimationFrame(() => {
+      // Refresh ScrollTrigger to recalculate positions
+      ScrollTrigger.refresh();
 
-      // Set initial state for left content elements
-      gsap.set([headingRef.current, subtextRef.current, buttonRef.current], {
-        y: 60,
-        opacity: 0
-      });
+      const ctx = gsap.context(() => {
+        if (!headingRef.current || !subtextRef.current || !buttonRef.current) return;
 
-      // Animate heading independently
-      gsap.to(headingRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      });
+        // Set initial state for left content elements
+        gsap.set([headingRef.current, subtextRef.current, buttonRef.current], {
+          y: 60,
+          opacity: 0
+        });
 
-    
-      gsap.to(subtextRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: subtextRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      });
-
-      gsap.to(buttonRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: buttonRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
-      });
-
-      const animationVariants = [
-        { from: { x: -80, opacity: 0 }, to: { x: 0, opacity: 1 } },
-        { from: { x: 80, opacity: 0 }, to: { x: 0, opacity: 1 } },
-        { from: { y: 60, opacity: 0 }, to: { y: 0, opacity: 1 } },
-        { from: { x: -60, y: 40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
-        { from: { x: 60, y: -40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
-        { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
-      ];
-
-      cardRefs.current.forEach((card, index) => {
-        if (!card) return;
-
-        const variant = animationVariants[index % animationVariants.length];
-        const rowIndex = Math.floor(index / 2);
-        const rowTrigger = cardRefs.current[rowIndex * 2] || card;
-
-        gsap.set(card, variant.from);
-
-        gsap.to(card, {
-          ...variant.to,
-          duration: 0.9,
-          ease: 'power3.out',
+        // Animate heading independently
+        gsap.to(headingRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
           scrollTrigger: {
-            trigger: rowTrigger,
-            start: 'top 80%',
+            trigger: headingRef.current,
+            start: 'top 85%',
+            end: 'top 65%',
             toggleActions: 'play none none none'
           }
         });
-      });
-    }, sectionEl);
 
-    return () => ctx.revert();
+        gsap.to(subtextRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: subtextRef.current,
+            start: 'top 85%',
+            end: 'top 65%',
+            toggleActions: 'play none none none'
+          }
+        });
+
+        gsap.to(buttonRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: buttonRef.current,
+            start: 'top 85%',
+            end: 'top 65%',
+            toggleActions: 'play none none none'
+          }
+        });
+
+        const animationVariants = [
+          { from: { x: -80, opacity: 0 }, to: { x: 0, opacity: 1 } },
+          { from: { x: 80, opacity: 0 }, to: { x: 0, opacity: 1 } },
+          { from: { y: 60, opacity: 0 }, to: { y: 0, opacity: 1 } },
+          { from: { x: -60, y: 40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
+          { from: { x: 60, y: -40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
+          { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
+        ];
+
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return;
+
+          const variant = animationVariants[index % animationVariants.length];
+          const rowIndex = Math.floor(index / 2);
+          const rowTrigger = cardRefs.current[rowIndex * 2] || card;
+
+          gsap.set(card, variant.from);
+
+          gsap.to(card, {
+            ...variant.to,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: rowTrigger,
+              start: 'top 80%',
+              end: 'top 60%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+      }, sectionEl);
+    });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -146,8 +157,8 @@ const ServicesSection = () => {
               SOLUTION
             </h2>
             <p ref={subtextRef} className="services-subtext text-muted mb-4">
-              If you are looking for a specialist to build <br />
-              a meaningful digital project you can <br />
+              If you <span style={{fontFamily:'-apple-system'}}>'</span>re looking for a specialist to build 
+              a meaningful digital project you can 
               easily reach us by clicking here
             </p>
             <button ref={buttonRef} style={{fontFamily:'Helvetica Neue'}} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">

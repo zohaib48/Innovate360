@@ -132,7 +132,7 @@ const ArchitectureShowcase = () => {
         const mainTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: ".arch",
-            start: "top top",
+            start: "top top+=50px",
             end: "bottom bottom",
             pin: ".arch__right",
             scrub: true,
@@ -248,11 +248,14 @@ const ArchitectureShowcase = () => {
           ))}
         </div>
 
+        {/* UPDATED: Removed paddingTop from here */}
         <div className="arch__right">
           {archData.map((item, index) => (
             <div
               key={item.id}
-              className="img-wrapper"
+              // UPDATED: Changed 'mt-5' to 'mt-5 mt-md-0'
+              // This applies top margin on mobile, and removes it on desktop (md and up).
+              className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
               <img src={item.image} alt={item.imageAlt} />

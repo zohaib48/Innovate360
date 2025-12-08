@@ -1,11 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 
 export const NavbarComponent = () => {
   const navRef = useRef(null);
-  const [scrolled , setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const location = useLocation();
+
+  // Check if we're on a page that should show the background image
+  const isOtherPage = ['/services', '/portfolio', '/contact'].includes(location.pathname);
 
   useEffect(() => {
     // Navigation animation
@@ -40,45 +45,52 @@ export const NavbarComponent = () => {
         maxHeight: expanded ? undefined : 80,
         zIndex: 1000,
         backgroundColor: (scrolled && window.innerWidth >= 992) ? '#ffffff' : 'transparent',
+        backgroundImage: (isOtherPage && !scrolled) ? 'url(https://i.postimg.cc/BnJnB6RC/image.png)' : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        marginLeft: isOtherPage ? '-2px' : '0px',
         boxShadow: (scrolled && window.innerWidth >= 992) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
         width: '100%',
       }}
     >
-      <Container fluid className="px-5 justify-content-center align-items-center">
+      <Container fluid className="align-items-center" style={{ padding: '0 45px' }}>
         <Navbar.Brand
-          href="#home"
+          as={Link}
+          to="/"
           className="d-flex align-items-center fw-semibold fs-5"
           style={{ fontFamily: 'Helvetica Neue' }}
         >
           <img
-            src= {scrolled ?"https://i.postimg.cc/y6XdKjZw/Gemini-Generated-Image-ntpx2wntpx2wntpx-removebg-preview.png":"https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"}
-            alt="Innovate360 Logo"        
+            src={scrolled ? "https://i.postimg.cc/y6XdKjZw/Gemini-Generated-Image-ntpx2wntpx2wntpx-removebg-preview.png" : "https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"}
+            alt="Innovate360 Logo"
             style={{
               height: 'auto',
               width: '220px',
               marginRight: '10px',
               objectFit: 'contain',
-              marginTop:'3px',
+              marginTop: '3px',
             }}
           />
         </Navbar.Brand>
-        
-        <Navbar.Toggle aria-controls="navbar-nav" className="ms-auto" />
-        
-        <Navbar.Collapse 
-          id="navbar-nav" 
-          className="justify-content-center"
+
+        <Navbar.Toggle style={{ borderColor: 'darkgrey' }} aria-controls="navbar-nav" />
+
+        <Navbar.Collapse
+          id="navbar-nav"
+          className="navbar-collapse"
           style={{
-            backgroundColor: 'transparent'
+            justifyContent: 'flex-end',
+            backgroundColor: 'transparent',
+            transition: 'max-height 0.3s ease-in-out'
           }}
         >
-          <Nav className="mx-auto text-center" style={{textTransform:'uppercase'}}>
+          <Nav className="text-center" style={{ textTransform: 'uppercase' }}>
             <Nav.Link
-              href="#home"
-             
+              as={Link}
+              to="/"
               className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
               onMouseEnter={(e) => {
                 const svg = e.currentTarget.querySelector('svg');
                 if (svg) svg.style.transform = 'translateY(2px)';
@@ -89,7 +101,7 @@ export const NavbarComponent = () => {
               }}
             >
               Home
-              <svg
+              {/* <svg
                 style={{
                   width: '14px',
                   height: '14px',
@@ -107,9 +119,9 @@ export const NavbarComponent = () => {
                 strokeLinejoin="round"
               >
                 <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
+              </svg> */}
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               href="#pages"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
               style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
@@ -142,32 +154,35 @@ export const NavbarComponent = () => {
               >
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
-              href="#service"
-              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              as={Link}
+              to="/services"
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
+              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
             >
               Service
             </Nav.Link>
             <Nav.Link
-              href="#portfolio"
-              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              as={Link}
+              to="/portfolio"
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
+              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
             >
               Portfolio
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               href="#blog"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
               style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
             >
               Blog
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
-              href="#contact"
-              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              as={Link}
+              to="/contact"
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
+              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
             >
               Contact
             </Nav.Link>

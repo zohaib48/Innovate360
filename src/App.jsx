@@ -1,26 +1,20 @@
 import React from 'react';
-import NavbarComponent from './components/NavbarComponent';
-import Hero from './components/Hero';
-import LogoCarousel from './components/LogoCarousel';
-import StatsSection from './components/StatsSection';
-import ServicesSection from './components/ServicesSection';
-import LargeText from './components/LargeText';
-import AboutSection from './components/VideoDetailSection';
-import ArchitectureShowcase from './components/ArchitectureShowcase';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="App">
-      {/* <NavbarComponent /> */}
-      <Hero />
-      <LogoCarousel />
-      <StatsSection />
-      <LargeText/>
-      <ServicesSection />
-      <AboutSection/>
-      <ArchitectureShowcase/>
-    
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 

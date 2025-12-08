@@ -3,11 +3,35 @@
   margin-left: 20px;
 }
 
+  
+/* Base styles for all screen sizes */
+.text-dark.lead.text-muted.des {
+  font-family: 'Noyh', sans-serif;
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile-first approach for text alignment */
+.text-dark.lead.text-muted.des {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Center text on larger screens */
+@media (min-width: 768px) {
+  .text-dark.lead.text-muted.des {
+    text-align: left;
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 992px) {
   .my-col {
     margin-top: 120px;
     margin-left: 110px;
   }
+  
 }
 
 @media (min-width: 1600px) {
@@ -34,7 +58,7 @@
 
 @media (min-width: 1600px) {
   .my-m {
-    left: 290px;
+    left: 250px;
     right: auto;
   }
 }
@@ -59,6 +83,7 @@
   align-items: center;
   justify-content: center;
 }
+
 }
 
 @media (min-width: 1600px) {
@@ -86,7 +111,7 @@
 
 @media (min-width: 1200px) {
   .responsive-container {
-    padding: 0 10rem;
+    padding: 0 5rem;
   }
 }
 
@@ -103,6 +128,10 @@
   .number-display {
     font-size: 10rem;
   }
+
+    
+  /* This is now handled in the main .des styles with higher specificity */
+
 }
 
 @media (min-width: 1024px) {

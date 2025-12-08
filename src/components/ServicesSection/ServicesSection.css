@@ -200,7 +200,8 @@
     }
 
     .services-heading {
-        font-size: 34px;
+        font-size: 38px;
+        font-weight:600;
         line-height: 1.1;
     }
 
@@ -211,15 +212,15 @@
     }
 
     .services-subtext {
-        font-size: 16px;
+        font-size: 22px;
     }
 
     .service-title {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .service-description {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .service-icon-wrapper {

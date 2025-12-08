@@ -1,0 +1,71 @@
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marqueeWrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #bfff00; /* Neon green from your previous code */
+  padding: 30px 0;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.track {
+  display: inline-block;
+  white-space: nowrap;
+  /* Adjust time (30s) to control speed */
+  animation: scroll 100s linear infinite;
+  will-change: transform;
+}
+
+.marqueeWrapper:hover .track {
+  animation-play-state: paused;
+}
+
+.item {
+  display: inline-block;
+  font-size: 30px;
+   font-family: 'Helvetica Neue';
+  font-weight: 400;
+  color: #121212;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* Use padding instead of margin to include the separator in the click area if needed */
+  padding-right: 60px; 
+  position: relative;
+}
+
+/* The Star Separator */
+.item::after {
+  content: '✺';
+  position: absolute;
+  right: 15px; /* Centers the star in the padding area */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #121212;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .marqueeWrapper {
+    padding: 15px 0;
+  }
+
+  .item {
+    font-size: 20px;
+    padding-right: 40px;
+  }
+
+  .item::after {
+    font-size: 16px;
+    right: 10px;
+  }
+}

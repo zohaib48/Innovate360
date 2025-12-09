@@ -14,7 +14,7 @@ const MText = () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
+
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
@@ -99,11 +99,11 @@ const MText = () => {
           top: `${y}%`,
           transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`,
           fontSize: '14px',
-       
-           fontFamily: 'Noyh',
-              fontWeight: '600',
+
+          fontFamily: 'Noyh',
+          fontWeight: '600',
           opacity: '1',
-          color:'rgba(155, 190, 52, 1)',
+          color: 'rgba(155, 190, 52, 1)',
         }}
       >
         X
@@ -134,7 +134,7 @@ const MText = () => {
               <span className="text-dark number-unit">M</span>
             </div>
             <p ref={textRef} className="moon-text text-muted mb-0">
-              We assisted companies in securing over <span style={{fontFamily:'-apple-system'}}>$</span>21M in funding successfully.
+              We assisted companies in securing over <span style={{ fontFamily: '-apple-system' }}>$</span>21M in funding successfully.
             </p>
           </div>
         </div>

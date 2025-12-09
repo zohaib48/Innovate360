@@ -36,20 +36,20 @@ export const NavbarComponent = () => {
       expand="lg"
       expanded={expanded}
       onToggle={(val) => setExpanded(val)}
-      variant={(scrolled && window.innerWidth >= 992) ? 'light' : 'dark'}
-      bg={(scrolled && window.innerWidth >= 992) ? 'light' : 'transparent'}
+      variant={(scrolled ) ? 'light' : 'dark'}
+      bg={(scrolled ) ? 'light' : 'transparent'}
       className="py-3"
       fixed="top"
       style={{
         minHeight: expanded ? 80 : undefined,
         maxHeight: expanded ? undefined : 80,
         zIndex: 1000,
-        backgroundColor: (scrolled && window.innerWidth >= 992) ? '#ffffff' : 'transparent',
+        backgroundColor: (scrolled ) ? '#ffffff' : 'transparent',
         backgroundImage: (isOtherPage && !scrolled) ? 'url(https://i.postimg.cc/BnJnB6RC/image.png)' : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         marginLeft: isOtherPage ? '-2px' : '0px',
-        boxShadow: (scrolled && window.innerWidth >= 992) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
+        boxShadow: (scrolled ) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
         width: '100%',
       }}
@@ -59,7 +59,7 @@ export const NavbarComponent = () => {
           as={Link}
           to="/"
           className="d-flex align-items-center fw-semibold fs-5"
-          style={{ fontFamily: 'Helvetica Neue' }}
+          style={{ fontFamily: 'Noyh' }}
         >
           <img
             src={scrolled ? "https://i.postimg.cc/y6XdKjZw/Gemini-Generated-Image-ntpx2wntpx2wntpx-removebg-preview.png" : "https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"}

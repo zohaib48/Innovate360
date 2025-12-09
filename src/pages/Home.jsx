@@ -15,7 +15,7 @@ import FooterSection from '../components/FooterSection/FooterSection';
 function Home() {
     return (
         <div style={{ backgroundColor: 'white' }}>
-            <NavbarComponent />
+            {/* <NavbarComponent /> */}
             <Hero />
             <LogoCarousel />
             <ServicesSection />

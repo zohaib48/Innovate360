@@ -1,105 +1,85 @@
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./fonts/HelveticaNeue-Roman.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
+/* REMOVE all the Helvetica Neue @font-face declarations */
+/* Keep ONLY the actual Noyh font declarations */
+
+/* NoyhGeometricSlim Font Family */
+.root {
+  background-color: #ffffff;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./fonts/HelveticaNeue-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./fonts/HelveticaNeue-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./fonts/HelveticaNeue-Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./fonts/HelveticaNeue-Thin.otf') format('opentype');
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimThin.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-heavy.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-black.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-thin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-light.otf') format('opentype');
+  src: url('./fonts/NoyhGeometricSlimLight.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Noyh';
-  src: url('./fonts/fonnts.com-noyh-light.otf') format('opentype');
+  src: url('./fonts/NoyhGeometricSlimLight.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimHeavy.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimBlack.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noyh';
+  src: url('./fonts/NoyhGeometricSlimBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  font-family: 'Noyh', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Noyh';
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -115,7 +95,7 @@ h5,
 h6,
 .title,
 .title2 {
-  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Noyh';
 }
 
 code {
@@ -125,9 +105,6 @@ code {
 
 /* Mobile navbar tweaks */
 @media (max-width: 768px) {
-
-  /* Let navbar scroll with content on mobile so the collapsed menu
-     pushes the hero section down instead of overlapping it */
   .navbar {
     position: relative !important;
   }

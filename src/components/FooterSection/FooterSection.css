@@ -16,7 +16,7 @@
 }
 
 .newsletter-title {
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   font-size: 42px;
   font-weight: 800;
   color: #121212;
@@ -50,7 +50,7 @@
 
 .newsletter-input::placeholder {
   color: #999;
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
 }
 
 .newsletter-btn {
@@ -141,8 +141,9 @@
 .footer-links a {
   color: #888;
   text-decoration: none;
-  font-family: "Helvetica Neue";
-  font-size: 14px;
+  font-family: "Noyh";
+  font-weight: 500;
+  font-size: 18px;
   transition: color 0.3s ease;
 }
 
@@ -155,14 +156,15 @@
   display: flex;
   margin-top: 18px;
   flex-direction: column;
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
+   font-weight: 500;
   gap: 16px;
 }
 
 .address-link {
   color: #888;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 18px;
 
   line-height: 1.6;
   transition: color 0.3s ease;
@@ -174,15 +176,17 @@
 
 .address-phone {
   color: #888;
-  font-size: 14px;
-
+  font-size: 18px;
+ font-weight: 500;
   margin: 0;
 }
 
 .address-email {
   color: #c8ff00ad;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 18px;
+   font-weight: 500;
+    font-family: "Noyh";
   transition: opacity 0.3s ease;
 }
 
@@ -254,7 +258,7 @@
 }
 
 .footer-brand span {
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   font-size: 130px;
   font-weight: 800;
   color: transparent;

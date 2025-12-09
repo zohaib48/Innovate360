@@ -100,7 +100,7 @@ const MText = () => {
           transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`,
           fontSize: '14px',
        
-           fontFamily: 'Helvetica Neue',
+           fontFamily: 'Noyh',
               fontWeight: '600',
           opacity: '1',
           color:'rgba(155, 190, 52, 1)',

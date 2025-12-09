@@ -1,0 +1,347 @@
+.digital-solutions-section {
+    background-color: #ffffff;
+    padding-bottom: 100px;
+}
+
+.digital-solutions-section .service-container {
+    max-width: '100%';
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* Header */
+.solutions-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.solutions-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.solutions-label .label-line {
+    width: 40px;
+    height: 1px;
+    background-color: #121212;
+}
+
+.solutions-label .label-text {
+    font-family: 'Noyh';
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.solutions-title {
+    font-family: 'Noyh';
+    font-size: 58px;
+    font-weight: 500;
+    color: #121212;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+/* Solutions Grid */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.solution-card {
+    padding: 40px 30px;
+
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 20px;
+
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.solution-card:hover {
+    background-color: #fff;
+}
+
+/* Remove border-bottom from last row (5th and 6th cards) */
+.solution-card:nth-child(4),
+.solution-card:nth-child(5),
+.solution-card:nth-child(6) {
+    border-bottom: none;
+}
+
+.solution-card:nth-child(1),
+.solution-card:nth-child(2),
+.solution-card:nth-child(4),
+.solution-card:nth-child(5) {
+    border-right: 1px solid #ddd;
+}
+
+
+.card-icon {
+    flex-shrink: 0;
+    font-size: 40px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* Remove SVG styling since we're using emojis now */
+.card-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+/* Hover effect for icons */
+.solution-card:hover .service-icon {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.solution-card:hover .arrow-circle {
+    background-color: #bfff00;
+    border-color: #bfff00;
+    color: #000000;
+    transform: rotate(360deg);
+}
+
+
+/* Rotating star animation */
+.rotating-star {
+    animation: rotate-star 3s linear infinite;
+}
+
+@keyframes rotate-star {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-title {
+    font-family: "Noyh";
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+}
+
+.card-description {
+    font-family: "Noyh";
+    font-size: 14px;
+
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Noyh";
+    font-size: 13px;
+    color: #121212;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.card-link:hover {
+    color: #666;
+}
+
+
+
+.link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Styles */
+@media (min-width: 1600px) {
+    .digital-solutions-section .container {
+        max-width: 1400px;
+    }
+
+    .solutions-title {
+        font-size: 105px;
+    }
+
+    .digital-solutions-section .service-container {
+        padding: 0px 120px;
+    }
+
+    .solution-card {
+        padding: 20px 50px;
+        margin-bottom: 5%;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-description {
+        font-size: 15px;
+
+
+
+
+    }
+}
+
+@media (max-width: 1200px) {
+    .solutions-title {
+        font-size: 62px;
+    }
+
+
+    .solution-card {
+        padding: 30px 24px;
+    }
+
+
+}
+
+@media (max-width: 992px) {
+    .digital-solutions-section {
+        padding: 80px 0;
+    }
+
+    .solutions-title {
+        font-size: 42px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Reset borders for 2-column layout */
+    .solution-card:nth-child(1),
+    .solution-card:nth-child(2),
+    .solution-card:nth-child(4),
+    .solution-card:nth-child(5) {
+        border-right: none;
+    }
+
+    .solution-card:nth-child(4),
+    .solution-card:nth-child(5),
+    .solution-card:nth-child(6) {
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Apply borders for 2-column grid */
+    .solution-card:nth-child(1),
+    .solution-card:nth-child(3),
+    .solution-card:nth-child(5) {
+        border-right: 1px solid #ddd;
+    }
+
+    /* Remove bottom border from last row (cards 5 and 6) */
+    .solution-card:nth-child(5),
+    .solution-card:nth-child(6) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .digital-solutions-section {
+        padding: 60px 0;
+    }
+
+    .solutions-title {
+        font-size: 36px;
+    }
+
+    .solutions-title br {
+        display: none;
+    }
+
+    .solution-card {
+        flex-direction: column;
+        gap: 16px;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .digital-solutions-section {
+        padding: 40px 0;
+    }
+
+    .solutions-header {
+
+        margin-bottom: 40px;
+    }
+
+    .solutions-title {
+        font-size: 38px;
+
+    }
+
+    .digital-solutions-section .service-container {
+        padding: 20px 20px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-card {
+        flex-direction: row;
+        gap: 16px;
+        padding: 20px 0px;
+        margin-bottom: 5%;
+    }
+
+
+
+
+    .card-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-description {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    /* Reset all borders for 1-column layout */
+    .solution-card:nth-child(1),
+    .solution-card:nth-child(2),
+    .solution-card:nth-child(3),
+    .solution-card:nth-child(4),
+    .solution-card:nth-child(5) {
+        border-right: none;
+    }
+
+    .solution-card:nth-child(4),
+    .solution-card:nth-child(5),
+    .solution-card:nth-child(6) {
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Remove bottom border from last card only */
+    .solution-card:nth-child(6) {
+        border-bottom: none;
+    }
+}

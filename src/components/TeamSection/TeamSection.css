@@ -11,9 +11,9 @@
 
 /* Title */
 .team-title {
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   font-size: 64px;
-  font-weight: 800;
+  font-weight: 600;
   color: #121212;
   line-height: 1;
   letter-spacing: -2px;
@@ -74,7 +74,7 @@
 }
 
 .member-name {
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   font-size: 18px;
   font-weight: 700;
   color: #121212;

@@ -32,7 +32,7 @@
 }
 
 .sidebar-follow {
-  font-family: 'Helvetica Neue';
+  font-family: 'Noyh';
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -92,7 +92,7 @@
 }
 
 .agency-label .label-text {
-font-family: 'Helvetica Neue';
+font-family: 'Noyh';
   font-size: 12px;
   font-weight: 600;
   color: #888;
@@ -100,9 +100,9 @@ font-family: 'Helvetica Neue';
 }
 
 .agency-title {
- font-family: 'Helvetica Neue';
+ font-family: 'Noyh';
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 600;
   color: #fff;
   line-height: 1.05;
   letter-spacing: -1px;
@@ -149,7 +149,7 @@ font-family: 'Helvetica Neue';
 }
 
 .stat-number {
-font-family: 'Helvetica Neue';
+font-family: 'Noyh';
   font-size: 120px;
   font-weight: 800;
   line-height: 1;
@@ -166,8 +166,8 @@ font-family: 'Helvetica Neue';
 }
 
 .stat-label {
- font-family: 'Helvetica Neue'; 
-  font-size: 12px;
+ font-family: 'Noyh'; 
+  font-size: 18px;
   font-weight: 600;
   color: #888;
   letter-spacing: 1px;

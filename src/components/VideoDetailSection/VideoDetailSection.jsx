@@ -116,7 +116,7 @@ const AboutSection = () => {
               </p>
 
               <div>
-                <button style={{ fontFamily: 'Helvetica Neue' }} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">
+                <button style={{ fontFamily: 'Noyh' }} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">
                   Explore Services →
                 </button>
               </div>

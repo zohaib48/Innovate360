@@ -18,7 +18,7 @@
     font-size: 22px;
     line-height: 1.6;
     color: #666666;
-     font-family: 'Noyh';
+    font-family: 'Noyh';
 }
 
 .services-cta-btn {
@@ -108,9 +108,10 @@
 }
 
 .service-title {
-    font-size: 22px;
+    font-size: 32px;
+    white-space: nowrap;
     font-weight: 400;
-    color: #5C5C5C;
+    color: #545454;
     letter-spacing: 0.3px;
     margin-bottom: 12px !important;
 }
@@ -191,7 +192,7 @@
         display: none;
     }
 
- 
+
 }
 
 @media (max-width: 640px) {
@@ -201,7 +202,7 @@
 
     .services-heading {
         font-size: 38px;
-        font-weight:600;
+        font-weight: 600;
         line-height: 1.1;
     }
 

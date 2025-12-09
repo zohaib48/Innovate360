@@ -23,7 +23,7 @@ function Contact() {
                     padding: '0 20px'
                 }}>
                     <h1 style={{
-                        fontFamily: 'Helvetica Neue',
+                        fontFamily: 'Noyh',
                         fontSize: 'clamp(2.5rem, 8vw, 5rem)',
                         fontWeight: 800,
                         color: '#C8FF00',
@@ -53,7 +53,7 @@ function Contact() {
                 textAlign: 'center'
             }}>
                 <h2 style={{
-                    fontFamily: 'Helvetica Neue',
+                    fontFamily: 'Noyh',
                     fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
                     fontWeight: 700,
                     color: '#121212',

@@ -10,12 +10,14 @@
   font-size: 22px;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 /* Mobile-first approach for text alignment */
 .text-dark.lead.text-muted.des {
   text-align: center;
   font-size: 20px;
+    font-weight: 400;
 }
 
 /* Center text on larger screens */
@@ -118,7 +120,7 @@
 /* Number Display */
 .number-display {
   font-size: 13rem;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Noyh', sans-serif;
   line-height: 1;
   font-weight: 500;
   margin: 0;

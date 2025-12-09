@@ -37,7 +37,7 @@
 }
 
 .arch__left .arch__info h2.header {
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   font-size: 72px;
 
   font-weight: 500;
@@ -62,7 +62,7 @@
   border-radius: 40px;
   display: flex;
   gap: 4px;
-  font-family: "Helvetica Neue";
+  font-family: "Noyh";
   width: fit-content;
   align-items: center;
   transition: opacity 0.3s ease;

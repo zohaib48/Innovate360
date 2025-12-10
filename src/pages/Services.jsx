@@ -9,10 +9,10 @@ function Services() {
         <div style={{ backgroundColor: 'white' }}>
             <NavbarComponent />
 
-            {/* Services Banner Section */}
+         
             <ServicesBanner />
 
-            {/* Digital Solutions Grid Section */}
+          
             <DigitalSolutionsGrid />
 
             <FooterSection />

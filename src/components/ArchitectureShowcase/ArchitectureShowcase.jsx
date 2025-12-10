@@ -61,7 +61,7 @@ const LeafIcon = () => (
   </svg>
 );
 
-const ArchitectureShowcase = () => {
+const ArchitectureShowcase = ({backgroundColor}) => {
   const containerRef = useRef(null);
   const archRef = useRef(null);
   const lenisRef = useRef(null);
@@ -226,7 +226,7 @@ const ArchitectureShowcase = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="arch-container">
+    <div ref={containerRef} className="arch-container" style={{backgroundColor:backgroundColor?backgroundColor:'  background-color: #F8F8F8'}}>
       <div className="spacer"></div>
 
       <div ref={archRef} className="arch">

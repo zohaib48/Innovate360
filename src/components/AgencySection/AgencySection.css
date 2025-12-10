@@ -14,7 +14,7 @@
 /* Social Sidebar */
 .agency-social-sidebar {
   position: absolute;
-  right: 3rem;
+  right: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -33,8 +33,9 @@
 
 .sidebar-follow {
   font-family: 'Noyh';
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
+  
   letter-spacing: 2px;
   color: #fff;
   writing-mode: vertical-rl;
@@ -93,7 +94,7 @@
 
 .agency-label .label-text {
 font-family: 'Noyh';
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 600;
   color: #888;
   letter-spacing: 2px;
@@ -180,7 +181,9 @@ font-family: 'Noyh';
   .agency-section .container {
     max-width: 1400px;
   }
-
+.agency-social-sidebar {
+  right: 7rem;
+}
   .agency-title {
     font-size: 56px;
   }
@@ -201,7 +204,7 @@ font-family: 'Noyh';
 
 @media (max-width: 1200px) {
   .agency-social-sidebar {
-    right: 20px;
+    right: 30px;
   }
 
   .agency-title {
@@ -278,7 +281,7 @@ font-family: 'Noyh';
   }
 
   .stat-label {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .agency-image {

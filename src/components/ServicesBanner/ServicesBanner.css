@@ -11,14 +11,14 @@
      /* min-height: 100vh; */
  }
 
- .line-container {
+ .line-container-g {
      position: relative;
      width: 400px;
      height: 140px;
      margin-right: 2%;
  }
 
- .line-vertical {
+ .line-vertical-g {
      position: absolute;
      top: 0;
      right: 0;
@@ -27,7 +27,7 @@
      background-color: #b8b8b8;
  }
 
- .line-horizontal {
+ .line-horizontal-g {
      position: absolute;
      top: 20%;
      left: 25px;

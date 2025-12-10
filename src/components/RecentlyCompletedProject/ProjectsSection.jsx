@@ -1,7 +1,7 @@
 import "./ProjectsSection.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,59 +9,53 @@ const ProjectsSection = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const leftElement = leftRef.current;
     const rightElement = rightRef.current;
 
-    // Check if viewport is mobile (width < 768px)
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-    if (isMobile) {
-      // On mobile, show content immediately without animation to prevent flickering
-      gsap.set([leftElement, rightElement], { opacity: 1, x: 0, y: 0 });
-      return;
-    }
-
-    // Reset initial positions for desktop
-    gsap.set([leftElement, rightElement], { opacity: 0, y: 50 });
-    gsap.set(leftElement, { x: -100 });
-    gsap.set(rightElement, { x: 100 });
-
-    // Create the animation timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.projects-section',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-        once: true
-      }
-    });
-
-    // Animate left and right sections
-    tl.to(leftElement, {
-      x: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power3.out'
-    })
-      .to(rightElement, {
+    // Animate left section from left
+    gsap.fromTo(
+      leftElement,
+      {
+        x: -100,
+        opacity: 0,
+      },
+      {
         x: 0,
         opacity: 1,
         duration: 0.8,
-        ease: 'power3.out'
-      }, '-=0.4');
-
-    // Safety timeout: ensure content is visible after 2 seconds regardless
-    const safetyTimeout = setTimeout(() => {
-      if (leftElement && rightElement) {
-        gsap.set([leftElement, rightElement], { opacity: 1, x: 0, y: 0 });
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.projects-section',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
       }
-    }, 2000);
+    );
+
+    // Animate right section from right with slight delay
+    gsap.fromTo(
+      rightElement,
+      {
+        x: 100,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: '.projects-section',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
 
     return () => {
-      tl.kill();
-      clearTimeout(safetyTimeout);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 

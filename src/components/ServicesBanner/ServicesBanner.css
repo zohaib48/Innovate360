@@ -366,8 +366,18 @@
          padding: 10% 4%;
      }
 
+     .line-container-g {
+
+         width: 250px;
+         margin-right: 17%;
+     }
+
+     .services-list-wrapper {
+         gap: 0;
+     }
+
      .services-banner-title {
-         font-size: 24px;
+         font-size: 28px;
 
      }
 

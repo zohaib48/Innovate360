@@ -12,9 +12,27 @@ const ProjectsSection = () => {
   useLayoutEffect(() => {
     const leftElement = leftRef.current;
     const rightElement = rightRef.current;
+    
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
 
-    // Reset initial positions
-    gsap.set([leftElement, rightElement], { opacity: 0, y: 50 });
+    if (isMobile) {
+      // For mobile, set initial state without animation
+      gsap.set([leftElement, rightElement], { 
+        opacity: 1, 
+        x: 0,
+        y: 0,
+        clearProps: 'all'  // Clear any transform properties
+      });
+      return;
+    }
+
+    // For desktop - original animation
+    gsap.set([leftElement, rightElement], { 
+      opacity: 0, 
+      y: 50,
+      willChange: 'transform, opacity'  // Optimize for performance
+    });
     gsap.set(leftElement, { x: -100 });
     gsap.set(rightElement, { x: 100 });
 
@@ -22,29 +40,43 @@ const ProjectsSection = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.projects-section',
-        start: 'top 80%',
-        end: 'bottom 20%',
+        start: 'top 85%',
+        end: 'bottom 15%',
         toggleActions: 'play none none none',
-        once: true
-      }
+        once: true,
+        onEnter: () => {
+          // Force recalculate scroll position
+          ScrollTrigger.refresh();
+        },
+        onEnterBack: () => {
+          ScrollTrigger.refresh();
+        }
+      },
+      defaults: { ease: 'power3.out' }
     });
 
-    // Animate left and right sections
     tl.to(leftElement, {
       x: 0,
       opacity: 1,
-      duration: 0.8,
-      ease: 'power3.out'
+      duration: 0.8
     })
     .to(rightElement, {
       x: 0,
       opacity: 1,
-      duration: 0.8,
-      ease: 'power3.out'
+      duration: 0.8
     }, '-=0.4');
 
+    // Handle window resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
     return () => {
-      tl.kill();
+      window.removeEventListener('resize', handleResize);
+      if (tl) tl.kill();
+      ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, []);
 

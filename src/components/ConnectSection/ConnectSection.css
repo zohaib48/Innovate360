@@ -1,0 +1,532 @@
+.connect-section {
+  background-color: #fff;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.connect-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.connect-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.connect-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.connect-label span {
+  font-family: 'Noyh';
+  font-size: 20px;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+}
+
+.connect-title {
+  font-family: 'Noyh';
+  font-size: 48px;
+  font-weight: 500;
+  color: #121212;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+/* Gallery Grid - Matching reference layout */
+.connect-gallery {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 520px;
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: absolute;
+  backface-visibility: hidden;
+ 
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-perspective: 1000px;
+  -webkit-transform: translate3d(0,0,0);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Item Positions - Base (1200px) */
+.item-left {
+  left: -60px;
+  top: 140px;
+  width: 200px;
+  height: 320px;
+  z-index: 1;
+}
+
+.item-center-top {
+  left: 160px;
+  top: 0;
+  width: 340px;
+  height: 220px;
+  z-index: 2;
+}
+
+.get-in-touch {
+  position: absolute;
+  left: 520px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+  will-change: transform, opacity;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.handwritten {
+  font-family: "Brush Script MT", cursive;
+  font-size: 22px;
+  color: #121212;
+  font-style: italic;
+}
+
+.item-skype {
+  left: 520px;
+  top: 80px;
+  width: 160px;
+  height: 140px;
+  z-index: 5;
+}
+
+.skype-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skype-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.skype-label {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 4px 0;
+}
+
+.skype-handle {
+  font-family: 'Noyh';
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.item-right {
+  right: -60px;
+  top: 140px;
+  width: 180px;
+  height: 380px;
+  z-index: 1;
+}
+
+.item-center-left {
+  left: 160px;
+  top: 240px;
+  width: 220px;
+  height: 180px;
+  z-index: 3;
+}
+
+.item-center-bottom {
+  left: 400px;
+  top: 240px;
+  width: 340px;
+  height: 240px;
+  z-index: 4;
+}
+
+/* Responsive Styles */
+
+/* Extra Large Screens (1600px+) */
+@media (min-width: 1600px) {
+  .connect-section .container {
+    max-width: 1400px;
+  }
+
+  .connect-title {
+    font-size: 72px;
+  }
+
+  .connect-gallery {
+    max-width: 1200px;
+    min-height: 620px;
+  }
+
+  .item-left {
+    left: -100px;
+    width: 240px;
+    height: 380px;
+  }
+
+  .item-center-top {
+    left: 200px;
+    width: 400px;
+    height: 260px;
+  }
+
+  .get-in-touch {
+    left: 640px;
+    top:-50px;
+  }
+
+  .item-skype {
+    left: 620px;
+    width: 260px;
+    height: 220px;
+    top:40px;
+  }
+
+  .item-right {
+    right: 20px;
+    width: 240px;
+    height: 380px;
+  }
+
+  .item-center-left {
+    left: 200px;
+    top: 280px;
+    width: 260px;
+    height: 220px;
+  }
+
+  .item-center-bottom {
+    left: 480px;
+    top: 280px;
+    width: 400px;
+    height: 280px;
+  }
+}
+
+/* Large Screens (1400px - 1599px) */
+@media (min-width: 1400px) and (max-width: 1599px) {
+  .connect-section .container {
+    max-width: 1300px;
+  }
+
+  .connect-gallery {
+    max-width: 1100px;
+    min-height: 580px;
+  }
+
+  .item-left {
+    left: -80px;
+    width: 220px;
+    height: 350px;
+  }
+
+  .item-center-top {
+    left: 180px;
+    width: 370px;
+    height: 240px;
+  }
+
+  .get-in-touch {
+    left: 570px;
+  }
+
+  .item-skype {
+    left: 570px;
+    width: 240px;
+    height: 200px;
+   top:40px;
+  }
+
+  .item-right {
+    right: 30px;
+    width: 220px;
+    height: 350px;
+  }
+
+  .item-center-left {
+    left: 180px;
+    top: 260px;
+    width: 240px;
+    height: 200px;
+  }
+
+  .item-center-bottom {
+    left: 440px;
+    top: 260px;
+    width: 370px;
+    height: 260px;
+  }
+}
+
+/* Medium-Large Screens (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .connect-gallery {
+    max-width: 950px;
+    min-height: 540px;
+  }
+
+  .item-left {
+    left: -50px;
+    width: 190px;
+    height: 310px;
+  }
+
+  .item-center-top {
+    left: 160px;
+    width: 330px;
+    height: 215px;
+  }
+
+  .get-in-touch {
+    left: 530px;
+    top:-40px;
+  }
+
+  .item-skype {
+    left: 510px;
+  width: 215px;
+    height: 175px;
+    top:40px;
+  }
+
+  .item-right {
+    right: 0px;
+    width: 190px;
+    height: 310px;
+  }
+
+  .item-center-left {
+    left: 160px;
+    top: 235px;
+    width: 215px;
+    height: 175px;
+  }
+
+  .item-center-bottom {
+    left: 395px;
+    top: 235px;
+    width: 330px;
+    height: 235px;
+  }
+}
+
+/* Medium Screens (993px - 1199px) */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .connect-gallery {
+    max-width: 850px;
+    min-height: 500px;
+  }
+
+  .item-left {
+    left: -40px;
+    width: 170px;
+    height: 280px;
+  }
+
+  .item-center-top {
+    left: 145px;
+    width: 300px;
+    height: 195px;
+  }
+
+  .get-in-touch {
+    left: 460px;
+  }
+
+  .item-skype {
+    left: 460px;
+    width: 150px;
+    height: 130px;
+  }
+
+  .item-right {
+    right: -40px;
+    width: 160px;
+    height: 330px;
+  }
+
+  .item-center-left {
+    left: 145px;
+    top: 215px;
+    width: 195px;
+    height: 160px;
+  }
+
+  .item-center-bottom {
+    left: 360px;
+    top: 215px;
+    width: 300px;
+    height: 215px;
+  }
+}
+
+/* Tablet (below 992px) - Switch to Grid */
+@media (max-width: 992px) {
+  .connect-section {
+    padding: 80px 0;
+  }
+
+  .connect-title {
+    font-size: 38px;
+  }
+
+  .connect-gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    min-height: auto;
+  }
+
+  .gallery-item {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .item-left {
+    grid-column: 1;
+    grid-row: 1;
+    aspect-ratio: 3/4;
+  }
+
+  .item-center-top {
+    grid-column: 2;
+    grid-row: 1;
+    aspect-ratio: 4/3;
+  }
+
+  .get-in-touch {
+    display: none;
+  }
+
+  .item-skype {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: auto;
+    min-height: 140px;
+  }
+
+  .item-center-left {
+    grid-column: 2;
+    grid-row: 2;
+    aspect-ratio: 4/3;
+  }
+
+  .item-center-bottom {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    aspect-ratio: 16/9;
+  }
+
+  .item-right {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    aspect-ratio: 16/9;
+  }
+
+  .large-top {
+    min-height: 100%;
+  }
+}
+
+/* Small Tablet (below 768px) */
+@media (max-width: 768px) {
+  .connect-section {
+    padding: 60px 0;
+  }
+
+  .connect-title {
+    font-size: 32px;
+  }
+
+  .connect-title br {
+    display: none;
+  }
+
+  .connect-gallery {
+    gap: 12px;
+  }
+
+  .large-top {
+    min-height: 100%;
+  }
+}
+
+/* Mobile (below 480px) */
+@media (max-width: 480px) {
+  .connect-section {
+    padding: 40px 0;
+  }
+
+  .connect-header {
+    margin-bottom: 40px;
+  }
+
+  .connect-title {
+    font-size: 26px;
+  }
+
+  .connect-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .item-left,
+  .item-center-top,
+  .item-skype,
+  .item-center-left,
+  .item-center-bottom,
+  .item-right {
+    grid-column: 1;
+    grid-row: auto;
+    aspect-ratio: 16/10;
+  }
+
+  .item-skype {
+    aspect-ratio: auto;
+    min-height: 120px;
+  }
+}

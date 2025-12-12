@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import teamImage from "../../assets/team-working.jpg";
 import './VideoDetailSection.css';
 import MText from '../MText/MText';
+import { useNavigate } from 'react-router-dom';
 
 // Register GSAP Plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +15,7 @@ const AboutSection = () => {
   const sectionRef = useRef(null);
   const leftSectionRef = useRef(null);
   const rightSectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // 2. Use gsap.context for React cleanup safety
@@ -116,8 +118,13 @@ const AboutSection = () => {
               </p>
 
               <div>
-                <button style={{ fontFamily: 'Noyh' }} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">
-                  Explore Services →
+                <button
+
+                  onClick={() => navigate('/services')}
+                  style={{ fontFamily: 'Noyh' }}
+                  className="btn services-cta-btn px-4 py-3"
+                >
+                  Explore Services <span style={{ position: 'relative', top: '2px' }}>→</span>
                 </button>
               </div>
             </div>

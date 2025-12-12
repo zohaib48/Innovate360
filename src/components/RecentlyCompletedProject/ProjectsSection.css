@@ -45,7 +45,7 @@
 
 .projects-title {
   font-family: 'Noyh';
-  font-size: 72px;
+  font-size: 90px;
   font-weight: 500;
   color: #121212;
   line-height: 0.7;
@@ -64,24 +64,24 @@
 
 .line-container {
   position: relative;
-  width: 700px;
+  width: 600px;
   height: 140px;
-  margin-right: 4%;
+  margin-right: 9%;
 }
 
 .line-vertical {
   position: absolute;
   top: 0;
-  right: 150px;
+  right: 80px;
   width: 2px;
-  height: 80%;
+  height: 60%;
   background-color: #b8b8b8;
 }
 
 .line-horizontal {
   position: absolute;
   top: 20%;
-  left: 80px;
+  left: 90px;
   width: calc(86% - 2px);
   height: 2px;
   background-color: #b8b8b8;
@@ -93,7 +93,7 @@
   display: flex;
   align-items: flex-start;
   font-family: 'Noyh';
-  font-size: 220px;
+  font-size: 270px;
   margin-left: 40%;
   font-weight: 400;
   margin-top: 25px;
@@ -159,7 +159,7 @@
   font-size: 24px;
   color: #666;
   line-height: 1.4;
-
+  text-align: left;
   margin: 0;
 }
 
@@ -170,21 +170,21 @@
   }
 
   .projects-section {
-  background-color: #fff;
-  padding: 100px 0 0 0;
-}
+    background-color: #fff;
+    padding: 100px 0 0 0;
+  }
 
   .p-container {
-      padding: 0 150px;
+    padding: 0 150px;
   }
 
   .projects-title {
     font-size: 120px;
   }
 
-    .line-container {
+  .line-container {
     width: 800px;
-    
+
   }
 
   .line-vertical {
@@ -194,10 +194,12 @@
   .stats-number {
     font-size: 400px;
   }
-.stats-content {
 
-  margin-top: -40px;
-}
+  .stats-content {
+
+    margin-top: -40px;
+  }
+
   .zero-image {
     width: 60px;
     height: 60px;
@@ -236,9 +238,9 @@
     letter-spacing: -6px;
   }
 
-      .line-container {
+  .line-container {
     display: none;
-    
+
   }
 
 
@@ -277,7 +279,7 @@
     padding: 80px 0;
   }
 
- 
+
   .p-container {
     padding: 0 40px;
   }
@@ -432,16 +434,17 @@
     padding: 0 20px;
   }
 
-   .line-container {
-  display: none;
+  .line-container {
+    display: none;
   }
 
 
   .projects-wrapper {
-    gap:2px;
+    gap: 2px;
   }
+
   .projects-right {
-     align-items: center;
+    align-items: center;
   }
 
   .projects-label {
@@ -452,13 +455,13 @@
 
   .label-line {
     width: 25px;
-    
+
   }
 
   .label-text {
     font-size: 12px;
     letter-spacing: 1px;
-    
+
   }
 
   .projects-title {
@@ -474,6 +477,7 @@
     margin-bottom: 30px;
 
   }
+
   .plus-sign {
     width: 24px;
     height: 24px;

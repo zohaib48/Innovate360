@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +9,7 @@ import './ServicesSection.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
+  const navigate = useNavigate();
   const cardRefs = useRef([]);
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -18,33 +20,39 @@ const ServicesSection = () => {
     {
       icon: '🧩',
       title: 'BRAND STRATEGY',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
     },
     {
       icon: '🎨',
       title: 'UI/UX DESIGN',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
     },
     {
       icon: '💻',
       title: 'WEB DEVELOPMENT',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
     },
     {
       icon: '📈',
       title: 'DIGITAL MARKETING',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
     },
     {
       icon: '🎬',
       title: 'VIDEO PRODUCTION',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
     },
     {
       icon: '🖥️',
       title: 'Web/Interface Design',
-      description: 'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression'
-    }
+      description:
+        'Crafting distinctive placing resonate ensuring your brand stands out and a lasting impression',
+    },
   ];
 
   useEffect(() => {
@@ -64,7 +72,7 @@ const ServicesSection = () => {
         // Set initial state for left content elements
         gsap.set([headingRef.current, subtextRef.current, buttonRef.current], {
           y: 60,
-          opacity: 0
+          opacity: 0,
         });
 
         // Animate heading independently
@@ -77,8 +85,8 @@ const ServicesSection = () => {
             trigger: headingRef.current,
             start: 'top 85%',
             end: 'top 65%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
 
         gsap.to(subtextRef.current, {
@@ -90,8 +98,8 @@ const ServicesSection = () => {
             trigger: subtextRef.current,
             start: 'top 85%',
             end: 'top 65%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
 
         gsap.to(buttonRef.current, {
@@ -103,8 +111,8 @@ const ServicesSection = () => {
             trigger: buttonRef.current,
             start: 'top 85%',
             end: 'top 65%',
-            toggleActions: 'play none none none'
-          }
+            toggleActions: 'play none none none',
+          },
         });
 
         const animationVariants = [
@@ -113,7 +121,7 @@ const ServicesSection = () => {
           { from: { y: 60, opacity: 0 }, to: { y: 0, opacity: 1 } },
           { from: { x: -60, y: 40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
           { from: { x: 60, y: -40, opacity: 0 }, to: { x: 0, y: 0, opacity: 1 } },
-          { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } }
+          { from: { scale: 0.9, opacity: 0 }, to: { scale: 1, opacity: 1 } },
         ];
 
         cardRefs.current.forEach((card, index) => {
@@ -133,8 +141,8 @@ const ServicesSection = () => {
               trigger: rowTrigger,
               start: 'top 80%',
               end: 'top 60%',
-              toggleActions: 'play none none none'
-            }
+              toggleActions: 'play none none none',
+            },
           });
         });
       }, sectionEl);
@@ -149,29 +157,38 @@ const ServicesSection = () => {
     <section ref={sectionRef} className="services-section bg-white">
       <div className="container-fluid">
         <div className="row align-items-start g-5">
-     
-          <div className="col-lg-4 col-md-12 mt-10" style={{marginBottom: '1rem'}}>
-            <h2 ref={headingRef} className="services-heading mb-4 mt-3" style={{marginBottom: '1rem'}}>
-              TO PROVIDE<br />
-              DIGITAL<br />
+          <div className="col-lg-4 col-md-12 mt-10" style={{ marginBottom: '1rem' }}>
+            <h2
+              ref={headingRef}
+              className="services-heading mb-4 mt-3"
+              style={{ marginBottom: '1rem' }}
+            >
+              TO PROVIDE
+              <br />
+              DIGITAL
+              <br />
               SOLUTION
             </h2>
             <p ref={subtextRef} className="services-subtext text-muted mb-4">
-              If you <span style={{fontFamily:'-apple-system'}}>'</span>re looking for a specialist to build 
-              a meaningful digital project you can 
-              easily reach us by clicking here
+              If you<span style={{ fontFamily: '-apple-system' }}>'</span>re looking for a
+              specialist to build  <br /> a meaningful digital project  you can<br />   easily  reach us by clicking
+              here
             </p>
-            <button ref={buttonRef} style={{fontFamily:'Helvetica Neue'}} className="btn services-cta-btn fs-6 px-4 py-3 fw-semibold">
-              Explore Services →
+            <button
+              ref={buttonRef}
+              onClick={() => navigate('/services')}
+              style={{ fontFamily: 'Noyh' }}
+              className="btn services-cta-btn px-4 py-3"
+            >
+              Explore Services <span style={{ position: 'relative', top: '2px' }}>→</span>
             </button>
           </div>
 
-         
           <div className="col-lg-8 col-md-12">
             <div className="row g-4">
               {services.map((service, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="col-lg-6 col-md-6 col-sm-12"
                   ref={(el) => (cardRefs.current[index] = el)}
                 >
@@ -182,8 +199,11 @@ const ServicesSection = () => {
                     <div className="service-content flex-grow-1">
                       <h3 className="service-title text-uppercase mb-3">{service.title}</h3>
                       <p className="service-description mb-3">{service.description}</p>
-                      <a href="#" className="service-link text-decoration-none d-inline-flex align-items-center gap-2">
-                        View Details 
+                      <a
+                        href="#"
+                        className="service-link text-decoration-none d-inline-flex align-items-center gap-2"
+                      >
+                        View Details
                         <span className="arrow-circle">→</span>
                       </a>
                     </div>

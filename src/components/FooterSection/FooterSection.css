@@ -4,7 +4,7 @@
 
 /* Newsletter Section */
 .newsletter-section {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   padding: 80px 0;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .newsletter-title {
-  font-family: "Noyh";
+  font-family: 'Noyh';
   font-size: 42px;
   font-weight: 800;
   color: #121212;
@@ -25,7 +25,7 @@
 }
 
 .newsletter-desc {
-  font-family: "Noyh";
+  font-family: 'Noyh';
   font-size: 22px;
   color: #666;
   line-height: 1.6;
@@ -50,7 +50,8 @@
 
 .newsletter-input::placeholder {
   color: #999;
-  font-family: "Noyh";
+  font-family: 'Noyh';
+  font-size: 20px;
 }
 
 .newsletter-btn {
@@ -72,7 +73,6 @@
 /* Main Footer */
 .footer-main {
   background-color: #1a1a1a;
-  padding: 80px 0 40px;
   position: relative;
   overflow: hidden;
 }
@@ -86,14 +86,14 @@
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  gap: 5rem;
   margin-bottom: 3rem;
 }
 
 .footer-links-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 10rem;
   width: 100%;
 }
 
@@ -121,7 +121,7 @@
   align-items: center;
   gap: 12px;
   color: #fff;
-  font-family: "Outfit", sans-serif;
+  font-family: 'Noyh';
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -141,7 +141,7 @@
 .footer-links a {
   color: #888;
   text-decoration: none;
-  font-family: "Noyh";
+  font-family: 'Noyh';
   font-weight: 500;
   font-size: 18px;
   transition: color 0.3s ease;
@@ -154,10 +154,11 @@
 /* Address */
 .footer-address {
   display: flex;
+
   margin-top: 18px;
   flex-direction: column;
-  font-family: "Noyh";
-   font-weight: 500;
+  font-family: 'Noyh';
+  font-weight: 500;
   gap: 16px;
 }
 
@@ -165,7 +166,7 @@
   color: #888;
   text-decoration: underline;
   font-size: 18px;
-
+  white-space: nowrap;
   line-height: 1.6;
   transition: color 0.3s ease;
 }
@@ -177,31 +178,22 @@
 .address-phone {
   color: #888;
   font-size: 18px;
- font-weight: 500;
+  font-weight: 500;
   margin: 0;
 }
 
 .address-email {
   color: #c8ff00ad;
   text-decoration: underline;
-  font-size: 18px;
-   font-weight: 500;
-    font-family: "Noyh";
+  text-transform: lowercase;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Noyh';
   transition: opacity 0.3s ease;
 }
 
 .address-email:hover {
   opacity: 0.8;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
-  border-top: 1px solid #333;
-  margin-bottom: 40px;
 }
 
 .copyright {
@@ -211,27 +203,44 @@
 }
 
 .scroll-top-btn {
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  right: 50%;
+  top: -20px;
+  transform: translateX(50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid #333;
-  background: transparent;
+  background: #1a1a1a;
+  border: 2px solid #333;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .scroll-top-btn:hover {
-  border-color: #C8FF00;
+  border-color: #c8ff00;
   background: rgba(200, 255, 0, 0.1);
+}
+
+.footer-bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  margin-bottom: 30px;
 }
 
 .social-links {
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 12px;
+  margin-right: 70px;
 }
 
 .social-links a {
@@ -258,7 +267,7 @@
 }
 
 .footer-brand span {
-  font-family: "Noyh";
+  font-family: 'Noyh';
   font-size: 130px;
   font-weight: 800;
   color: transparent;
@@ -399,6 +408,14 @@
   .footer-address {
     align-items: left;
     text-align: left;
+  }
+
+  .footer-main {
+    padding-bottom: 40px;
+  }
+
+  .social-links {
+    margin-right: 0;
   }
 
   .footer-brand span {

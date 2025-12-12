@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./FooterSection.css";
-import TextMarquee from "../TextMarquee/TextMarquee";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import './FooterSection.css';
+import TextMarquee from '../TextMarquee/TextMarquee';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +11,7 @@ const FooterSection = () => {
   const footerRef = useRef(null);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -41,12 +41,12 @@ const FooterSection = () => {
             y: 0,
             scale: 1,
             duration: 1.2,
-            ease: "power3.out",
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: brandEl,
-              start: "top bottom-=50",
-              end: "top center",
-              toggleActions: "play none none reverse",
+              start: 'top bottom-=50',
+              end: 'top center',
+              toggleActions: 'play none none reverse',
             },
           }
         );
@@ -73,11 +73,7 @@ const FooterSection = () => {
               </p>
             </div>
             <div className="newsletter-form">
-              <input
-                type="email"
-                placeholder="example@gmail.com"
-                className="newsletter-input"
-              />
+              <input type="email" placeholder="example@gmail.com" className="newsletter-input" />
               <button className="newsletter-btn">Subscribe</button>
             </div>
           </div>
@@ -86,9 +82,16 @@ const FooterSection = () => {
 
       <TextMarquee />
       {/* Main Footer */}
-      <div className="footer-main" style={{ backgroundSize: 'cover', backgroundImage: 'url(https://i.postimg.cc/KzyRgN79/Gemini-Generated-Image-jtql09jtql09jtql.png)' }} >
-        <div style={{ padding: '3% 8%' }}>
-          <div className="footer-grid" >
+      <div
+        className="footer-main"
+        style={{
+          backgroundSize: 'cover',
+          backgroundImage:
+            'url(https://i.postimg.cc/KzyRgN79/Gemini-Generated-Image-jtql09jtql09jtql.png)',
+        }}
+      >
+        <div style={{ padding: '3% 8%', paddingBottom: '0' }}>
+          <div className="footer-grid">
             {/* Logo */}
             <div className="footer-logo-col">
               <div className="footer-logo">
@@ -101,10 +104,8 @@ const FooterSection = () => {
                     marginTop: '-25px',
                     marginRight: '12px',
                     objectFit: 'contain',
-
                   }}
                 />
-
               </div>
             </div>
 
@@ -114,10 +115,18 @@ const FooterSection = () => {
               <div className="footer-col text-uppercase">
                 <h4 className="footer-heading">SERVICE</h4>
                 <ul className="footer-links">
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Development</a></li>
-                  <li><a href="#">Branding</a></li>
-                  <li><a href="#">Marketing</a></li>
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">Development</a>
+                  </li>
+                  <li>
+                    <a href="#">Branding</a>
+                  </li>
+                  <li>
+                    <a href="#">Marketing</a>
+                  </li>
                 </ul>
               </div>
 
@@ -125,10 +134,18 @@ const FooterSection = () => {
               <div className="footer-col text-uppercase">
                 <h4 className="footer-heading">COMPANY</h4>
                 <ul className="footer-links">
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Team</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                  <li>
+                    <a href="#">Team</a>
+                  </li>
+                  <li>
+                    <a href="#">Careers</a>
+                  </li>
+                  <li>
+                    <a href="#">Contact</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -142,9 +159,9 @@ const FooterSection = () => {
                   <br />
                   New York
                 </a>
-                <p className="address-phone">+1 287-360-633</p>
-                <a href="mailto:Info@Yourwebsite.Com" className="address-email">
-                  Info@Yourwebsite.Com
+                <p className="address-phone">+1 (804) 404-2457</p>
+                <a href="mailto:info@innovate360.us" className="address-email" >
+                  info@innovate360.us
                 </a>
               </div>
             </div>
@@ -152,11 +169,23 @@ const FooterSection = () => {
 
           {/* Copyright Bar */}
           <div className="footer-bottom">
-            <p className="copyright">© 2025 INNOVATE360  powered by INNOVATE360</p>
+            <p className="copyright">© 2025 INNOVATE360</p>
 
             <button className="scroll-top-btn" onClick={scrollToTop}>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 1V13M7 1L1 7M7 1L13 7" stroke="#C8FF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 1V13M7 1L1 7M7 1L13 7"
+                  stroke="#C8FF00"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
@@ -164,8 +193,8 @@ const FooterSection = () => {
               <a href="#">Facebook</a>
               <span>|</span>
               <a href="#">LinkedIn</a>
-              <span>|</span>
-              <a href="#">Dribbble</a>
+              {/* <span>|</span>
+              <a href="#">Dribbble</a> */}
             </div>
           </div>
 

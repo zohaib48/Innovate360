@@ -1,104 +1,64 @@
-@keyframes slides {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
 .carouselWrapper {
-    width: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  padding: 40px 0;
 }
 
 .logos {
-    overflow: hidden;
-    padding: 30px 0;
-    white-space: nowrap;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    width: 100%;
-}
-
-.logos:before,
-.logos:after {
-    position: absolute;
-    top: 0;
-    content: '';
-    width: 150px; /* Reduced slightly for better visibility on mobile */
-    height: 100%;
-    z-index: 2;
-    /* CRITICAL FIX: Allows clicks to pass through the white gradient */
-    pointer-events: none; 
-}
-
-.logos:before {
-    left: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255));
-}
-
-.logos:after {
-    right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  display: flex;
+  width: fit-content;
+  animation: scroll 30s linear infinite;
 }
 
 .logoItems {
-    display: flex; /* Changed to flex for better stability */
-    align-items: center;
-    animation: slides 40s infinite linear; /* Slower speed for smoother loop */
-    height: 100%;
-    width: fit-content; /* CRITICAL FIX: Ensures container grows to fit all logos */
-    will-change: transform; /* Performance optimization */
-}
-
-.logos:hover .logoItems {
-    animation-play-state: paused;
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding: 0 40px;
+  flex-shrink: 0;
 }
 
 .logoItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 0 25px; /* Increased spacing */
-    -webkit-tap-highlight-color: transparent;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-    cursor: pointer; /* Ensure cursor shows it's clickable */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  height: 80px;
 }
 
-/* Removed complicated outline logic to keep it clean */
+.logoItem:hover {
+  transform: scale(1.1);
+}
 
 .logoImage {
-    max-height: 100px;
-    height: auto;
-    width: auto;
-    max-width: 180px;
-    object-fit: contain;
-    transition: transform 0.2s ease;
-    display: block;
+  max-height: 120px;
+  max-width: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* filter: grayscale(100%); */
+  /* opacity: 0.7; */
+  transition: all 0.3s ease;
 }
 
-.logoItem:active .logoImage {
-    transform: scale(0.95);
+.logoItem:hover .logoImage {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .logoImage {
-        max-height: 60px;
-        max-width: 120px;
-    }
-    
-    .logoItem {
-        margin: 0 15px;
-    }
-    
-    .logos:before,
-    .logos:after {
-        width: 60px;
-    }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.carouselWrapper:hover .logos {
+  animation-play-state: paused;
 }

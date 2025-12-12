@@ -36,20 +36,20 @@ export const NavbarComponent = () => {
       expand="lg"
       expanded={expanded}
       onToggle={(val) => setExpanded(val)}
-      variant={(scrolled ) ? 'light' : 'dark'}
-      bg={(scrolled ) ? 'light' : 'transparent'}
+      variant={(scrolled) ? 'light' : 'dark'}
+      bg={(scrolled) ? 'light' : 'transparent'}
       className="py-3"
       fixed="top"
       style={{
         minHeight: expanded ? 80 : undefined,
         maxHeight: expanded ? undefined : 80,
         zIndex: 1000,
-        backgroundColor: (scrolled ) ? '#ffffff' : 'transparent',
+        backgroundColor: (scrolled) ? '#ffffff' : 'transparent',
         backgroundImage: (isOtherPage && !scrolled) ? 'url(https://i.postimg.cc/BnJnB6RC/image.png)' : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         marginLeft: isOtherPage ? '-2px' : '0px',
-        boxShadow: (scrolled ) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
+        boxShadow: (scrolled) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
         width: '100%',
       }}
@@ -66,10 +66,10 @@ export const NavbarComponent = () => {
             alt="Innovate360 Logo"
             style={{
               height: 'auto',
-              width: '220px',
+              width: '250px',
               marginRight: '10px',
               objectFit: 'contain',
-              marginTop: '3px',
+              marginTop: '2px',
             }}
           />
         </Navbar.Brand>
@@ -90,7 +90,7 @@ export const NavbarComponent = () => {
               as={Link}
               to="/"
               className={`mx-2 ${scrolled ? 'text-dark' : 'text-white'}`}
-              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500 }}
               onMouseEnter={(e) => {
                 const svg = e.currentTarget.querySelector('svg');
                 if (svg) svg.style.transform = 'translateY(2px)';
@@ -118,13 +118,13 @@ export const NavbarComponent = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <polyline points="6 9 12 15 18 9"></polyline>
+                <polyline points="6 9 12 15 20 9"></polyline>
               </svg> */}
             </Nav.Link>
             {/* <Nav.Link
               href="#pages"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              style={{fontSize:20,letterSpacing:1,fontFamily:'Noyh',fontWeight:500}}
               onMouseEnter={(e) => {
                 const svg = e.currentTarget.querySelector('svg');
                 if (svg) svg.style.transform = 'translateY(2px)';
@@ -152,14 +152,14 @@ export const NavbarComponent = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <polyline points="6 9 12 15 18 9"></polyline>
+                <polyline points="6 9 12 15 20 9"></polyline>
               </svg>
             </Nav.Link> */}
             <Nav.Link
               as={Link}
               to="/services"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
-              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500 }}
             >
               Service
             </Nav.Link>
@@ -167,22 +167,22 @@ export const NavbarComponent = () => {
               as={Link}
               to="/portfolio"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
-              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500 }}
             >
               Portfolio
             </Nav.Link>
             {/* <Nav.Link
               href="#blog"
               className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:18,letterSpacing:1,fontFamily:'Noyh',fontWeight:400}}
+              style={{fontSize:20,letterSpacing:1,fontFamily:'Noyh',fontWeight:500}}
             >
               Blog
             </Nav.Link> */}
             <Nav.Link
               as={Link}
               to="/contact"
-              className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
-              style={{ fontSize: 18, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 400 }}
+              className={`${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500, marginRight: 160 }}
             >
               Contact
             </Nav.Link>

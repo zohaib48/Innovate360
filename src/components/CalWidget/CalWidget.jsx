@@ -1,4 +1,3 @@
-import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect, useRef } from "react";
 import { Mail, Phone } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -12,16 +11,52 @@ export default function CalWidget() {
     const leftColumnRef = useRef(null);
     const rightColumnRef = useRef(null);
 
+    // 1. Handle Cal.com Embed Script
     useEffect(() => {
-        (async function () {
-            const cal = await getCalApi({ "namespace": "30min" });
-            cal("ui", { "theme": "light", "hideEventTypeDetails": true, "layout": "month_view" });
-        })();
+        (function (C, A, L) {
+            let p = function (a, ar) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement("script")).src = A;
+                    cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                    const api = function () { p(api, arguments); };
+                    const namespace = ar[1];
+                    api.q = api.q || [];
+                    if (typeof namespace === "string") {
+                        cal.ns[namespace] = cal.ns[namespace] || api;
+                        p(cal.ns[namespace], ar);
+                        p(cal, ["initNamespace", namespace]);
+                    } else p(cal, ar);
+                    return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        // Initialize Cal
+        window.Cal("init", "metting", { origin: "https://app.cal.com" });
+
+        // Configure Inline Embed
+        window.Cal.ns.metting("inline", {
+            elementOrSelector: "#my-cal-inline-metting",
+            config: { "layout": "month_view", "theme": "light" },
+            calLink: "zohaib-shafique-mql6e9/metting",
+        });
+
+        // UI Configuration
+        window.Cal.ns.metting("ui", { "theme": "light", "hideEventTypeDetails": true, "layout": "month_view" });
+
     }, []);
 
+    // 2. Handle GSAP Animations
     useEffect(() => {
-    
-
         if (leftColumnRef.current && rightColumnRef.current) {
             // Set initial state
             gsap.set(leftColumnRef.current, {
@@ -33,7 +68,7 @@ export default function CalWidget() {
                 opacity: 0
             });
 
-            // Animate left column from left to right
+            // Animate left column
             gsap.to(leftColumnRef.current, {
                 x: 0,
                 opacity: 1,
@@ -46,7 +81,7 @@ export default function CalWidget() {
                 }
             });
 
-            // Animate right column from right to left
+            // Animate right column
             gsap.to(rightColumnRef.current, {
                 x: 0,
                 opacity: 1,
@@ -60,7 +95,6 @@ export default function CalWidget() {
             });
         }
 
-        // Cleanup
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
@@ -88,7 +122,7 @@ export default function CalWidget() {
                             <div className="cal-contact-details">
                                 <span className="cal-contact-label">Email:</span>
                                 <a href="mailto:contact@rapidevelopers.com" className="cal-contact-link">
-                                    contact@rapidevelopers.com
+                                    info@innovate360.us
                                 </a>
                             </div>
                         </div>
@@ -99,23 +133,22 @@ export default function CalWidget() {
                             </div>
                             <div className="cal-contact-details">
                                 <span className="cal-contact-label">For sales related inquiries, Call:</span>
-                                <a href="tel:+17742318410" className="cal-contact-link">
-                                    (774) 231-8410
+                                <a href="tel:+18044042457" className="cal-contact-link">
+                                    +1 (804) 404-2457
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Right Column - Cal Widget */}
+                {/* Right Column - Native Embed Div */}
                 <div className="cal-calendar-column" ref={rightColumnRef}>
                     <div className="cal-embed-container">
-                        <Cal
-                            namespace="30min"
-                            calLink="zohaib-shafique-mql6e9/30min"
-                            style={{ width: "100%" }}
-                            config={{ "layout": "month_view", "theme": "light" }}
-                        />
+                        {/* The ID here must match the ID in the useEffect script */}
+                        <div
+                            id="my-cal-inline-metting"
+                            style={{ width: "100%", height: "100%", }}
+                        ></div>
                     </div>
                 </div>
             </div>

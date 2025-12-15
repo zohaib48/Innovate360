@@ -31,10 +31,10 @@
 
 .solutions-label .label-text {
     font-family: 'Noyh';
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     color: #666;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
 .solutions-title {
@@ -289,7 +289,7 @@
     }
 
     .solutions-title {
-        font-size: 38px;
+        font-size: 48px;
 
     }
 

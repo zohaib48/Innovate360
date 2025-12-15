@@ -35,7 +35,7 @@
   font-family: 'Noyh';
   font-size: 16px;
   font-weight: 600;
-  
+
   letter-spacing: 2px;
   color: #fff;
   writing-mode: vertical-rl;
@@ -93,7 +93,7 @@
 }
 
 .agency-label .label-text {
-font-family: 'Noyh';
+  font-family: 'Noyh';
   font-size: 20px;
   font-weight: 600;
   color: #888;
@@ -101,7 +101,7 @@ font-family: 'Noyh';
 }
 
 .agency-title {
- font-family: 'Noyh';
+  font-family: 'Noyh';
   font-size: 48px;
   font-weight: 600;
   color: #fff;
@@ -150,7 +150,7 @@ font-family: 'Noyh';
 }
 
 .stat-number {
-font-family: 'Noyh';
+  font-family: 'Noyh';
   font-size: 120px;
   font-weight: 800;
   line-height: 1;
@@ -167,7 +167,7 @@ font-family: 'Noyh';
 }
 
 .stat-label {
- font-family: 'Noyh'; 
+  font-family: 'Noyh';
   font-size: 18px;
   font-weight: 600;
   color: #888;
@@ -181,9 +181,11 @@ font-family: 'Noyh';
   .agency-section .container {
     max-width: 1400px;
   }
-.agency-social-sidebar {
-  right: 7rem;
-}
+
+  .agency-social-sidebar {
+    right: 7rem;
+  }
+
   .agency-title {
     font-size: 56px;
   }
@@ -304,8 +306,8 @@ font-family: 'Noyh';
   }
 
   .agency-title {
-    font-size: 28px;
-      text-align: center;
+    font-size: 48px;
+    text-align: center;
   }
 
   .stat-card {
@@ -313,7 +315,7 @@ font-family: 'Noyh';
   }
 
   .stat-number {
-    font-size: 56px;
+    font-size: 86px;
   }
 
   .card-corner {

@@ -51,7 +51,7 @@ export const NavbarComponent = () => {
         marginLeft: isOtherPage ? '-2px' : '0px',
         boxShadow: (scrolled) ? '0 12px 30px rgba(0, 0, 0, 0.08)' : 'none',
         transition: 'background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
-        width: '100%',
+        width: '101%',
       }}
     >
       <Container fluid className="align-items-center" style={{ padding: '0 45px' }}>

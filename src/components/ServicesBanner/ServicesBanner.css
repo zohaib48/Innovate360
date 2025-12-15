@@ -280,10 +280,13 @@
          text-align: center;
      }
 
-     .label-text {
+     .label-text-s {
          font-size: 14px;
          letter-spacing: 1.5px;
          text-align: center;
+         font-weight: 600;
+         font-family: 'Noyh';
+         color: #666;
      }
 
      .services-banner-title {
@@ -377,12 +380,13 @@
      }
 
      .services-banner-title {
-         font-size: 28px;
+         font-size: 42px;
 
      }
 
      .service-item {
-         font-size: 16px;
+         font-size: 20px;
+         white-space: nowrap;
      }
 
      .scroll-indicator {

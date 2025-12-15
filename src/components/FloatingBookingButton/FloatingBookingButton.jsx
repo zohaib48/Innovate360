@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Modal } from 'react-bootstrap';
 import styles from './FloatingBookingButton.module.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const FloatingBookingButton = () => {
+  const location = useLocation();
   const floatingBtnRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
-
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!isModalOpen) return;
 
@@ -128,6 +129,11 @@ const FloatingBookingButton = () => {
     };
   }, [showFloatingButton]);
 
+  // Hide the button on the contact page (after all hooks are called)
+  if (location.pathname === '/contact') {
+    return null;
+  }
+
   return (
     <>
       <div
@@ -136,9 +142,9 @@ const FloatingBookingButton = () => {
         onClick={() => navigate('/contact')}
       >
         <svg
-          className={styles.phoneIcon}
-          width="24"
-          height="24"
+
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

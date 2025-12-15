@@ -3,6 +3,8 @@ import { Mail, Phone } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './CalWidget.css';
+import { useLocation } from 'react-router-dom';
+
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -10,6 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function CalWidget({ id = 'cal-widget' }) {
   const leftColumnRef = useRef(null);
   const rightColumnRef = useRef(null);
+  const location = useLocation();
+
+  const showDifferentDescription = !['/'].includes(location.pathname);
 
   // Function to handle iframe scroll events and prevent scroll locking
   const handleIframeScroll = (iframe) => {
@@ -260,9 +265,8 @@ export default function CalWidget({ id = 'cal-widget' }) {
         <div className="cal-info-column" ref={leftColumnRef}>
           <h2 className="cal-info-title">Interested in partnering with Innovate360?</h2>
           <p className="cal-info-description">
-            Choose a date and time to schedule a free, no-obligation consultation. During this call,
-            we'll discuss your project and provide a custom quote, along with a detailed development
-            plan, at no cost.
+            {!showDifferentDescription ? ' Book a free, no-obligation call to explore your project and get a tailored quote.' : 'Choose a date and time to schedule a free, no-obligation consultation. During this call, we\'ll discuss your project and provide a custom quote, along with a detailed development plan, at no cost.'}
+
           </p>
 
           <div className="cal-contact-info">
@@ -283,7 +287,7 @@ export default function CalWidget({ id = 'cal-widget' }) {
                 <Phone size={20} />
               </div>
               <div className="cal-contact-details">
-                <span className="cal-contact-label">For sales related inquiries, Call:</span>
+                <span className="cal-contact-label">For sales inquiries, Call:</span>
                 <a href="tel:+18044042457" className="cal-contact-link">
                   +1 (804) 404-2457
                 </a>

@@ -5,6 +5,15 @@
   margin-top: 50px;
 }
 
+.label-text-s {
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Noyh';
+  color: #666;
+}
+
 .connect-section .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -501,6 +510,8 @@
 @media (max-width: 480px) {
   .connect-section {
     padding: 40px 0;
+    margin-top: 0px;
+
   }
 
   .connect-header {
@@ -508,7 +519,7 @@
   }
 
   .connect-title {
-    font-size: 26px;
+    font-size: 44px;
   }
 
   .connect-gallery {
@@ -529,5 +540,10 @@
   .item-skype {
     aspect-ratio: auto;
     min-height: 120px;
+  }
+
+  .label-text-s {
+    font-size: 14px;
+
   }
 }

@@ -162,7 +162,7 @@
 
 .cal-widget-wrapper {
   padding: 90px 0px 110px 220px;
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
 }
 
 /* Desktop - Extra Large (1600px+) */
@@ -473,11 +473,11 @@
   }
 
   .cal-contact-label {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .cal-contact-link {
-    font-size: 16px;
+    font-size: 19px;
   }
 
   .cal-embed-container {
@@ -517,6 +517,14 @@
     overflow: hidden;
     /* Allow scroll chaining when reaching scroll limits */
     overscroll-behavior-y: contain;
+  }
+
+  .cal-info-title {
+    font-size: 48px;
+  }
+
+  .cal-info-description {
+    font-size: 20px;
   }
 
   .cal-iframe-container {

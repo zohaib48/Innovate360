@@ -99,7 +99,7 @@ const ProjectsSection = () => {
                 </g>
               </svg>
               <span className="label-line"></span>
-              <span className="label-text">ABOUT INNOVATE360!</span>
+              <span className="label-text-s">ABOUT INNOVATE360!</span>
             </div>
             <h2 className="projects-title">
               RECENTLY

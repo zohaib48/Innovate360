@@ -182,7 +182,7 @@ export const NavbarComponent = () => {
               as={Link}
               to="/contact"
               className={`${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
-              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500, marginRight: 160 }}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500, marginRight: window.innerWidth >= 992 ? 160 : 0 }}
             >
               Contact
             </Nav.Link>

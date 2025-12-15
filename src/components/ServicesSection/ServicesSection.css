@@ -36,7 +36,7 @@
   border-radius: 0;
   transition: all 0.4s ease;
   min-height: 180px;
-  padding: 40px 30px;
+  padding: 20px 30px;
   border-bottom: 1px solid #e8e8e8;
   /* Horizontal line under every card */
 }
@@ -115,7 +115,7 @@
 }
 
 .service-description {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.7;
   letter-spacing: 0.6px;
   color: #5c5c5c;
@@ -125,7 +125,7 @@
 }
 
 .service-link {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   color: #666666;
   transition: all 0.3s ease;
@@ -154,9 +154,19 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
   .services-heading {
-    font-size: 52px;
+    font-size: 68px;
+  }
+
+  .service-description {
+    font-size: 20px;
+  }
+
+  .service-card {
+
+    padding: 20px 0px;
+
   }
 }
 
@@ -212,7 +222,7 @@
   }
 
   .service-description {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .service-icon-wrapper {

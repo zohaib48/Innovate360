@@ -192,7 +192,7 @@ const ServicesSection = () => {
                   className="col-lg-6 col-md-6 col-sm-12"
                   ref={(el) => (cardRefs.current[index] = el)}
                 >
-                  <div className="service-card p-4 h-100 d-flex gap-3">
+                  <div className="service-card  h-100 d-flex gap-3">
                     <div className="service-icon-wrapper flex-shrink-0">
                       <span className="service-icon">{service.icon}</span>
                     </div>

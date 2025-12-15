@@ -6,19 +6,18 @@ import CalWidget from '../components/CalWidget/CalWidget';
 import './Contact.css';
 
 function Contact() {
-    return (
-        <div className="contact-page">
-            <NavbarComponent />
+  return (
+    <div className="contact-page">
+      <NavbarComponent />
 
-            <div className="contact-content">
-                <ConnectSection />
-                <CalWidget />
-            </div>
+      <div className="contact-content">
+        <ConnectSection />
+        {/* <CalWidget /> */}
+      </div>
 
-            <FooterSection />
-        </div>
-    );
+      <FooterSection />
+    </div>
+  );
 }
 
 export default Contact;
-

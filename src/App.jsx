@@ -5,10 +5,12 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import FloatingBookingButton from './components/FloatingBookingButton/FloatingBookingButton';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <FloatingBookingButton />
       <Routes>
         <Route path="/" element={<Home />} />

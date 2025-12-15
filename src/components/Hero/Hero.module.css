@@ -5,13 +5,13 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noyh', Arial, sans-serif;
+  font-family: 'Noyh';
   overflow-x: hidden;
 }
 
 .heroSection {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   overflow: hidden;
   padding-top: clamp(4rem, 2vw, 5rem);
@@ -151,9 +151,9 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
   outline: none;
   border: none;
 }
@@ -176,7 +176,7 @@ body {
 }
 
 .btn-7:hover {
-  background-color:  transparent;
+  background-color: transparent;
 }
 
 .btn-7 span {
@@ -234,15 +234,19 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(168, 204, 44, 0.4),
       0 0 40px rgba(168, 204, 44, 0.2);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(168, 204, 44, 0.6),
       0 0 60px rgba(168, 204, 44, 0.4);
   }
 }
+
 .btn {
   border: none;
   display: inline-flex;
@@ -841,8 +845,8 @@ body {
 
 @media (max-width: 576px) {
   .heroSection {
-    padding-top: 0rem;
-    height: 90vh;
+    padding-top: 0;
+    height: 100vh;
     padding-bottom: 2rem;
     min-height: auto;
   }
@@ -850,7 +854,8 @@ body {
 
 
   .heroTitle {
-    font-size: clamp(1.5rem, 10vw, 2rem);
+    font-size: 3.5rem;
+    padding-top: 4rem;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     line-height: 1.2;
@@ -878,23 +883,7 @@ body {
     overflow: visible;
   }
 
-  .primaryCta {
-    padding: 0.875rem 1.25rem;
-    font-size: clamp(1.125rem, 3.2vw, 1.5rem);
-    font-family: 'Noyh';
-    width: 60%;
-    margin-bottom: 0;
-    justify-content: center;
-    min-height: 44px;
-  }
 
-  .primaryCtaText {
-    font-size: clamp(1rem, 3.2vw, 3rem);
-  }
-
-  .primaryCtaIcon {
-    font-size: 1.25rem;
-  }
 
   .heroImageContainer {
     justify-content: center;
@@ -1006,6 +995,12 @@ body {
     transform: translateX(-102%) translateY(-20%) rotate(45deg);
   }
 
+  .custom-btn {
+    width: 250px;
+    white-space: nowrap;
+    height: 50px;
+    font-size: 20px;
+  }
 
   .btn {
 

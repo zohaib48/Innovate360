@@ -1,14 +1,21 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link, useLocation } from 'react-router-dom';
 import './FooterSection.css';
 import TextMarquee from '../TextMarquee/TextMarquee';
+import CalWidget from '../CalWidget/CalWidget';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FooterSection = () => {
   const brandRef = useRef(null);
   const footerRef = useRef(null);
+  const location = useLocation();
+  const year = new Date().getFullYear();
+
+  // Hide CalWidget on services and portfolio pages
+  const showCalWidget = !['/services', '/portfolio'].includes(location.pathname);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -61,24 +68,7 @@ const FooterSection = () => {
   return (
     <footer className="footer-section" ref={footerRef}>
       {/* Newsletter Section */}
-      <div className="newsletter-section">
-        <div className="container">
-          <div className="newsletter-wrapper">
-            <div className="newsletter-content">
-              <h2 className="newsletter-title">DON'T MISS A THING!</h2>
-              <p className="newsletter-desc">
-                Get our latest tips on how to improve your digital presence,
-                <br />
-                subscribe to our free newsletter.
-              </p>
-            </div>
-            <div className="newsletter-form">
-              <input type="email" placeholder="example@gmail.com" className="newsletter-input" />
-              <button className="newsletter-btn">Subscribe</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {showCalWidget && <CalWidget />}
 
       <TextMarquee />
       {/* Main Footer */}
@@ -160,7 +150,7 @@ const FooterSection = () => {
                   New York
                 </a>
                 <p className="address-phone">+1 (804) 404-2457</p>
-                <a href="mailto:info@innovate360.us" className="address-email" >
+                <a href="mailto:info@innovate360.us" className="address-email">
                   info@innovate360.us
                 </a>
               </div>

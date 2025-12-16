@@ -26,7 +26,7 @@ function Home() {
             <TeamSection />
             <ParallaxImageSection />
             <TestimonialsSection />
-            <FooterSection />
+            <FooterSection showCalWidget2={true} />
         </div>
     );
 }

@@ -5,10 +5,10 @@ import { Link, useLocation } from 'react-router-dom';
 import './FooterSection.css';
 import TextMarquee from '../TextMarquee/TextMarquee';
 import CalWidget from '../CalWidget/CalWidget';
-
+import CalWidget2 from '../CalWidget/CalWidget2';
 gsap.registerPlugin(ScrollTrigger);
 
-const FooterSection = () => {
+const FooterSection = ({ showCalWidget2 }) => {
   const brandRef = useRef(null);
   const footerRef = useRef(null);
   const location = useLocation();
@@ -68,7 +68,7 @@ const FooterSection = () => {
   return (
     <footer className="footer-section" ref={footerRef}>
       {/* Newsletter Section */}
-      {showCalWidget && <CalWidget />}
+      {showCalWidget && (showCalWidget2 ? <CalWidget2 /> : <CalWidget />)}
 
       <TextMarquee />
       {/* Main Footer */}

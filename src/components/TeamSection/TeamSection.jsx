@@ -106,7 +106,7 @@ const TeamSection = () => {
       <div className="container">
         <h2 className="team-title" ref={titleRef}>
           A FAST-GROWING
-          <br />
+
           REMOTE-FOCUSED
           <br />
           TEAM

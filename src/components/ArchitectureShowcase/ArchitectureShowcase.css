@@ -33,7 +33,7 @@
 
 .arch__left .arch__info h2.header {
   font-family: 'Noyh';
-  font-size: 92px;
+  font-size: 68px;
   line-height: 0.8;
   font-weight: 500;
   letter-spacing: -0.84px;
@@ -42,7 +42,7 @@
 
 .arch__left .arch__info p.desc {
   color: rgba(18, 18, 18, 0.8);
-  font-size: 24px;
+  font-size: 20px;
 
   letter-spacing: -0.54px;
   font-family: 'Noyh';
@@ -83,18 +83,18 @@
 .arch__right .img-wrapper {
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: -10%;
+  transform: translateY(-45%);
   height: 400px;
-  width: 100%;
+  width: 600px;
   border-radius: 16px;
   overflow: hidden;
 }
 
 .arch__right .img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* width: 100%;
+  height: 800px; */
+  object-fit: contain;
   object-position: center;
 }
 
@@ -106,7 +106,30 @@
 
 @media (min-width: 1600px) {
   .arch__right .img-wrapper {
+    left: -60%;
     height: 500px;
+    border-radius: 16px;
+    width: 850px;
+  }
+
+  .arch__left .arch__info h2.header {
+    font-family: 'Noyh';
+    font-size: 92px;
+    line-height: 0.8;
+    font-weight: 500;
+    letter-spacing: -0.84px;
+    margin-bottom: 20px;
+  }
+
+  .arch__left .arch__info p.desc {
+    color: rgba(18, 18, 18, 0.8);
+    font-size: 24px;
+
+    letter-spacing: -0.54px;
+    font-family: 'Noyh';
+
+    margin-block: 6px 28px;
+    line-height: 2.2rem;
   }
 }
 

@@ -170,9 +170,7 @@ const ServicesSection = () => {
               SOLUTION
             </h2>
             <p ref={subtextRef} className="services-subtext text-muted mb-4">
-              If you<span style={{ fontFamily: '-apple-system' }}>'</span>re looking for a
-              specialist to build  <br /> a meaningful digital project  you can<br />   easily  reach us by clicking
-              here
+              Elevate your digital success with Innovate360, experts in digital innovation, web solutions and business strategies.
             </p>
             <button
               ref={buttonRef}

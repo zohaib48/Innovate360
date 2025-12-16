@@ -3,7 +3,6 @@ import { gsap } from 'gsap/all';
 import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
 import { Col, Container, Row, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
-import Cal, { getCalApi } from '@calcom/embed-react';
 import NavbarComponent from '../NavbarComponent/NavbarComponent';
 
 const Hero = () => {

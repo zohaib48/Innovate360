@@ -10,12 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 const archData = [
   {
     id: "green-arch",
-    title: "Green Cityscape",
+    title: "Reality Fashion",
     description:
-      "Vibrant streets with vertical gardens and solar buildings. This oasis thrives on renewable energy, smart transport, and green spaces for biodiversity.",
+      "Reality Fashion Reload is a Shopify-based fashion store offering a seamless shopping experience for men’s, women’s, and kids’ clothing through a custom-designed theme.",
     linkColor: "#D5FF37",
     image:
-      "https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp",
+      "https://i.postimg.cc/44rdVmJv/Gemini-Generated-Image-ew5qbyew5qbyew5q.png",
     imageAlt: "Green Architecture",
   },
   {
@@ -25,7 +25,7 @@ const archData = [
       "Avenues with azure facades and eco-structures. This hub uses clean energy, smart transit, and parks for urban wildlife.",
     linkColor: "#7DD6FF",
     image:
-      "https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp",
+      "https://i.postimg.cc/wvWndyBL/CTN169-1-2048x1152.webp",
     imageAlt: "Blue Architecture",
   },
   {
@@ -35,19 +35,10 @@ const archData = [
       "Desert refuge with fluid architecture and glowing interiors. This sanctuary harnesses solar power, sustainable design, and natural harmony for resilient living.",
     linkColor: "#FFA0B0",
     image:
-      "https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp",
+      "https://i.postimg.cc/QMfWs0kM/REALITY-2048x1152.webp",
     imageAlt: "Pink Architecture",
   },
-  {
-    id: "orange-arch",
-    title: "Martian Arches",
-    description:
-      "Ethereal structures arc over tranquil waters, bathed in the glow of a setting Martian sun. This desolate beauty showcases the stark, captivating landscape of the red planet.",
-    linkColor: "#FFA17B",
-    image:
-      "https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/sqwn8u84zd1besgl0zpd.webp",
-    imageAlt: "Orange Architecture",
-  },
+
 ];
 
 const bgColors = ["#EDF9FF", "#FFECF2", "#FFE8DB"];
@@ -61,7 +52,7 @@ const LeafIcon = () => (
   </svg>
 );
 
-const ArchitectureShowcase = ({backgroundColor}) => {
+const ArchitectureShowcase = ({ backgroundColor }) => {
   const containerRef = useRef(null);
   const archRef = useRef(null);
   const lenisRef = useRef(null);
@@ -226,7 +217,7 @@ const ArchitectureShowcase = ({backgroundColor}) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="arch-container" style={{backgroundColor:backgroundColor?backgroundColor:'  background-color: #F8F8F8'}}>
+    <div ref={containerRef} className="arch-container" style={{ backgroundColor: backgroundColor ? backgroundColor : '  background-color: #F8F8F8' }}>
       <div className="spacer"></div>
 
       <div ref={archRef} className="arch">
@@ -258,7 +249,7 @@ const ArchitectureShowcase = ({backgroundColor}) => {
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
-              <img src={item.image} alt={item.imageAlt} />
+              <img src={item.image} alt={item.imageAlt} style={{ objectFit: "contain", objectPosition: "center", width: "100%", height: "100%", }} />
             </div>
           ))}
         </div>

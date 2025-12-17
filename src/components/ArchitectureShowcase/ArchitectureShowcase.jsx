@@ -9,34 +9,60 @@ gsap.registerPlugin(ScrollTrigger);
 
 const archData = [
   {
+    id: "pink-arch",
+    title: "Porsche Club of America",
+    description:
+      "A dynamic website designed for the Porsche Club of America – Shenandoah Region, featuring events, blogs, sponsors, and community highlights with a bold, immersive, and user-friendly experience.",
+
+    linkColor: "#D5FF37",
+    link: "https://shn.pca.org/",
+    image:
+      "https://i.postimg.cc/NfQ0FB5p/Gemini-Generated-Image-vq4t75vq4t75vq4t.png",
+    imageAlt: "Porsche Club of America Website",
+  },
+  {
     id: "green-arch",
     title: "Reality Fashion",
     description:
       "Reality Fashion Reload is a Shopify-based fashion store offering a seamless shopping experience for men’s, women’s, and kids’ clothing through a custom-designed theme.",
-    linkColor: "#D5FF37",
+    linkColor: "#FFA0B0",
+    link: "https://realityofficial.com/",
     image:
       "https://i.postimg.cc/44rdVmJv/Gemini-Generated-Image-ew5qbyew5qbyew5q.png",
-    imageAlt: "Green Architecture",
+    imageAlt: "Reality Fashion Website",
   },
   {
     id: "blue-arch",
-    title: "Blue Urban Oasis",
+    title: "Dolcis",
     description:
-      "Avenues with azure facades and eco-structures. This hub uses clean energy, smart transit, and parks for urban wildlife.",
+      "We developed the Dolcis Shopify website with custom theme design and in-house product photography, delivering a polished, user-friendly showcase for shoes and accessories.",
     linkColor: "#7DD6FF",
+    link: "https://dolcis.com.pk/",
     image:
-      "https://i.postimg.cc/wvWndyBL/CTN169-1-2048x1152.webp",
-    imageAlt: "Blue Architecture",
+      "https://i.postimg.cc/hjx9DcfV/Gemini-Generated-Image-llzpu1llzpu1llzp.png",
+    imageAlt: "Dolcis Website",
   },
   {
-    id: "pink-arch",
-    title: "Fluid Architecture",
+    id: "blue-arch",
+    title: "Pebbles",
     description:
-      "Desert refuge with fluid architecture and glowing interiors. This sanctuary harnesses solar power, sustainable design, and natural harmony for resilient living.",
+      "We developed a clean, user-friendly e-commerce website for Pebbles, showcasing stylish clothing for boys, girls, and infants with smooth navigation, engaging visuals, and an optimized shopping experience across all devices.",
     linkColor: "#FFA0B0",
+    link: "https://pebblesofficial.com/",
     image:
-      "https://i.postimg.cc/QMfWs0kM/REALITY-2048x1152.webp",
-    imageAlt: "Pink Architecture",
+      "https://i.postimg.cc/446dXmNs/Gemini-Generated-Image-6icjg6icjg6icjg6.png",
+    imageAlt: "Pebbles Website",
+  },
+  {
+    id: "blue-arch",
+    title: "Eden's Body",
+    description:
+      "We designed a clean, elegant Shopify store for Edens Cosmetics, highlighting organic beauty products with a soft visual aesthetic, intuitive navigation, and a seamless shopping experience optimized for all devices.",
+    linkColor: "#D5FF37",
+    link: "https://edensbodycare.com/",
+    image:
+      "https://i.postimg.cc/W1wpPKNj/Gemini-Generated-Image-cd43jtcd43jtcd43.png",
+    imageAlt: "Eden's Body Website",
   },
 
 ];
@@ -155,19 +181,20 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               .to(
                 currentImage,
                 {
-                  clipPath: "inset(0px 0px 100%)",
-                  objectPosition: "0px 60%",
+                  clipPath: "inset(100% 0px 0px 0px)",
                   duration: 1.5,
                   ease: "none",
                 },
                 0
               )
-              .to(
-                nextImage,
+              .to(currentImage,
                 {
-                  objectPosition: "0px 40%",
+                  y: () => {
+                    const diff = currentImage.offsetHeight - currentImage.parentElement.offsetHeight;
+                    return diff > 0 ? -diff : 0;
+                  },
                   duration: 1.5,
-                  ease: "none",
+                  ease: "none"
                 },
                 0
               );
@@ -194,7 +221,10 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
           innerTimeline
             .to(image, {
-              objectPosition: "0px 30%",
+              y: () => {
+                const diff = image.offsetHeight - image.parentElement.offsetHeight;
+                return diff > 0 ? -diff : 0;
+              },
               duration: 5,
               ease: "none",
             })
@@ -229,7 +259,9 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
                 <p className="desc">{item.description}</p>
                 <a
                   className="link"
-                  href="#"
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ backgroundColor: item.linkColor }}
                 >
                   <LeafIcon /> <span>Learn More</span>
@@ -249,7 +281,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
-              <img src={item.image} alt={item.imageAlt} style={{ objectFit: "contain", objectPosition: "center", width: "100%", height: "100%", }} />
+              <img src={item.image} alt={item.imageAlt} style={{ width: "100%" }} />
             </div>
           ))}
         </div>

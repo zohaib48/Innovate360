@@ -224,8 +224,8 @@
     }
 
     .cal-embed-container {
-        min-height: 550px;
-        height: 550px;
+        min-height: min-content;
+
     }
 }
 
@@ -253,8 +253,7 @@
     }
 
     .cal-embed-container {
-        min-height: 450px;
-        height: 450px;
+        min-height: min-content;
     }
 }
 

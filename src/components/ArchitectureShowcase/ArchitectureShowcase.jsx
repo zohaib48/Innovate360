@@ -17,7 +17,7 @@ const archData = [
     linkColor: "#D5FF37",
     link: "https://shn.pca.org/",
     image:
-      "https://i.postimg.cc/NfQ0FB5p/Gemini-Generated-Image-vq4t75vq4t75vq4t.png",
+      "https://i.postimg.cc/X7W2567K/Gemini-Generated-Image-6enpid6enpid6enp.png",
     imageAlt: "Porsche Club of America Website",
   },
   {
@@ -28,7 +28,7 @@ const archData = [
     linkColor: "#FFA0B0",
     link: "https://realityofficial.com/",
     image:
-      "https://i.postimg.cc/44rdVmJv/Gemini-Generated-Image-ew5qbyew5qbyew5q.png",
+      "https://i.postimg.cc/zfzbwVZh/Gemini-Generated-Image-gus443gus443gus4.png",
     imageAlt: "Reality Fashion Website",
   },
   {
@@ -39,7 +39,7 @@ const archData = [
     linkColor: "#7DD6FF",
     link: "https://dolcis.com.pk/",
     image:
-      "https://i.postimg.cc/hjx9DcfV/Gemini-Generated-Image-llzpu1llzpu1llzp.png",
+      "https://i.postimg.cc/vmYg7cFD/Gemini-Generated-Image-kbvy3kbvy3kbvy3k.png",
     imageAlt: "Dolcis Website",
   },
   {
@@ -50,7 +50,7 @@ const archData = [
     linkColor: "#FFA0B0",
     link: "https://pebblesofficial.com/",
     image:
-      "https://i.postimg.cc/446dXmNs/Gemini-Generated-Image-6icjg6icjg6icjg6.png",
+      "https://i.postimg.cc/VNfr9dQC/Gemini-Generated-Image-8kyzdc8kyzdc8kyz.png",
     imageAlt: "Pebbles Website",
   },
   {
@@ -61,7 +61,7 @@ const archData = [
     linkColor: "#D5FF37",
     link: "https://edensbodycare.com/",
     image:
-      "https://i.postimg.cc/W1wpPKNj/Gemini-Generated-Image-cd43jtcd43jtcd43.png",
+      "https://i.postimg.cc/HkhRXvhq/Gemini-Generated-Image-b355o0b355o0b355.png",
     imageAlt: "Eden's Body Website",
   },
 

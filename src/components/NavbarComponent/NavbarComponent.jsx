@@ -171,13 +171,13 @@ export const NavbarComponent = () => {
             >
               Portfolio
             </Nav.Link>
-            {/* <Nav.Link
-              href="#blog"
-              className={`mx-2 ${(scrolled && window.innerWidth >= 992)  ? 'text-dark' : 'text-white'}`}
-              style={{fontSize:20,letterSpacing:1,fontFamily:'Noyh',fontWeight:500}}
+            <Nav.Link
+              as={Link}
+              to="/case-studies"
+              className={`mx-2 ${(scrolled && window.innerWidth >= 992) ? 'text-dark' : 'text-white'}`}
+              style={{ fontSize: 20, letterSpacing: 1, fontFamily: 'Noyh', fontWeight: 500 }}
             >
-              Blog
-            </Nav.Link> */}
+              Case Studies            </Nav.Link>
             <Nav.Link
               as={Link}
               to="/contact"

@@ -15,7 +15,7 @@ const FooterSection = ({ showCalWidget2 }) => {
   const year = new Date().getFullYear();
 
   // Hide CalWidget on services and portfolio pages
-  const showCalWidget = !['/services', '/portfolio'].includes(location.pathname);
+  const showCalWidget = !['/services', '/portfolio', '/case-studies', '/case-studies/1'].includes(location.pathname);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

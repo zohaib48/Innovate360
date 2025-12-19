@@ -1,0 +1,475 @@
+/* Case Study Detail Page Styles */
+
+.csd-page {
+    background-color: #fff;
+}
+
+/* Hero Section */
+.csd-hero {
+    position: relative;
+    background: url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=600&fit=crop") center/cover no-repeat;
+    padding: 120px 0 80px;
+    color: #fff;
+}
+
+.csd-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 0;
+}
+
+.csd-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.csd-related-section .row.g-4::before {
+    background-color: white;
+}
+
+.csd-hero-content {
+    max-width: 800px;
+}
+
+.csd-label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.csd-hero-title {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.csd-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.csd-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Section Styles */
+.csd-section {
+    padding: 80px 0;
+}
+
+.csd-section-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #0a1628;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.csd-subsection-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a365d;
+    margin-bottom: 16px;
+    margin-top: 32px;
+}
+
+.csd-text {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+.csd-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.csd-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+.csd-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background: #1a365d;
+    border-radius: 50%;
+}
+
+.csd-list li strong {
+    color: #0a1628;
+}
+
+/* Dashboard Images Section */
+.csd-dashboard-section {
+    padding: 40px 0 80px;
+    background: #f8fafc;
+}
+
+.csd-dashboard-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.csd-dashboard-img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+/* Approach Subsection */
+.csd-approach-subsection {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.csd-approach-subsection:first-of-type {
+    border-top: none;
+}
+
+/* CTA Box */
+.csd-cta-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 48px;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+}
+
+.csd-cta-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0a1628;
+    margin-bottom: 8px;
+}
+
+.csd-cta-subtext {
+    font-size: 15px;
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+.csd-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1a365d;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.csd-cta-btn:hover {
+    background: #0a1628;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+}
+
+/* Quote Section */
+.csd-quote-section {
+    padding: 60px 0;
+    background: #f8fafc;
+}
+
+.csd-quote-card {
+    background: linear-gradient(135deg, #eef2f7 0%, #e8ecf4 100%);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #d4dbe6;
+}
+
+.csd-quote-label {
+    font-size: 13px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.csd-quote-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0a1628;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.csd-quote-icon {
+    color: #1a365d;
+    margin-bottom: 16px;
+}
+
+.csd-quote-link {
+    display: inline-block;
+    color: #1a365d;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+}
+
+.csd-quote-link:hover {
+    color: #0a1628;
+}
+
+/* Related Section */
+.csd-related-section {
+    padding: 80px 0 100px;
+
+}
+
+.csd-related-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.csd-related-subtitle {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.csd-related-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.csd-related-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.csd-related-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.csd-related-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.csd-related-card:hover .csd-related-img {
+    transform: scale(1.08);
+}
+
+.csd-related-content {
+    padding: 24px;
+}
+
+.csd-related-category {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a365d;
+    background: #e8f0fe;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.csd-related-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0a1628;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.csd-related-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #718096;
+}
+
+.csd-meta-separator {
+    color: #cbd5e0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .csd-hero {
+        padding: 100px 0 60px;
+    }
+
+    .csd-hero-title {
+        font-size: 36px;
+    }
+
+    .csd-section-title {
+        font-size: 30px;
+    }
+
+    .csd-section {
+        padding: 60px 0;
+    }
+
+    .csd-related-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .csd-hero {
+        padding: 80px 0 50px;
+    }
+
+    .csd-hero-title {
+        font-size: 28px;
+    }
+
+    .csd-hero-meta {
+        gap: 16px;
+    }
+
+    .csd-section-title {
+        font-size: 26px;
+    }
+
+    .csd-subsection-title {
+        font-size: 20px;
+    }
+
+    .csd-text {
+        font-size: 16px;
+    }
+
+    .csd-section {
+        padding: 50px 0;
+    }
+
+    .csd-dashboard-section {
+        padding: 30px 0 50px;
+    }
+
+    .csd-cta-box {
+        padding: 24px;
+    }
+
+    .csd-quote-text {
+        font-size: 18px;
+    }
+
+    .csd-quote-card {
+        padding: 30px 20px;
+    }
+
+    .csd-related-section {
+        padding: 60px 0 80px;
+    }
+
+    .csd-related-title {
+        font-size: 26px;
+    }
+
+    .csd-related-img-wrapper {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .csd-hero {
+        padding: 70px 0 40px;
+    }
+
+    .csd-hero-title {
+        font-size: 24px;
+    }
+
+    .csd-label {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+
+    .csd-hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .csd-section-title {
+        font-size: 22px;
+    }
+
+    .csd-subsection-title {
+        font-size: 18px;
+    }
+
+    .csd-text {
+        font-size: 15px;
+    }
+
+    .csd-list li {
+        font-size: 15px;
+    }
+
+    .csd-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .csd-related-card-title {
+        font-size: 16px;
+    }
+
+    .csd-related-content {
+        padding: 20px;
+    }
+}

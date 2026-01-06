@@ -5,6 +5,12 @@ import Lenis from "lenis";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ArchitectureShowcase.css";
 
+import porscheClub from '../../assets/images/projects/porsche-club.png';
+import realityFashion from '../../assets/images/projects/reality-fashion.png';
+import dolcis from '../../assets/images/projects/dolcis.png';
+import pebbles from '../../assets/images/projects/pebbles.png';
+import edensBody from '../../assets/images/projects/edens-body.png';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const archData = [
@@ -16,8 +22,7 @@ const archData = [
 
     linkColor: "#D5FF37",
     link: "https://shn.pca.org/",
-    image:
-      "https://i.postimg.cc/X7W2567K/Gemini-Generated-Image-6enpid6enpid6enp.png",
+    image: porscheClub,
     imageAlt: "Porsche Club of America Website",
   },
   {
@@ -27,8 +32,7 @@ const archData = [
       "Reality Fashion Reload is a Shopify-based fashion store offering a seamless shopping experience for men’s, women’s, and kids’ clothing through a custom-designed theme.",
     linkColor: "#FFA0B0",
     link: "https://realityofficial.com/",
-    image:
-      "https://i.postimg.cc/zfzbwVZh/Gemini-Generated-Image-gus443gus443gus4.png",
+    image: realityFashion,
     imageAlt: "Reality Fashion Website",
   },
   {
@@ -38,8 +42,7 @@ const archData = [
       "We developed the Dolcis Shopify website with custom theme design and in-house product photography, delivering a polished, user-friendly showcase for shoes and accessories.",
     linkColor: "#7DD6FF",
     link: "https://dolcis.com.pk/",
-    image:
-      "https://i.postimg.cc/vmYg7cFD/Gemini-Generated-Image-kbvy3kbvy3kbvy3k.png",
+    image: dolcis,
     imageAlt: "Dolcis Website",
   },
   {
@@ -49,8 +52,7 @@ const archData = [
       "We developed a clean, user-friendly e-commerce website for Pebbles, showcasing stylish clothing for boys, girls, and infants with smooth navigation, engaging visuals, and an optimized shopping experience across all devices.",
     linkColor: "#FFA0B0",
     link: "https://pebblesofficial.com/",
-    image:
-      "https://i.postimg.cc/VNfr9dQC/Gemini-Generated-Image-8kyzdc8kyzdc8kyz.png",
+    image: pebbles,
     imageAlt: "Pebbles Website",
   },
   {
@@ -60,8 +62,7 @@ const archData = [
       "We designed a clean, elegant Shopify store for Edens Cosmetics, highlighting organic beauty products with a soft visual aesthetic, intuitive navigation, and a seamless shopping experience optimized for all devices.",
     linkColor: "#D5FF37",
     link: "https://edensbodycare.com/",
-    image:
-      "https://i.postimg.cc/HkhRXvhq/Gemini-Generated-Image-b355o0b355o0b355.png",
+    image: edensBody,
     imageAlt: "Eden's Body Website",
   },
 
@@ -281,7 +282,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
-              <img src={item.image} alt={item.imageAlt} style={{ width: "100%" }} />
+              <img src={item.image} alt={item.imageAlt} style={{ width: "100%" }} loading="lazy" />
             </div>
           ))}
         </div>

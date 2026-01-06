@@ -4,6 +4,7 @@ import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
 import { Col, Container, Row, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
 import NavbarComponent from '../NavbarComponent/NavbarComponent';
+import hero3dHead from '../../assets/images/hero-3d-head.png';
 
 const Hero = () => {
   const titleRef = useRef(null);
@@ -301,9 +302,12 @@ const Hero = () => {
             <Col lg={5}>
               <div ref={imageRef} className={styles.heroImageContainer}>
                 <img
-                  src="https://i.postimg.cc/7h3TwRdV/Gemini-Generated-Image-eojoeteojoeteojo-(1)-Photoroom.png"
+                  src={hero3dHead}
                   alt="3D Head Model"
                   className={styles.heroImage}
+                  width="788"
+                  height="800"
+                  fetchPriority="high"
                 />
               </div>
             </Col>

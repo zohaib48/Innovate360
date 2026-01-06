@@ -1,26 +1,31 @@
 import styles from './LogoCarousel.module.css';
+import shnLogo from '../../assets/images/logos/SHN_LOGO.png';
+import pcaLogo from '../../assets/images/logos/pca_logo-1.png';
+import newFinalLogo from '../../assets/images/logos/new-final.png';
+import logo2x from '../../assets/images/logos/logo-2x-removebg-preview.png';
+import pebblesLogo from '../../assets/images/logos/pebbles-removebg-preview.png';
 
 const LogoCarousel = () => {
   const logos = [
     {
       weblink: 'https://shn.pca.org/',
-      imglink: 'https://innovate360.us/wp-content/uploads/2025/01/SHN_LOGO.png',
+      imglink: shnLogo,
     },
     {
       weblink: 'https://www.pca.org/',
-      imglink: 'https://innovate360.us/wp-content/uploads/2025/01/pca_logo-1.png',
+      imglink: pcaLogo,
     },
     {
       weblink: 'https://edensbodycare.com/',
-      imglink: 'https://i.postimg.cc/MG5CyQNR/new-final.png',
+      imglink: newFinalLogo,
     },
     {
       weblink: 'https://gt-rally.vercel.app/',
-      imglink: 'https://i.postimg.cc/qMbsPMnp/logo-2x-removebg-preview.png',
+      imglink: logo2x,
     },
     {
       weblink: 'https://pebblesofficial.com/',
-      imglink: 'https://i.postimg.cc/d3f9dPs7/pebbles-removebg-preview-(1).png',
+      imglink: pebblesLogo,
     },
   ];
 
@@ -44,6 +49,7 @@ const LogoCarousel = () => {
                 alt={`Logo ${index}`}
                 draggable="false"
                 className={styles.logoImage}
+                loading="lazy"
               />
             </a>
           ))}
@@ -63,6 +69,7 @@ const LogoCarousel = () => {
                 alt={`Logo ${index}`}
                 draggable="false"
                 className={styles.logoImage}
+                loading="lazy"
               />
             </a>
           ))}

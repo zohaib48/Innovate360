@@ -11,7 +11,7 @@ const testimonials = [
     name: "EMILY JOHNSON",
     title: "Founder of Lifestyle Hub",
     headline: "AMAZING WORK.",
-    quote: "Working with agentise was a game-changer for our business. Their innovative strategies and creative solutions helped us reach new audiences and grow our brand. The team's dedication and expertise are unparalleled",
+    quote: "Working with Innovate360 was a game-changer for our business. Their innovative strategies and creative solutions helped us reach new audiences and grow our brand. The team's dedication and expertise are unparalleled",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
     rating: 5
   },
@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const autoPlayRef = useRef(null);
-  
+
   // Track if this is the first load to prevent animation conflict
   const isFirstRender = useRef(true);
 
@@ -165,15 +165,15 @@ const TestimonialsSection = () => {
               </div>
 
               <div className="testimonial-nav">
-                <button 
-                  className="nav-btn" 
+                <button
+                  className="nav-btn"
                   onClick={() => handleNavClick('prev')}
                   aria-label="Previous testimonial"
                 >
                   ←
                 </button>
-                <button 
-                  className="nav-btn" 
+                <button
+                  className="nav-btn"
                   onClick={() => handleNavClick('next')}
                   aria-label="Next testimonial"
                 >
@@ -185,7 +185,7 @@ const TestimonialsSection = () => {
 
           <div className="decorative-element">
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 35V25C15 20 18 15 25 15V20C22 20 20 22 20 25H25V35H15ZM35 35V25C35 20 38 15 45 15V20C42 20 40 22 40 25H45V35H35Z" fill="#121212"/>
+              <path d="M15 35V25C15 20 18 15 25 15V20C22 20 20 22 20 25H25V35H15ZM35 35V25C35 20 38 15 45 15V20C42 20 40 22 40 25H45V35H35Z" fill="#121212" />
             </svg>
           </div>
         </div>

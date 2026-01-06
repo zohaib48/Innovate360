@@ -9,71 +9,7 @@ import "./CaseStudiesPage.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const caseStudies = [
-    {
-        id: 1,
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
-        categories: ["Engineering", "Case study"],
-        title: "Future-ready charging solution for a tier-1 telecom leader",
-        description: "Explore how a leading telecom operator migrated to a future-ready OCS with zero downtime—ensuring seamless service and uninterrupted subscriber experiences.",
-    },
-    {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop",
-        categories: ["Cybersecurity", "Case study"],
-        title: "Network modernization through SD-WAN transformation",
-        description: "A leading global packaging company partners with HCLTech and Fortinet to transform legacy MPLS infrastructure into a unified, secure SD-WAN solution.",
-    },
-    {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop",
-        categories: ["Cybersecurity", "Case study"],
-        title: "Accelerating network security transformation through secure SD-WAN",
-        description: "A market-leading energy company partners with HCLTech and Fortinet to transform legacy MPLS infrastructure into a modern, secure SD-WAN solution.",
-    },
-    {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop",
-        categories: ["Technology", "Case study"],
-        title: "Global tech company saves $500K with AI-powered code review transformation",
-        description: "HCLTech automated bot elevated code quality, developer empowerment and efficiency.",
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=400&h=300&fit=crop",
-        categories: ["Microsoft", "Case study"],
-        title: "Driving human-AI harmony: Copilot contact center elevates customer experience",
-        description: "88% call success rate, 100% intent accuracy boost and 350 agents onboarded for seamless customer support.",
-    },
-    {
-        id: 6,
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-        categories: ["DigitalFoundation", "Case study"],
-        title: "Modernizing infrastructure resilience for a leading US financial company",
-        description: "A leading US financial services company strengthened its core infrastructure, boosting resilience, security and scalability through modernization.",
-    },
-    {
-        id: 7,
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop",
-        categories: ["DigitalFoundation", "Case study"],
-        title: "Leading health insurer's data protection transformation",
-        description: "Explored a healthcare payer to retire legacy backups and adopt robust Dell Cyberault solution, achieving higher stability, faster restores and major cost savings.",
-    },
-    {
-        id: 8,
-        image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=400&h=300&fit=crop",
-        categories: ["Manufacturing", "Case study"],
-        title: "HCLTech drives Avnet's digital transformation with SAP, AI and automation",
-        description: "Accelerated digital innovation enables agile operations, reaching the heights of service excellence.",
-    },
-    {
-        id: 9,
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
-        categories: ["Technology", "Case study"],
-        title: "AI-powered solution removes uncertainty and bottlenecks",
-        description: "A global cloud leader partnered with HCLTech to enhance data classification for faster time-to-market and compliance with global regulations.",
-    },
-];
+import { caseStudiesData as caseStudies } from "../data/caseStudiesData";
 
 const expertiseAreas = [
     {
@@ -293,14 +229,9 @@ const CaseStudiesPage = () => {
                                         </div>
                                         <div className="card-content">
                                             <div className="card-categories">
-                                                {study.categories.map((cat, idx) => (
-                                                    <span key={idx} className="category-tag">
-                                                        {cat}
-                                                        {idx < study.categories.length - 1 && (
-                                                            <span className="separator">|</span>
-                                                        )}
-                                                    </span>
-                                                ))}
+                                                <span className="category-tag">
+                                                    {study.category}
+                                                </span>
                                             </div>
                                             <h3 className="card-title">{study.title}</h3>
                                             <p className="card-description">{study.description}</p>

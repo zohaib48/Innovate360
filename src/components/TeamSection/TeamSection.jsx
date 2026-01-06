@@ -102,7 +102,7 @@ const TeamSection = () => {
   }, []);
 
   return (
-    <section className="team-section" ref={sectionRef}>
+    <section className="team-section" id="team" ref={sectionRef}>
       <div className="container">
         <h2 className="team-title" ref={titleRef}>
           A FAST-GROWING

@@ -34,18 +34,20 @@
 
 .csd-label {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.15);
+    background: #d5ff37;
     padding: 6px 16px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 24px;
+    color: #000;
     backdrop-filter: blur(10px);
 }
 
 .csd-hero-title {
     font-size: 72px;
-    font-weight: 700;
+    font-weight: 500;
+
     line-height: 1.2;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
@@ -124,7 +126,6 @@
     color: #0a1628;
 }
 
-/* Dashboard Images Section */
 .csd-dashboard-section {
     padding: 40px 0 80px;
     background: #f8fafc;
@@ -165,14 +166,14 @@
 }
 
 .csd-cta-text {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #0a1628;
     margin-bottom: 8px;
 }
 
 .csd-cta-subtext {
-    font-size: 15px;
+    font-size: 17px;
     color: #718096;
     margin-bottom: 20px;
 }
@@ -181,11 +182,10 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #1a365d;
-    color: #fff;
+    background: #D5FF37;
     padding: 14px 28px;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     border: none;
     cursor: pointer;
@@ -193,7 +193,7 @@
 }
 
 .csd-cta-btn:hover {
-    background: #0a1628;
+    background: #c8f700;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
 }
@@ -309,10 +309,10 @@
 
 .csd-related-category {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: #1a365d;
-    background: #e8f0fe;
+    background: #D5FF37;
     padding: 4px 12px;
     border-radius: 20px;
     margin-bottom: 12px;
@@ -430,11 +430,11 @@
     }
 
     .csd-hero-title {
-        font-size: 24px;
+        font-size: 40px;
     }
 
     .csd-label {
-        font-size: 12px;
+        font-size: 16px;
         padding: 5px 12px;
     }
 
@@ -445,19 +445,19 @@
     }
 
     .csd-section-title {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .csd-subsection-title {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .csd-text {
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .csd-list li {
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .csd-cta-btn {
@@ -466,7 +466,7 @@
     }
 
     .csd-related-card-title {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .csd-related-content {

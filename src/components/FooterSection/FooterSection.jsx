@@ -13,9 +13,11 @@ const FooterSection = ({ showCalWidget2 }) => {
   const footerRef = useRef(null);
   const location = useLocation();
   const year = new Date().getFullYear();
-
+  console.log(location.pathname)
   // Hide CalWidget on services and portfolio pages
-  const showCalWidget = !['/services', '/portfolio', '/case-studies', '/case-studies/1'].includes(location.pathname);
+  const showCalWidget = !['/services', '/portfolio', '/case-studies'].some((path) =>
+    location.pathname.startsWith(path)
+  );
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -125,17 +127,18 @@ const FooterSection = ({ showCalWidget2 }) => {
                 <h4 className="footer-heading">COMPANY</h4>
                 <ul className="footer-links">
                   <li>
-                    <a href="#">About</a>
+                    <a href="/#team">Team</a>
                   </li>
                   <li>
-                    <a href="#">Team</a>
+                    <a href="/services">Services</a>
                   </li>
                   <li>
-                    <a href="#">Careers</a>
+                    <a href="/contact">Contact</a>
                   </li>
                   <li>
-                    <a href="#">Contact</a>
+                    <a href="/case-studies">Case Studies</a>
                   </li>
+
                 </ul>
               </div>
             </div>

@@ -220,7 +220,7 @@ const ConnectSection = () => {
                 </svg>
               </div>
               <p className="skype-label">Direct contact:</p>
-              <p className="skype-handle">Skype.agentize</p>
+              <p className="skype-handle">info@innovate360.us</p>
             </div>
           </div>
 

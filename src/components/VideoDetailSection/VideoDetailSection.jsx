@@ -76,12 +76,16 @@ const AboutSection = () => {
               {/* Image Container */}
               <div
                 className="rounded-circle overflow-hidden shadow-lg"
+                style={{ width: '316px', height: '316px', maxWidth: '100%' }}
               >
                 <img
                   src={teamImage}
                   alt="Team working collaboratively"
                   className="w-100 h-100"
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  width="316"
+                  height="316"
+                  loading="lazy"
                 />
               </div>
 

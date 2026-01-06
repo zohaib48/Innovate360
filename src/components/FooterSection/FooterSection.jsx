@@ -91,12 +91,17 @@ const FooterSection = ({ showCalWidget2 }) => {
                   src="https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"
                   alt="Innovate360 Logo"
                   style={{
-                    height: '85px',
-                    width: 'auto',
+                    height: 'auto',
+                    width: '206px',
+                    maxWidth: '100%',
                     marginTop: '-25px',
                     marginRight: '12px',
                     objectFit: 'contain',
                   }}
+                  width="206"
+                  height="54"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
             </div>

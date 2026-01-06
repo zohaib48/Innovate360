@@ -305,9 +305,10 @@ const Hero = () => {
                   src={hero3dHead}
                   alt="3D Head Model"
                   className={styles.heroImage}
-                  width="788"
-                  height="800"
+                  width="400"
+                  height="406"
                   fetchPriority="high"
+                  loading="eager"
                 />
               </div>
             </Col>

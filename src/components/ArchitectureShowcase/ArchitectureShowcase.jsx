@@ -144,6 +144,15 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
     const imgs = gsap.utils.toArray(".img-wrapper img");
 
+    // Cache layout values to prevent forced reflows
+    const cacheImageHeights = () => {
+      return imgs.map((img) => {
+        const imgHeight = img.offsetHeight;
+        const parentHeight = img.parentElement?.offsetHeight || 0;
+        return { img, imgHeight, parentHeight, diff: imgHeight - parentHeight };
+      });
+    };
+
     // GSAP Animation with Media Query
     ScrollTrigger.matchMedia({
       "(min-width: 769px)": function () {
@@ -162,9 +171,13 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
           objectPosition: "0px 0%",
         });
 
+        // Cache heights once before animations
+        const cachedHeights = cacheImageHeights();
+
         imgs.forEach((_, index) => {
           const currentImage = imgs[index];
           const nextImage = imgs[index + 1] ? imgs[index + 1] : null;
+          const cached = cachedHeights[index];
 
           const sectionTimeline = gsap.timeline();
 
@@ -190,10 +203,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               )
               .to(currentImage,
                 {
-                  y: () => {
-                    const diff = currentImage.offsetHeight - currentImage.parentElement.offsetHeight;
-                    return diff > 0 ? -diff : 0;
-                  },
+                  y: cached.diff > 0 ? -cached.diff : 0,
                   duration: 1.5,
                   ease: "none"
                 },
@@ -210,7 +220,11 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
           objectPosition: "0px 60%",
         });
 
+        // Cache heights once before animations
+        const cachedHeights = cacheImageHeights();
+
         imgs.forEach((image, index) => {
+          const cached = cachedHeights[index];
           const innerTimeline = gsap.timeline({
             scrollTrigger: {
               trigger: image,
@@ -222,10 +236,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
           innerTimeline
             .to(image, {
-              y: () => {
-                const diff = image.offsetHeight - image.parentElement.offsetHeight;
-                return diff > 0 ? -diff : 0;
-              },
+              y: cached.diff > 0 ? -cached.diff : 0,
               duration: 5,
               ease: "none",
             })
@@ -282,7 +293,14 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
-              <img src={item.image} alt={item.imageAlt} style={{ width: "100%" }} loading="lazy" />
+              <img 
+                src={item.image} 
+                alt={item.imageAlt} 
+                style={{ width: "100%", objectPosition: "0px 60%" }} 
+                loading="lazy"
+                width="392"
+                height="216"
+              />
             </div>
           ))}
         </div>

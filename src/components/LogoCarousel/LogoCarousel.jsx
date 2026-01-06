@@ -50,6 +50,8 @@ const LogoCarousel = () => {
                 draggable="false"
                 className={styles.logoImage}
                 loading="lazy"
+                width="120"
+                height="120"
               />
             </a>
           ))}
@@ -70,6 +72,8 @@ const LogoCarousel = () => {
                 draggable="false"
                 className={styles.logoImage}
                 loading="lazy"
+                width="120"
+                height="120"
               />
             </a>
           ))}

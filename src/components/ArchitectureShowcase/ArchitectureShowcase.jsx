@@ -1,15 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ArchitectureShowcase.css";
 
-import porscheClub from '../../assets/images/projects/porsche-club.png';
+import porscheClubDesktop from '../../assets/images/projects/porsche-club-d.png';
+import porscheClubMobile from '../../assets/images/projects/porsche-club-m.png';
 import realityFashion from '../../assets/images/projects/reality-fashion.png';
 import dolcis from '../../assets/images/projects/dolcis.png';
 import pebbles from '../../assets/images/projects/pebbles.png';
 import edensBody from '../../assets/images/projects/edens-body.png';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,14 +24,15 @@ const archData = [
 
     linkColor: "#D5FF37",
     link: "https://shn.pca.org/",
-    image: porscheClub,
+    image: porscheClubDesktop,
+    mobileImage: porscheClubMobile,
     imageAlt: "Porsche Club of America Website",
   },
   {
     id: "green-arch",
     title: "Reality Fashion",
     description:
-      "Reality Fashion Reload is a Shopify-based fashion store offering a seamless shopping experience for men’s, women’s, and kids’ clothing through a custom-designed theme.",
+      "Reality Fashion Reload is a Shopify-based fashion store offering a seamless shopping experience for men's, women's, and kids' clothing through a custom-designed theme.",
     linkColor: "#FFA0B0",
     link: "https://realityofficial.com/",
     image: realityFashion,
@@ -83,6 +86,8 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
   const containerRef = useRef(null);
   const archRef = useRef(null);
   const lenisRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
 
   useEffect(() => {
     // Initialize Lenis smooth scroll
@@ -112,11 +117,13 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
     // Mobile layout handler
     const handleMobileLayout = () => {
-      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const isMobileView = window.matchMedia("(max-width: 768px)").matches;
+      setIsMobile(isMobileView);
+
       const leftItems = gsap.utils.toArray(".arch__left .arch__info");
       const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
 
-      if (isMobile) {
+      if (isMobileView) {
         leftItems.forEach((item, i) => {
           item.style.order = String(i * 2);
         });
@@ -293,10 +300,10 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
-              <img 
-                src={item.image} 
-                alt={item.imageAlt} 
-                style={{ width: "100%", objectPosition: "0px 60%" }} 
+              <img
+                src={isMobile && item.mobileImage ? item.mobileImage : item.image}
+                alt={item.imageAlt}
+                style={{ width: "100%", objectPosition: "0px 60%" }}
                 loading="lazy"
                 width="392"
                 height="216"

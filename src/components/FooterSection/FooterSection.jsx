@@ -6,6 +6,8 @@ import './FooterSection.css';
 import TextMarquee from '../TextMarquee/TextMarquee';
 import CalWidget from '../CalWidget/CalWidget';
 import CalWidget2 from '../CalWidget/CalWidget2';
+import footerBg from '../../assets/images/footer-main-bg.png';
+import logoLight from '../../assets/images/logo-light.png';
 gsap.registerPlugin(ScrollTrigger);
 
 const FooterSection = ({ showCalWidget2 }) => {
@@ -79,7 +81,7 @@ const FooterSection = ({ showCalWidget2 }) => {
         style={{
           backgroundSize: 'cover',
           backgroundImage:
-            'url(https://i.postimg.cc/KzyRgN79/Gemini-Generated-Image-jtql09jtql09jtql.png)',
+            `url(${footerBg})`,
         }}
       >
         <div style={{ padding: '3% 8%', paddingBottom: '0' }}>
@@ -88,11 +90,11 @@ const FooterSection = ({ showCalWidget2 }) => {
             <div className="footer-logo-col">
               <div className="footer-logo">
                 <img
-                  src="https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"
+                  src={logoLight}
                   alt="Innovate360 Logo"
                   style={{
                     height: 'auto',
-                    width: '206px',
+                    width: '320px',
                     maxWidth: '100%',
                     marginTop: '-25px',
                     marginRight: '12px',

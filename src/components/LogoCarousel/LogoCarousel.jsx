@@ -1,6 +1,6 @@
 import styles from './LogoCarousel.module.css';
 import shnLogo from '../../assets/images/logos/SHN_LOGO.png';
-import pcaLogo from '../../assets/images/logos/pca_logo-1.png';
+import pcaLogo from '../../assets/images/logos/pca_logo-m.png';
 import newFinalLogo from '../../assets/images/logos/new-final.png';
 import logo2x from '../../assets/images/logos/logo-2x-removebg-preview.png';
 import pebblesLogo from '../../assets/images/logos/pebbles-removebg-preview.png';

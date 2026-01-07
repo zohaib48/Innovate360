@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
+import navbarBg from '../../assets/images/navbar-bg.png';
+import logoDark from '../../assets/images/logo-dark.png';
+import logoLight from '../../assets/images/logo-light.png';
 
 export const NavbarComponent = () => {
   const navRef = useRef(null);
@@ -45,7 +48,7 @@ export const NavbarComponent = () => {
         maxHeight: expanded ? undefined : 80,
         zIndex: 1000,
         backgroundColor: (scrolled) ? '#ffffff' : 'transparent',
-        backgroundImage: (isOtherPage && !scrolled) ? 'url(https://i.postimg.cc/BnJnB6RC/image.png)' : 'none',
+        backgroundImage: (isOtherPage && !scrolled) ? `url(${navbarBg})` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         marginLeft: isOtherPage ? '-2px' : '0px',
@@ -62,7 +65,7 @@ export const NavbarComponent = () => {
           style={{ fontFamily: 'Noyh' }}
         >
           <img
-            src={scrolled ? "https://i.postimg.cc/y6XdKjZw/Gemini-Generated-Image-ntpx2wntpx2wntpx-removebg-preview.png" : "https://i.postimg.cc/jjgV92ZS/Gemini-Generated-Image-ydnaalydnaalydna-removebg-preview.png"}
+            src={scrolled ? logoDark : logoLight}
             alt="Innovate360 Logo"
             style={{
               height: 'auto',

@@ -4,8 +4,8 @@ import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
 import { Col, Container, Row, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
 import NavbarComponent from '../NavbarComponent/NavbarComponent';
-import hero3dHead from '../../assets/images/hero-3d-head.png';
-
+import hero3dHeadDesktop from '../../assets/images/hero-3d-head.png';
+import hero3dHeadMobile from '../../assets/images/hero-3d-head-m.png';
 const Hero = () => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -15,7 +15,7 @@ const Hero = () => {
   const circularBtnRef = useRef(null);
   const floatingBtnRef = useRef(null);
   const particlesContainerRef = useRef(null);
-
+  const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
 
@@ -110,42 +110,72 @@ const Hero = () => {
 
   // Initial Hero Animation
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    // 1. Create the matchMedia context
+    let mm = gsap.matchMedia();
 
-    tl.fromTo(titleRef.current, { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 1 })
-      .fromTo(
-        subtitleRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.6'
-      )
-      .fromTo(
-        descriptionRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.6'
-      )
-      .fromTo(
+    // 2. Add the context
+    mm.add({
+      // Define breakpoints
+      isMobile: "(max-width: 767px)",
+      isDesktop: "(min-width: 768px)",
+    }, (context) => {
+      let { isMobile, isDesktop } = context.conditions;
+      setIsMobile(isMobile);
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // --- TITLE ANIMATION ---
+      // We can keep the title animation or remove it on mobile too. 
+      // If title is LCP, remove it on mobile. If <p> is LCP, title is fine.
+      tl.fromTo(titleRef.current,
+        { x: -80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1 }
+      );
+
+      // --- DESCRIPTION (LCP ELEMENT) ---
+      if (isDesktop) {
+        // ONLY animate opacity on Desktop
+        tl.fromTo(
+          descriptionRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8 },
+          '-=0.6'
+        );
+      } else {
+        // On Mobile: Ensure it is visible IMMEDIATELY. 
+        // We set it effectively to the "end" state instantly.
+        gsap.set(descriptionRef.current, { y: 0, opacity: 1 });
+      }
+
+      // --- CTA BUTTONS ---
+      tl.fromTo(
         ctaGroupRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.5'
-      )
-      .fromTo(
+        // If mobile, we didn't animate description, so adjust offset
+        isDesktop ? '-=0.5' : '-=0.8'
+      );
+
+      // --- IMAGE ---
+      tl.fromTo(
         imageRef.current,
         { opacity: 0, scale: 0.9, x: 50 },
         { opacity: 1, scale: 1, x: 0, duration: 1.2 },
         '-=1'
       );
 
-    if (circularBtnRef.current) {
-      gsap.to(circularBtnRef.current.querySelector('svg'), {
-        rotation: 360,
-        duration: 10,
-        repeat: -1,
-        ease: 'none',
-      });
-    }
+      // Handle the Circular Button Rotation (Keep for both)
+      if (circularBtnRef.current) {
+        gsap.to(circularBtnRef.current.querySelector('svg'), {
+          rotation: 360,
+          duration: 10,
+          repeat: -1,
+          ease: 'none',
+        });
+      }
+    });
+
+    // Clean up when component unmounts
+    return () => mm.revert();
   }, []);
 
   // Attention-grabbing animation for Connect With Us button after 3 seconds
@@ -302,7 +332,7 @@ const Hero = () => {
             <Col lg={5}>
               <div ref={imageRef} className={styles.heroImageContainer}>
                 <img
-                  src={hero3dHead}
+                  src={isMobile ? hero3dHeadMobile : hero3dHeadDesktop}
                   alt="3D Head Model"
                   className={styles.heroImage}
                   width="400"

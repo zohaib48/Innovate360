@@ -53,165 +53,86 @@ export default function CalWidget2({ id = 'cal-widget' }) {
         }
     };
 
-    // 1. Handle Cal.com Embed Script
+    // 1. Handle Cal.com Embed Script - Lazy Load
     useEffect(() => {
-        (function (C, A, L) {
-            let p = function (a, ar) {
-                a.q.push(ar);
-            };
-            let d = C.document;
-            C.Cal =
-                C.Cal ||
-                function () {
-                    let cal = C.Cal;
-                    let ar = arguments;
-                    if (!cal.loaded) {
-                        cal.ns = {};
-                        cal.q = cal.q || [];
-                        d.head.appendChild(d.createElement('script')).src = A;
-                        cal.loaded = true;
-                    }
-                    if (ar[0] === L) {
-                        const api = function () {
-                            p(api, arguments);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    (function (C, A, L) {
+                        let p = function (a, ar) {
+                            a.q.push(ar);
                         };
-                        const namespace = ar[1];
-                        api.q = api.q || [];
-                        if (typeof namespace === 'string') {
-                            cal.ns[namespace] = cal.ns[namespace] || api;
-                            p(cal.ns[namespace], ar);
-                            p(cal, ['initNamespace', namespace]);
-                        } else p(cal, ar);
-                        return;
-                    }
-                    p(cal, ar);
-                };
-        })(window, 'https://app.cal.com/embed/embed.js', 'init');
-
-        // Initialize Cal
-        window.Cal('init', 'metting', {
-            origin: 'https://app.cal.com',
-            // Add configuration to make the iframe more mobile-friendly
-            config: {
-                layout: 'month_view',
-                theme: 'light',
-                isMobile: window.innerWidth <= 768,
-            },
-        });
-
-        // Configure Inline Embed
-        window.Cal.ns.metting('inline', {
-            elementOrSelector: '#my-cal-inline-metting',
-            config: {
-                layout: 'month_view',
-                theme: 'light',
-                isMobile: window.innerWidth <= 768,
-            },
-            calLink: 'zohaib-shafique-mql6e9/metting',
-        });
-
-        // UI Configuration
-        window.Cal.ns.metting('ui', {
-            theme: 'light',
-            hideEventTypeDetails: true,
-            layout: 'month_view',
-        });
-
-        // Add event listener to handle iframe scroll events
-        const checkIframe = setInterval(() => {
-            const iframe = document.querySelector('#my-cal-inline-metting iframe');
-            if (iframe) {
-                clearInterval(checkIframe);
-
-                // Set iframe styles for better scrolling
-                iframe.style.overflowY = 'scroll';
-                iframe.style.display = 'block';
-                iframe.style.minHeight = '500px';
-
-                // Add scroll event listener to the iframe
-                const setupIframe = () => {
-                    try {
-                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                        const iframeBody = iframeDoc.body;
-                        const iframeHtml = iframeDoc.documentElement;
-
-                        // Add scroll event listener
-                        iframeDoc.addEventListener('scroll', () => handleIframeScroll(iframe));
-
-                        // Variables to track touch state
-                        let touchStartY = 0;
-                        let iframeScrollTop = 0;
-
-                        // Handle touchstart to record initial positions
-                        iframeDoc.addEventListener(
-                            'touchstart',
-                            (e) => {
-                                touchStartY = e.touches[0].clientY;
-                                iframeScrollTop = iframeHtml.scrollTop || iframeBody.scrollTop;
-                            },
-                            { passive: true }
-                        );
-
-                        // Handle touchmove to control scroll behavior
-                        iframeDoc.addEventListener(
-                            'touchmove',
-                            (e) => {
-                                const touchY = e.touches[0].clientY;
-                                const touchDeltaY = touchY - touchStartY;
-
-                                const { isAtBottom, isAtTop } = handleIframeScroll(iframe);
-
-                                // If scrolling down and at bottom, allow page scroll
-                                if (touchDeltaY < 0 && isAtBottom) {
-                                    // User is trying to scroll down and iframe is at bottom
-                                    // Allow the event to propagate to parent
+                        let d = C.document;
+                        C.Cal =
+                            C.Cal ||
+                            function () {
+                                let cal = C.Cal;
+                                let ar = arguments;
+                                if (!cal.loaded) {
+                                    cal.ns = {};
+                                    cal.q = cal.q || [];
+                                    d.head.appendChild(d.createElement('script')).src = A;
+                                    cal.loaded = true;
+                                }
+                                if (ar[0] === L) {
+                                    const api = function () {
+                                        p(api, arguments);
+                                    };
+                                    const namespace = ar[1];
+                                    api.q = api.q || [];
+                                    if (typeof namespace === 'string') {
+                                        cal.ns[namespace] = cal.ns[namespace] || api;
+                                        p(cal.ns[namespace], ar);
+                                        p(cal, ['initNamespace', namespace]);
+                                    } else p(cal, ar);
                                     return;
                                 }
+                                p(cal, ar);
+                            };
+                    })(window, 'https://app.cal.com/embed/embed.js', 'init');
 
-                                // If scrolling up and at top, allow page scroll
-                                if (touchDeltaY > 0 && isAtTop) {
-                                    // User is trying to scroll up and iframe is at top
-                                    // Allow the event to propagate to parent
-                                    return;
-                                }
+                    // Initialize Cal
+                    window.Cal('init', 'metting', {
+                        origin: 'https://app.cal.com',
+                        // Add configuration to make the iframe more mobile-friendly
+                        config: {
+                            layout: 'month_view',
+                            theme: 'light',
+                            isMobile: window.innerWidth <= 768,
+                        },
+                    });
 
-                                // Otherwise, prevent the event from bubbling to prevent page scroll
-                                e.stopPropagation();
-                            },
-                            { passive: true }
-                        );
-                    } catch (e) {
-                        console.warn('Could not access iframe document:', e);
-                    }
-                };
+                    // Configure Inline Embed
+                    window.Cal.ns.metting('inline', {
+                        elementOrSelector: '#my-cal-inline-metting',
+                        config: {
+                            layout: 'month_view',
+                            theme: 'light',
+                            isMobile: window.innerWidth <= 768,
+                        },
+                        calLink: 'zohaib-shafique-mql6e9/metting',
+                    });
 
-                // Setup iframe when it loads
-                if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-                    setupIframe();
-                } else {
-                    iframe.addEventListener('load', setupIframe);
+                    // UI Configuration
+                    window.Cal.ns.metting('ui', {
+                        theme: 'light',
+                        hideEventTypeDetails: true,
+                        layout: 'month_view',
+                    });
+
+                    observer.disconnect();
                 }
-            }
-        }, 500);
+            },
+            { rootMargin: '200px' }
+        );
 
-        return () => {
-            clearInterval(checkIframe);
-            const iframe = document.querySelector('#my-cal-inline-metting iframe');
-            if (iframe) {
-                try {
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    if (iframeDoc) {
-                        // Remove event listeners
-                        iframeDoc.removeEventListener('scroll', () => handleIframeScroll(iframe));
-                        iframeDoc.removeEventListener('touchstart', null);
-                        iframeDoc.removeEventListener('touchmove', null);
-                    }
-                } catch (e) {
-                    console.warn('Could not remove iframe event listener:', e);
-                }
-            }
-        };
-    }, []);
+        const widget = document.getElementById(id);
+        if (widget) {
+            observer.observe(widget);
+        }
+
+        return () => observer.disconnect();
+    }, [id]);
 
     useEffect(() => {
         if (leftColumnRef.current && rightColumnRef.current) {

@@ -8,30 +8,6 @@
 
 @font-face {
   font-family: 'Noyh';
-  src: url('./fonts/NoyhGeometricSlimThin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/NoyhGeometricSlimLight.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/NoyhGeometricSlimLight.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noyh';
   src: url('./fonts/NoyhGeometricSlimRegular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
@@ -70,13 +46,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Noyh';
-  src: url('./fonts/NoyhGeometricSlimBlack.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 html {
   overflow-x: hidden;

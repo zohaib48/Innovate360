@@ -341,15 +341,19 @@ const Hero = () => {
 
             <Col lg={5}>
               <div ref={imageRef} className={styles.heroImageContainer}>
-                <img
-                  src={isMobile ? hero3dHeadMobile : hero3dHeadDesktop}
-                  alt="3D Head Model"
-                  className={styles.heroImage}
-                  width="400"
-                  height="406"
-                  fetchPriority="high"
-                  loading="eager"
-                />
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={hero3dHeadMobile} />
+                  <source media="(min-width: 768px)" srcSet={hero3dHeadDesktop} />
+                  <img
+                    src={hero3dHeadDesktop}
+                    alt="3D Head Model"
+                    className={styles.heroImage}
+                    width="400"
+                    height="406"
+                    fetchPriority="high"
+                    loading="eager"
+                  />
+                </picture>
               </div>
             </Col>
           </Row>

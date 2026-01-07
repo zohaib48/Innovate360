@@ -21,21 +21,21 @@ const ParticlesBackground = ({ containerRef }) => {
                 initParticles();
                 return;
             }
-            
+
             const container = containerRef.current;
             const rect = container.getBoundingClientRect();
-            
+
             // Set canvas to match container size
             canvas.width = rect.width;
             canvas.height = rect.height;
-            
+
             // Position the canvas absolutely within its container
             canvas.style.position = 'absolute';
             canvas.style.top = '0';
             canvas.style.left = '0';
             canvas.style.width = '100%';
             canvas.style.height = '100%';
-            
+
             initParticles();
         };
 
@@ -82,7 +82,8 @@ const ParticlesBackground = ({ containerRef }) => {
         const initParticles = () => {
             particles = [];
             const area = Math.max(1, canvas.width * canvas.height);
-            const numberOfParticles = Math.max(60, Math.floor(area / 9000));
+            // Reduced density (increased divisor from 9000 to 18000) to improve performance
+            const numberOfParticles = Math.max(40, Math.floor(area / 18000));
             for (let i = 0; i < numberOfParticles; i++) {
                 particles.push(new Particle());
             }
@@ -90,53 +91,41 @@ const ParticlesBackground = ({ containerRef }) => {
 
         // Connect particles with lines
         const connectParticles = () => {
-            // Connect particles to each other
+            const maxDistance = 120; // Slightly reduced connection distance
+
             for (let i = 0; i < particles.length; i++) {
-                // Draw connections to nearby particles
-                const connections = [];
-                for (let j = 0; j < particles.length; j++) {
+                // Optimization: Draw connections directly without sorting
+                // This removes array allocation and sorting overhead per particle
+                for (let j = i; j < particles.length; j++) {
                     if (i === j) continue;
-                    
+
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
+
+                    // Optimization: Check bounding box first to avoid sqrt
+                    if (Math.abs(dx) > maxDistance || Math.abs(dy) > maxDistance) continue;
+
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 150) {
-                        connections.push({
-                            x: particles[j].x,
-                            y: particles[j].y,
-                            distance: distance
-                        });
+
+                    if (distance < maxDistance) {
+                        const opacity = 1 - (distance / maxDistance);
+
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.5})`;
+                        ctx.lineWidth = 0.5 + (opacity * 0.5);
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
                     }
-                }
-               
-                connections.sort((a, b) => a.distance - b.distance);
-                
-             
-                for (let j = 0; j < Math.min(3, connections.length); j++) {
-                    const target = connections[j];
-                    const opacity = 1 - (target.distance / 150);
-                    
-                   
-                    const gradient = ctx.createLinearGradient(
-                        particles[i].x, particles[i].y,
-                        target.x, target.y
-                    );
-                    gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.5})`);
-                    gradient.addColorStop(1, `rgba(255, 255, 255, ${opacity * 0.8})`);
-                    
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 0.5 + (opacity * 0.5);
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(target.x, target.y);
-                    ctx.stroke();
                 }
 
                 // Connect to mouse
                 if (mouse.x !== null && mouse.y !== null) {
                     const dx = particles[i].x - mouse.x;
                     const dy = particles[i].y - mouse.y;
+                    // Quick check
+                    if (Math.abs(dx) > mouse.radius || Math.abs(dy) > mouse.radius) continue;
+
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < mouse.radius) {
@@ -229,16 +218,16 @@ const ParticlesBackground = ({ containerRef }) => {
         const init = () => {
             resizeCanvas();
             animate();
-            
+
             // Add resize observer to handle container size changes
             const resizeObserver = new ResizeObserver(() => {
                 resizeCanvas();
             });
-            
+
             if (containerRef.current) {
                 resizeObserver.observe(containerRef.current);
             }
-            
+
             return () => {
                 if (containerRef.current) {
                     resizeObserver.unobserve(containerRef.current);
@@ -246,7 +235,7 @@ const ParticlesBackground = ({ containerRef }) => {
                 cancelAnimationFrame(animationFrameId);
             };
         };
-        
+
         const cleanup = init();
 
         // Event listeners (use pointer events for broader support)

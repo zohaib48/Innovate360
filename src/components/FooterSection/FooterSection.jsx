@@ -112,7 +112,7 @@ const FooterSection = ({ showCalWidget2 }) => {
             <div className="footer-links-container">
               {/* Service Links */}
               <div className="footer-col text-uppercase">
-                <h4 className="footer-heading">SERVICE</h4>
+                <h3 className="footer-heading">SERVICE</h3>
                 <ul className="footer-links">
                   <li>
                     <a href="#">Web Design</a>
@@ -131,7 +131,7 @@ const FooterSection = ({ showCalWidget2 }) => {
 
               {/* Company Links */}
               <div className="footer-col text-uppercase">
-                <h4 className="footer-heading">COMPANY</h4>
+                <h3 className="footer-heading">COMPANY</h3>
                 <ul className="footer-links">
                   <li>
                     <a href="/#team">Team</a>
@@ -152,7 +152,7 @@ const FooterSection = ({ showCalWidget2 }) => {
 
             {/* Address */}
             <div className="footer-col text-uppercase">
-              <h4 className="footer-heading">ADDRESS</h4>
+              <h3 className="footer-heading">ADDRESS</h3>
               <div className="footer-address">
                 <a href="#" className="address-link">
                   1772 Street charleston,
@@ -171,7 +171,7 @@ const FooterSection = ({ showCalWidget2 }) => {
           <div className="footer-bottom">
             <p className="copyright">© 2025 INNOVATE360</p>
 
-            <button className="scroll-top-btn" onClick={scrollToTop}>
+            <button className="scroll-top-btn" onClick={scrollToTop} aria-label="Scroll to top">
               <svg
                 width="14"
                 height="14"

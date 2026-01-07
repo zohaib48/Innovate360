@@ -74,7 +74,7 @@
   font-family: 'Noyh';
   font-size: 22px;
   line-height: 1.7;
-  color: rgba(18, 18, 18, 0.7);
+  color: rgba(18, 18, 18, 0.9);
   margin-bottom: 32px;
   max-width: 540px;
 }
@@ -96,7 +96,7 @@
   display: block;
   font-family: 'Noyh';
   font-size: 20px;
-  color: #92ba00;
+  color: #506600;
 }
 
 .testimonial-nav {

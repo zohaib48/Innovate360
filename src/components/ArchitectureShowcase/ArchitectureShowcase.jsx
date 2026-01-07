@@ -282,6 +282,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ backgroundColor: item.linkColor }}
+                  aria-label={`Learn more about ${item.title}`}
                 >
                   <LeafIcon /> <span>Learn More</span>
                 </a>

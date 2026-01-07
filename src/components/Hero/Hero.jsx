@@ -155,13 +155,23 @@ const Hero = () => {
         isDesktop ? '-=0.5' : '-=0.8'
       );
 
+
       // --- IMAGE ---
-      tl.fromTo(
-        imageRef.current,
-        { opacity: 0, scale: 0.9, x: 50 },
-        { opacity: 1, scale: 1, x: 0, duration: 1.2 },
-        '-=1'
-      );
+
+      if (isDesktop) {
+        // ONLY animate opacity on Desktop
+        tl.fromTo(
+          imageRef.current,
+          { opacity: 0, scale: 0.9, x: 50 },
+          { opacity: 1, scale: 1, x: 0, duration: 1.2 },
+          '-=1'
+        );
+      } else {
+        // On Mobile: Ensure it is visible IMMEDIATELY. 
+        // We set it effectively to the "end" state instantly.
+        gsap.set(imageRef.current, { opacity: 1, scale: 1, x: 0 });
+      }
+
 
       // Handle the Circular Button Rotation (Keep for both)
       if (circularBtnRef.current) {

@@ -5,8 +5,8 @@ import Lenis from "lenis";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ArchitectureShowcase.css";
 
-import porscheClubDesktop from '../../assets/images/projects/porsche-club-d.png';
-import porscheClubMobile from '../../assets/images/projects/porsche-club-m.png';
+import porscheClubDesktop from '../../assets/images/projects/porsche-club-d.webp';
+import porscheClubMobile from '../../assets/images/projects/porsche-club-m.webp';
 import realityFashion from '../../assets/images/projects/reality-fashion.png';
 import dolcis from '../../assets/images/projects/dolcis.png';
 import pebbles from '../../assets/images/projects/pebbles.png';
@@ -117,33 +117,44 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
     // Mobile layout handler
     const handleMobileLayout = () => {
-      const isMobileView = window.matchMedia("(max-width: 768px)").matches;
-      setIsMobile(isMobileView);
+      // Use requestAnimationFrame to batch DOM reads/writes
+      requestAnimationFrame(() => {
+        const isMobileView = window.matchMedia("(max-width: 768px)").matches;
 
-      const leftItems = gsap.utils.toArray(".arch__left .arch__info");
-      const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
+        // Avoid repeated DOM queries if possible, but here we need to ensure we have the latest elements.
+        // If the DOM structure is static, these could be cached in a Ref or outside the function.
+        // Assuming the list of items is stable after mount:
+        const leftItems = document.querySelectorAll(".arch__left .arch__info");
+        const rightItems = document.querySelectorAll(".arch__right .img-wrapper");
 
-      if (isMobileView) {
-        leftItems.forEach((item, i) => {
-          item.style.order = String(i * 2);
-        });
-        rightItems.forEach((item, i) => {
-          item.style.order = String(i * 2 + 1);
-        });
-      } else {
-        leftItems.forEach((item) => {
-          item.style.order = "";
-        });
-        rightItems.forEach((item) => {
-          item.style.order = "";
-        });
-      }
+        setIsMobile(isMobileView);
+
+        if (isMobileView) {
+          leftItems.forEach((item, i) => {
+            // Direct style manipulation
+            item.style.order = String(i * 2);
+          });
+          rightItems.forEach((item, i) => {
+            item.style.order = String(i * 2 + 1);
+          });
+        } else {
+          // Reset order - only do this if it was previously set, 
+          // but iterating is generally fast enough if count is low.
+          leftItems.forEach((item) => {
+            item.style.order = "";
+          });
+          rightItems.forEach((item) => {
+            item.style.order = "";
+          });
+        }
+      });
     };
 
     let resizeTimeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(handleMobileLayout, 100);
+      // Debounce resize events
+      resizeTimeout = setTimeout(handleMobileLayout, 150);
     };
 
     window.addEventListener("resize", handleResize);
@@ -284,7 +295,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
                   style={{ backgroundColor: item.linkColor }}
                   aria-label={`Learn more about ${item.title}`}
                 >
-                  <LeafIcon /> <span>Learn More</span>
+                  <LeafIcon /> <span>Learn More <span className="visually-hidden">about {item.title}</span></span>
                 </a>
               </div>
             </div>

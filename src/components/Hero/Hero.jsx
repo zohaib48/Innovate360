@@ -4,8 +4,8 @@ import ParticlesBackground from '../ParticlesBackground/ParticlesBackground';
 import { Col, Container, Row, Modal } from 'react-bootstrap';
 import styles from './Hero.module.css';
 import NavbarComponent from '../NavbarComponent/NavbarComponent';
-import hero3dHeadDesktop from '../../assets/images/hero-3d-head.png';
-import hero3dHeadMobile from '../../assets/images/hero-3d-head-m.png';
+import hero3dHeadDesktop from '../../assets/images/hero-3d-head.webp';
+import hero3dHeadMobile from '../../assets/images/hero-3d-head-m.webp';
 const Hero = () => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);

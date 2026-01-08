@@ -101,9 +101,10 @@
   display: block;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 700px) {
   .arch {
     gap: 30px;
+    padding: 70px;
   }
 }
 

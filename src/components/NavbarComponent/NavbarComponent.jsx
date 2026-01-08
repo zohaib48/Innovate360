@@ -85,7 +85,8 @@ export const NavbarComponent = () => {
           style={{
             justifyContent: 'flex-end',
             backgroundColor: 'transparent',
-            transition: 'max-height 0.3s ease-in-out'
+            transition: 'max-height 0.3s ease-in-out',
+            whiteSpace: 'nowrap',
           }}
         >
           <Nav className="text-center" style={{ textTransform: 'uppercase' }}>

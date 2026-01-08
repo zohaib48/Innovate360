@@ -153,12 +153,12 @@ const DigitalSolutionsGrid = () => {
                             ref={(el) => (cardsRef.current[index] = el)}
                         >
                             <div className="service-icon-wrapper flex-shrink-0">
-                                <span className="service-icon">{service.icon}</span>
+                                <span className="card-icon">{service.icon}</span>
                             </div>
-                            <div className="service-content flex-grow-1">
-                                <h3 className="service-title text-uppercase mb-3">{service.title}</h3>
-                                <p className="service-description mb-3">{service.description}</p>
-                                <a href="#" className="service-link text-decoration-none d-inline-flex align-items-center gap-2">
+                            <div className="card-content flex-grow-1">
+                                <h3 className="card-title text-uppercase mb-3">{service.title}</h3>
+                                <p className="card-description mb-3">{service.description}</p>
+                                <a href="#" className="card-link text-decoration-none d-inline-flex align-items-center gap-2">
                                     View Details
                                     <span className="arrow-circle">→</span>
                                 </a>

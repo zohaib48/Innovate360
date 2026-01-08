@@ -35,6 +35,6 @@ jobs:
           # ----------------------------------------------------------
           local-dir: ./dist/ 
           # This puts files directly into your public folder
-          server-dir: ./public_html/ 
+          server-dir: /public_html/ 
           # This helps prevent caching issues by deleting old files
           dangerous-clean-slate: true

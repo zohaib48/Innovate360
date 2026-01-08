@@ -101,12 +101,6 @@
   display: block;
 }
 
-@media (min-width: 700px) {
-  .arch {
-    gap: 30px;
-    padding: 70px;
-  }
-}
 
 @media (min-width: 1600px) {
   .arch__right .img-wrapper {
@@ -141,6 +135,7 @@
   .arch {
     flex-direction: column;
     gap: 20px;
+    padding: 70px;
     max-width: 100%;
     overflow-x: hidden;
     width: 100%;

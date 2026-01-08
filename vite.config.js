@@ -26,6 +26,7 @@ export default defineConfig({
       },
     }),
   ],
+  publicDir: 'public', // Make sure Vite copies files from public folder
   build: {
     cssCodeSplit: true,
     rollupOptions: {

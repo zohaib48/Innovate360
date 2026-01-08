@@ -1,0 +1,40 @@
+name: Deploy React to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Or 'master', depending on your default branch name
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🏗️ Build Project
+        run: npm run build
+
+      - name: 📂 Sync files to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # ----------------------------------------------------------
+          # IMPORTANT: Change 'dist' to 'build' if using Create-React-App
+          # ----------------------------------------------------------
+          local-dir: ./dist/ 
+          # This puts files directly into your public folder
+          server-dir: ./public_html/ 
+          # This helps prevent caching issues by deleting old files
+          dangerous-clean-slate: true

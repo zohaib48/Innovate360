@@ -3,12 +3,13 @@ name: Deploy React to Hostinger
 on:
   push:
     branches:
-      - main  # Or 'master', depending on your default branch name
+      - main
 
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -30,11 +31,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # ----------------------------------------------------------
-          # IMPORTANT: Change 'dist' to 'build' if using Create-React-App
-          # ----------------------------------------------------------
-          local-dir: ./dist/ 
-          # This puts files directly into your public folder
-          server-dir: / 
-          # This helps prevent caching issues by deleting old files
+          local-dir: ./dist/
+          server-dir: /domains/innovate360.us/  # Changed to your domain folder
           dangerous-clean-slate: true

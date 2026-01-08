@@ -111,7 +111,7 @@ const ServicesBanner = () => {
                         <span className="label-text-s">OUR SERVICES</span>
                     </div>
                     <h2 ref={titleRef} className="services-banner-title">
-                        ELEVATE YOUR BRAND WITH
+                        ELEVATE YOUR BRAND WIT
 
                         OUR EXPERT DIGITAL BLEND
 

@@ -66,7 +66,10 @@ const ProjectsSection = () => {
         <div className="projects-wrapper">
           {/* Left Side */}
           <div className="projects-left" ref={leftRef}>
-            <SectionLabel text="ABOUT INNOVATE360!" />
+            <SectionLabel
+              text="ABOUT INNOVATE360!"
+              customStyle={typeof window !== 'undefined' && window.innerWidth <= 768 ? { justifyContent: 'center' } : {}}
+            />
             <h2 className="projects-title">
               RECENTLY
               <br />

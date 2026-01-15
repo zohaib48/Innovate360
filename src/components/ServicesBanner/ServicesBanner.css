@@ -98,20 +98,7 @@
      flex-shrink: 0;
  }
 
- .label-line {
-     width: 40px;
-     height: 1px;
-     background-color: #121212;
- }
 
- .label-text {
-     font-family: 'Noyh';
-     font-size: 18px;
-     font-weight: 600;
-     color: #666;
-     letter-spacing: 2px;
-     white-space: nowrap;
- }
 
  /* Title */
  .services-banner-title {

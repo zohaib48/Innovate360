@@ -84,7 +84,7 @@ const FooterSection = ({ showCalWidget2 }) => {
             `url(${footerBg})`,
         }}
       >
-        <div style={{ padding: '3% 8%', paddingBottom: '0' }}>
+        <div style={{ padding: '3% 3%', paddingBottom: '0' }}>
           <div className="footer-grid">
             {/* Logo */}
             <div className="footer-logo-col">
@@ -148,28 +148,29 @@ const FooterSection = ({ showCalWidget2 }) => {
 
                 </ul>
               </div>
-            </div>
-
-            {/* Address */}
-            <div className="footer-col text-uppercase">
-              <h3 className="footer-heading">ADDRESS</h3>
-              <div className="footer-address">
-                <a href="#" className="address-link">
+              <div className="footer-col text-uppercase">
+                <h3 className="footer-heading">ADDRESS</h3>
+                <div className="footer-address">
+                  {/* <a href="#" className="address-link">
                   1772 Street charleston,
                   <br />
                   New York
-                </a>
-                <p className="address-phone">+1 (804) 404-2457</p>
-                <a href="mailto:info@innovate360.us" className="address-email">
-                  info@innovate360.us
-                </a>
+                </a> */}
+                  <p className="address-phone">+1 (804) 404-2457</p>
+                  <a href="mailto:info@innovate360.us" className="address-email">
+                    info@innovate360.us
+                  </a>
+                </div>
               </div>
             </div>
+
+            {/* Address */}
+
           </div>
 
           {/* Copyright Bar */}
           <div className="footer-bottom">
-            <p className="copyright">© 2025 INNOVATE360</p>
+            <p className="copyright" >© 2025 INNOVATE360</p>
 
             <button className="scroll-top-btn" onClick={scrollToTop} aria-label="Scroll to top">
               <svg
@@ -190,7 +191,7 @@ const FooterSection = ({ showCalWidget2 }) => {
             </button>
 
             <div className="social-links">
-              <a href="#">Facebook</a>
+              <a href="https://www.facebook.com/profile.php?id=61556300186224" target="_blank">Facebook</a>
               <span>|</span>
               <a href="#">LinkedIn</a>
               {/* <span>|</span>

@@ -67,7 +67,11 @@ const FloatingBookingButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setShowFloatingButton(scrollPosition > 600);
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const isBottom = windowHeight + scrollPosition >= documentHeight - 100;
+
+      setShowFloatingButton(scrollPosition > 600 && !isBottom);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -159,49 +163,6 @@ const FloatingBookingButton = () => {
         </svg>
         <span>CONNECT WITH US</span>
       </div>
-
-      <Modal
-        show={isModalOpen}
-        onHide={() => setIsModalOpen(false)}
-        size="xl"
-        centered
-        style={{ zIndex: 2000 }}
-        className={styles.bookingModal}
-        contentClassName={styles.modalContentCustom}
-        scrollable
-      >
-        <Modal.Header
-          closeButton
-          className={`border-0 pb-3 px-4 ${styles.modalHeader}`}
-          closeVariant="white"
-          closeStyle={{
-            filter: 'invert(1) grayscale(1) brightness(2)',
-            opacity: 0.8,
-            transition: 'opacity 0.2s ease',
-            width: '1.5rem',
-            height: '1.5rem',
-            backgroundSize: '1.25rem',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e\")",
-          }}
-        >
-          <Modal.Title className="w-100">
-            <p className={`text-center mb-0 ${styles.modalSubtitle}`}>
-              Choose a time that works best for you
-            </p>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className={styles.modalBodyCustom}>
-          <div className={styles.calendarContainer}>
-            <div
-              id="my-cal-inline-metting"
-              style={{ width: '100%', height: '100%', minHeight: '400px', overflow: 'scroll' }}
-            ></div>
-          </div>
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

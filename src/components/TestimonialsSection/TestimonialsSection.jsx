@@ -26,11 +26,11 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "SARAH WILLIAMS",
+    name: "CHARLES WILLIAMS",
     title: "Marketing Director at Innovate Co",
     headline: "OUTSTANDING RESULTS.",
     quote: "From start to finish, the experience was seamless. Their attention to detail and commitment to excellence made all the difference. I highly recommend their services to anyone looking for top tier solutions.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face",
+    image: "https://i.pinimg.com/1200x/4b/7e/39/4b7e3940db1458e9a2719a04ca8ea2b6.jpg",
     rating: 5
   }
 ];

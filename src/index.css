@@ -164,3 +164,59 @@ code {
     padding-bottom: 0.5rem;
   }
 }
+
+/* Global Section Label Styles */
+.section-label-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.section-label-group.center {
+  justify-content: center;
+}
+
+.section-label-group .label-line {
+  width: 40px;
+  height: 1px;
+  background-color: #121212;
+}
+
+.section-label-group .label-text {
+  font-family: 'Noyh';
+  font-size: 18px;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Rotating star animation */
+.rotating-star {
+  animation: rotate-star 10s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes rotate-star {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .section-label-group .label-text {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+
+  .section-label-group .label-line {
+    width: 30px;
+  }
+}

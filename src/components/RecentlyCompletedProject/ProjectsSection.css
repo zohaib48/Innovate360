@@ -22,26 +22,7 @@
   max-width: 500px;
 }
 
-.projects-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
 
-.label-line {
-  width: 40px;
-  height: 1px;
-  background-color: #121212;
-}
-
-.label-text {
-  font-family: 'Noyh';
-  font-size: 18px;
-  font-weight: 600;
-  color: #666;
-  letter-spacing: 2px;
-}
 
 .projects-title {
   font-family: 'Noyh';
@@ -77,6 +58,7 @@
   height: 60%;
   background-color: #b8b8b8;
 }
+
 
 .line-horizontal {
   position: absolute;

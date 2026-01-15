@@ -9,33 +9,14 @@
     padding: 0 50px;
 }
 
+
 /* Header */
 .solutions-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
-.solutions-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 24px;
-}
 
-.solutions-label .label-line {
-    width: 40px;
-    height: 1px;
-    background-color: #121212;
-}
-
-.solutions-label .label-text {
-    font-family: 'Noyh';
-    font-size: 14px;
-    font-weight: 600;
-    color: #666;
-    letter-spacing: 1.5px;
-}
 
 .solutions-title {
     font-family: 'Noyh';
@@ -125,20 +106,7 @@
 }
 
 
-/* Rotating star animation */
-.rotating-star {
-    animation: rotate-star 3s linear infinite;
-}
 
-@keyframes rotate-star {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 .card-content {
     flex: 1;

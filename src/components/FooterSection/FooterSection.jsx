@@ -149,7 +149,7 @@ const FooterSection = ({ showCalWidget2 }) => {
                 </ul>
               </div>
               <div className="footer-col text-uppercase">
-                <h3 className="footer-heading">ADDRESS</h3>
+                <h3 className="footer-heading">CONTACT</h3>
                 <div className="footer-address">
                   {/* <a href="#" className="address-link">
                   1772 Street charleston,

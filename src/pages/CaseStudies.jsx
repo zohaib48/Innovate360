@@ -219,7 +219,7 @@ const CaseStudiesPage = () => {
                 <section ref={expertiseRef} className="expertise-section">
                     <div className="container">
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <SectionLabel text="OUR AREA OF EXPERTISE" CustomStyleText={{ fontSize: "34px" }} />
+                            <SectionLabel text="OUR AREA OF EXPERTISE" CustomStyleText={{ fontSize: "28px" }} />
                         </div>
                         <p className="expertise-subtitle">
                             With expertise in Digital, Engineering and Cloud, we deliver solutions that fulfil the traditional,

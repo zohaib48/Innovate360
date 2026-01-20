@@ -115,7 +115,7 @@ const AboutSection = () => {
           <div className="col-12 col-lg-4" ref={rightSectionRef}>
             <div className="d-flex flex-column gap-4">
               <p className="text-dark lead text-muted des">
-                Welcome to Innovate360 agency committed to transforming ideas into
+                Welcome to Innovate360 company committed to transforming ideas into
                 impactful digital experiences. Our passionate team of designers,
                 developers, and strategists works collaboratively to deliver
                 tailored solutions that drive results and elevate your brand.

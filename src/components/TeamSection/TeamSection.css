@@ -156,11 +156,11 @@
   }
 
   .member-name {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .member-role {
-    font-size: 13px;
+    font-size: 18px;
   }
 }
 
@@ -188,6 +188,6 @@
   }
 
   .member-role {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

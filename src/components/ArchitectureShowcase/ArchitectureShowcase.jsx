@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ArchitectureShowcase.css";
+import ArchitectureShowcaseMobile from "./ArchitectureShowcaseMobile";
 
+// ... (existing imports and constants remain the same)
 import porscheClubDesktop from '../../assets/images/projects/porsche-club-d.webp';
 import porscheClubMobile from '../../assets/images/projects/porsche-club-m.webp';
 import realityFashion from '../../assets/images/projects/reality-fashion.png';
@@ -39,7 +41,7 @@ const archData = [
     imageAlt: "Reality Fashion Website",
   },
   {
-    id: "blue-arch",
+    id: "dolcis-arch",
     title: "Dolcis",
     description:
       "We developed the Dolcis Shopify website with custom theme design and in-house product photography, delivering a polished, user-friendly showcase for shoes and accessories.",
@@ -49,7 +51,7 @@ const archData = [
     imageAlt: "Dolcis Website",
   },
   {
-    id: "blue-arch",
+    id: "pebbles-arch",
     title: "Pebbles",
     description:
       "We developed a clean, user-friendly e-commerce website for Pebbles, showcasing stylish clothing for boys, girls, and infants with smooth navigation, engaging visuals, and an optimized shopping experience across all devices.",
@@ -59,7 +61,7 @@ const archData = [
     imageAlt: "Pebbles Website",
   },
   {
-    id: "blue-arch",
+    id: "edens-arch",
     title: "Eden's Body",
     description:
       "We designed a clean, elegant Shopify store for Edens Cosmetics, highlighting organic beauty products with a soft visual aesthetic, intuitive navigation, and a seamless shopping experience optimized for all devices.",
@@ -68,6 +70,7 @@ const archData = [
     image: edensBody,
     imageAlt: "Eden's Body Website",
   },
+
 
 ];
 
@@ -88,7 +91,6 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
   const lenisRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
-
   useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -100,6 +102,8 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
     lenisRef.current = lenis;
 
     function raf(time) {
+      // Only run lenis on desktop if needed, or always. 
+      // If mobile component handles its own scroll, we might not need this on mobile, but keeping consistent is fine.
       lenis.raf(time);
       ScrollTrigger.update();
       requestAnimationFrame(raf);
@@ -115,45 +119,14 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
       }
     });
 
-    // Mobile layout handler
     const handleMobileLayout = () => {
-      // Use requestAnimationFrame to batch DOM reads/writes
-      requestAnimationFrame(() => {
-        const isMobileView = window.matchMedia("(max-width: 768px)").matches;
-
-        // Avoid repeated DOM queries if possible, but here we need to ensure we have the latest elements.
-        // If the DOM structure is static, these could be cached in a Ref or outside the function.
-        // Assuming the list of items is stable after mount:
-        const leftItems = document.querySelectorAll(".arch__left .arch__info");
-        const rightItems = document.querySelectorAll(".arch__right .img-wrapper");
-
-        setIsMobile(isMobileView);
-
-        if (isMobileView) {
-          leftItems.forEach((item, i) => {
-            // Direct style manipulation
-            item.style.order = String(i * 2);
-          });
-          rightItems.forEach((item, i) => {
-            item.style.order = String(i * 2 + 1);
-          });
-        } else {
-          // Reset order - only do this if it was previously set, 
-          // but iterating is generally fast enough if count is low.
-          leftItems.forEach((item) => {
-            item.style.order = "";
-          });
-          rightItems.forEach((item) => {
-            item.style.order = "";
-          });
-        }
-      });
+      const isMobileView = window.matchMedia("(max-width: 768px)").matches;
+      setIsMobile(isMobileView);
     };
 
     let resizeTimeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
-      // Debounce resize events
       resizeTimeout = setTimeout(handleMobileLayout, 150);
     };
 
@@ -162,7 +135,6 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
 
     const imgs = gsap.utils.toArray(".img-wrapper img");
 
-    // Cache layout values to prevent forced reflows
     const cacheImageHeights = () => {
       return imgs.map((img) => {
         const imgHeight = img.offsetHeight;
@@ -171,7 +143,6 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
       });
     };
 
-    // GSAP Animation with Media Query
     ScrollTrigger.matchMedia({
       "(min-width: 769px)": function () {
         const mainTimeline = gsap.timeline({
@@ -189,7 +160,6 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
           objectPosition: "0px 0%",
         });
 
-        // Cache heights once before animations
         const cachedHeights = cacheImageHeights();
 
         imgs.forEach((_, index) => {
@@ -232,41 +202,7 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
           mainTimeline.add(sectionTimeline);
         });
       },
-      "(max-width: 768px)": function () {
-        const mbTimeline = gsap.timeline();
-        gsap.set(imgs, {
-          objectPosition: "0px 60%",
-        });
-
-        // Cache heights once before animations
-        const cachedHeights = cacheImageHeights();
-
-        imgs.forEach((image, index) => {
-          const cached = cachedHeights[index];
-          const innerTimeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: image,
-              start: "top-=70% top+=50%",
-              end: "bottom+=200% bottom",
-              scrub: true,
-            },
-          });
-
-          innerTimeline
-            .to(image, {
-              y: cached.diff > 0 ? -cached.diff : 0,
-              duration: 5,
-              ease: "none",
-            })
-            .to("body", {
-              backgroundColor: bgColors[index],
-              duration: 1.5,
-              ease: "power2.inOut",
-            });
-
-          mbTimeline.add(innerTimeline);
-        });
-      },
+      // Mobile logic removed as we use a separate component
     });
 
     return () => {
@@ -275,6 +211,10 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+  if (isMobile) {
+    return <ArchitectureShowcaseMobile data={archData} />;
+  }
 
   return (
     <div ref={containerRef} className="arch-container" style={{ backgroundColor: backgroundColor ? backgroundColor : '  background-color: #F8F8F8' }}>
@@ -302,20 +242,17 @@ const ArchitectureShowcase = ({ backgroundColor }) => {
           ))}
         </div>
 
-        {/* UPDATED: Removed paddingTop from here */}
         <div className="arch__right">
           {archData.map((item, index) => (
             <div
               key={item.id}
-              // UPDATED: Changed 'mt-5' to 'mt-5 mt-md-0'
-              // This applies top margin on mobile, and removes it on desktop (md and up).
               className="img-wrapper mt-5 mt-md-0"
               data-index={archData.length - index}
             >
               <img
-                src={isMobile && item.mobileImage ? item.mobileImage : item.image}
+                src={item.image}
                 alt={item.imageAlt}
-                style={{ width: "100%", objectPosition: "0px 60%" }}
+                style={{ width: "100%", objectPosition: "0px 0%" }} // Reset object position for desktop
                 loading="lazy"
                 width="392"
                 height="216"

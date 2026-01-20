@@ -284,6 +284,11 @@
     padding: 40px 0;
   }
 
+  .agency-label {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
   .agency-grid {
     grid-template-columns: 1fr;
   }

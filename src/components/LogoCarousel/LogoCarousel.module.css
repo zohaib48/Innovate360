@@ -4,6 +4,8 @@
   position: relative;
   background: transparent;
   padding: 40px 0;
+  z-index: 20;
+  margin-top: 50px;
 }
 
 .logos {
@@ -53,12 +55,10 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
 }
 
 /* Pause animation on hover */
-.carouselWrapper:hover .logos {
-  animation-play-state: paused;
-}

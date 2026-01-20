@@ -157,7 +157,7 @@ const ServicesSection = () => {
     <section ref={sectionRef} className="services-section bg-white">
       <div className="container-fluid">
         <div className="row align-items-start g-5">
-          <div className="col-lg-4 col-md-12 mt-10" style={{ marginBottom: '1rem' }}>
+          <div className="col-xl-4 col-lg-12 mt-10" style={{ marginBottom: '1rem' }}>
             <h2
               ref={headingRef}
               className="services-heading mb-4 mt-3"
@@ -182,7 +182,7 @@ const ServicesSection = () => {
             </button>
           </div>
 
-          <div className="col-lg-8 col-md-12">
+          <div className="col-xl-8 col-lg-12">
             <div className="row g-4">
               {services.map((service, index) => (
                 <div

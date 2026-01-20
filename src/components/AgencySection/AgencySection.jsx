@@ -52,10 +52,10 @@ const AgencySection = () => {
   const [isInView, setIsInView] = useState(false);
 
   const stats = [
-    { number: "26", label: "YEARS OF AGENCY<br/>EXPERIENCE", filled: true, greenCorner: false },
+    { number: "26", label: "YEARS OF<br/>EXPERIENCE", filled: true, greenCorner: false },
     { number: "25", label: "EXPERIENCE<br/>ENGINEERING MEMBERS", filled: false, greenCorner: true },
     { number: "4K", label: "SUCCESSFULLY FINISHED<br/>PROJECT.", filled: false, greenCorner: false },
-    { number: "22", label: "GOOD AWARD WINING<br/>AGENCY", filled: false, greenCorner: false },
+    { number: "22", label: "GOOD AWARD WINING<br/>COMPANY", filled: false, greenCorner: false },
   ];
 
   useEffect(() => {
@@ -150,10 +150,10 @@ const AgencySection = () => {
           {/* Row 1: Title + 2 stat cards */}
           <div className="agency-header">
             <div className="agency-label">
-              <SectionLabel text="WHO WE ARE" />
+              <SectionLabel text="WHO WE ARE" CustomStyleText={{ fontSize: "18px" }} />
             </div>
             <h2 className="agency-title" ref={titleRef}>
-              OUR AGENCY
+              OUR COMPANY
               <br />
               KNOWS WORK
               <br />

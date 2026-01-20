@@ -9,7 +9,7 @@ const STAT_ITEMS = [
   {
     id: 'experience',
     value: 26,
-    label: 'YEARS OF AGENCY EXPERIENCE',
+    label: 'YEARS EXPERIENCE',
     format: 'plain'
   },
   {
@@ -17,19 +17,19 @@ const STAT_ITEMS = [
     value: 40,
     label: 'EXPERIENCE ENGINEERING MEMBERS',
     format: 'plus',
-    haveLetter:true
+    haveLetter: true
   },
   {
     id: 'projects',
     value: 2000,
     label: 'SUCCESSFULLY FINISHED PROJECT',
     format: 'kPlus',
-    haveLetter:true
+    haveLetter: true
   },
   {
     id: 'awards',
     value: 25,
-    label: 'GOOD AWARD WINING AGENCY',
+    label: 'GOOD AWARD WINING COMPANY',
     format: 'plain',
     accent: true
   }
@@ -53,12 +53,10 @@ const formatValue = (value, format) => {
 };
 
 const StatCard = ({ item, index, registerRef }) => {
-  const numberClass = `${styles.number} ${
-    item.haveLetter ? styles.numberHasLetter : styles.numberNoLetter
-  }`;
-  const labelClass = `${styles.label} ${
-    item.haveLetter ? styles.labelHasLetter : styles.labelNoLetter
-  }`;
+  const numberClass = `${styles.number} ${item.haveLetter ? styles.numberHasLetter : styles.numberNoLetter
+    }`;
+  const labelClass = `${styles.label} ${item.haveLetter ? styles.labelHasLetter : styles.labelNoLetter
+    }`;
 
   return (
     <article className={`${styles.card} ${item.accent ? styles.cardAccent : ''}`}>
@@ -140,39 +138,39 @@ const StatsSection = () => {
     <section className={styles.section}>
       <div className={styles.inner} ref={sectionRef}>
         <div className="row g-0 mb-0">
-           <div className="col-12 col-md-3 offset-md-3">
-              <StatCard
-                item={STAT_ITEMS[0]}
-                index={0}
+          <div className="col-12 col-md-3 offset-md-3">
+            <StatCard
+              item={STAT_ITEMS[0]}
+              index={0}
               registerRef={registerRef}
-              />
-           </div>
+            />
+          </div>
 
-           <div className="col-12 col-md-3 offset-md-3">
-              <StatCard
-                item={STAT_ITEMS[1]}
-                index={1}
+          <div className="col-12 col-md-3 offset-md-3">
+            <StatCard
+              item={STAT_ITEMS[1]}
+              index={1}
               registerRef={registerRef}
-              />
-           </div>
+            />
+          </div>
         </div>
 
         <div className="row g-0">
-           <div className="col-12 col-md-3">
-              <StatCard
-                item={STAT_ITEMS[2]}
-                index={2}
+          <div className="col-12 col-md-3">
+            <StatCard
+              item={STAT_ITEMS[2]}
+              index={2}
               registerRef={registerRef}
-              />
-           </div>
+            />
+          </div>
 
-           <div className="col-12 col-md-3 offset-md-3">
-              <StatCard
-                item={STAT_ITEMS[3]}
-                index={3}
+          <div className="col-12 col-md-3 offset-md-3">
+            <StatCard
+              item={STAT_ITEMS[3]}
+              index={3}
               registerRef={registerRef}
-              />
-           </div>
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,150 @@
+.arch-mobile-container {
+    width: 100%;
+    padding: 40px 0 60px;
+    /* Top padding and bottom padding for spacing */
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.arch-mobile-header {
+    padding: 0 20px;
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.arch-mobile-header h2 {
+    font-family: 'Noyh';
+    font-size: 58px;
+    font-weight: 500;
+    color: #121212;
+    margin: 0;
+}
+
+/* Slider Track */
+.arch-mobile-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px;
+    /* Side padding so first card is not edge-to-edge */
+    padding-bottom: 20px;
+    /* Space for shadows */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.arch-mobile-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Individual Card */
+.arch-mobile-card {
+    flex: 0 0 85vw;
+    /* Card width - peeks the next one */
+    scroll-snap-align: center;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.arch-mobile-card:active {
+    transform: scale(0.98);
+}
+
+.arch-mobile-image {
+    height: 240px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.arch-mobile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.arch-mobile-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.arch-mobile-title {
+    font-family: 'Noyh';
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: #121212;
+}
+
+.arch-mobile-desc {
+    font-family: 'Noyh';
+    font-size: 16px;
+    color: rgba(18, 18, 18, 0.7);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.arch-mobile-link {
+    margin-top: auto;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #121212;
+    font-family: 'Noyh';
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+}
+
+.arch-mobile-link:hover {
+    opacity: 0.8;
+}
+
+/* Pagination Dots */
+.arch-mobile-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: #121212;
+    width: 24px;
+    border-radius: 4px;
+}

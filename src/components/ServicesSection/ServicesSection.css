@@ -158,6 +158,7 @@
 @media (min-width: 1200px) and (max-width: 1599px) {
   .services-heading {
     font-size: 68px;
+
   }
 
   .service-description {
@@ -171,20 +172,21 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1190px) {
   .services-section {
     padding: 60px 0;
   }
 
   .services-heading {
-    font-size: 48px;
+    font-size: 68px;
     text-align: center;
   }
 
   .services-subtext {
     text-align: center;
     width: 100%;
-    padding: 0 20px;
+    font-size: 32px;
+    padding: 0 100px;
   }
 
   .services-cta-btn {
@@ -223,6 +225,10 @@
 
   .service-title {
     font-size: 20px;
+  }
+
+  .services-subtext {
+    padding: 0;
   }
 
   .service-description {

@@ -303,7 +303,7 @@ const Hero = () => {
               </h1>
 
               <p ref={descriptionRef} className={styles.heroDescription}>
-                We are a creative agency that specializes in providing high quality design and
+                We are a creative company that specializes in providing high quality design and
                 branding solutions to businesses. Let us help you stand out in the digital
                 landscape.
               </p>

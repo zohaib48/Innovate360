@@ -62,15 +62,15 @@ const ArchitectureShowcaseMobile = ({ data }) => {
 
     const [isInView, setIsInView] = useState(false);
 
-    // Viewport detection
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    // Start 3s delay before enabling auto-play
+
                     const timer = setTimeout(() => {
                         setIsInView(true);
-                    }, 3000); // Wait 3s after appearing
+                    }, 3000);
                     return () => clearTimeout(timer);
                 } else {
                     setIsInView(false);

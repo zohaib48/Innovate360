@@ -157,6 +157,19 @@ const ParticlesBackground = ({ containerRef }) => {
         // Mouse move handler (on window so it works even if canvas is behind content)
         const handleMouseMove = (e) => {
             const rect = canvas.getBoundingClientRect();
+
+
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                mouse.x = null;
+                mouse.y = null;
+                return;
+            }
+
             const scaleX = canvas.width / rect.width;
             const scaleY = canvas.height / rect.height;
 
@@ -202,6 +215,17 @@ const ParticlesBackground = ({ containerRef }) => {
         // Click to add particles
         const handleClick = (e) => {
             const rect = canvas.getBoundingClientRect();
+
+            // Check if click is within bounds
+            if (
+                e.clientX < rect.left ||
+                e.clientX > rect.right ||
+                e.clientY < rect.top ||
+                e.clientY > rect.bottom
+            ) {
+                return;
+            }
+
             const scaleX = canvas.width / rect.width;
             const scaleY = canvas.height / rect.height;
             const clickX = (e.clientX - rect.left) * scaleX;

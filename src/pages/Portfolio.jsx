@@ -13,7 +13,7 @@ function Portfolio() {
            
           
             <ProjectsSection/>
-            {/* <ArchitectureShowcase backgroundColor='white'/> */}
+            <ArchitectureShowcase backgroundColor='white'/>
             <GameShowcaseSection />
 
             <FooterSection />

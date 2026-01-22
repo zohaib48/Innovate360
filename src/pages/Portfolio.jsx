@@ -3,6 +3,7 @@ import NavbarComponent from '../components/NavbarComponent/NavbarComponent';
 import FooterSection from '../components/FooterSection/FooterSection';
 import ProjectsSection from '../components/RecentlyCompletedProject/ProjectsSection';
 import ArchitectureShowcase from '../components/ArchitectureShowcase/ArchitectureShowcase';
+import GameShowcaseSection from '../components/GameShowcaseSection/GameShowcaseSection';
 
 function Portfolio() {
     return (
@@ -12,7 +13,8 @@ function Portfolio() {
            
           
             <ProjectsSection/>
-            <ArchitectureShowcase backgroundColor='white'/>
+            {/* <ArchitectureShowcase backgroundColor='white'/> */}
+            <GameShowcaseSection />
 
             <FooterSection />
         </div>

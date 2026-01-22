@@ -13,7 +13,7 @@ import realityFashion from '../../assets/images/projects/reality-fashion.png';
 import dolcis from '../../assets/images/projects/dolcis.png';
 import pebbles from '../../assets/images/projects/pebbles.png';
 import edensBody from '../../assets/images/projects/edens-body.png';
-
+import mobileImage from '../../assets/images/projects/mobile.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +28,17 @@ const archData = [
     link: "https://shn.pca.org/",
     image: porscheClubDesktop,
     mobileImage: porscheClubMobile,
+    imageAlt: "Porsche Club of America Website",
+  },
+  {
+    id: "pink-arch",
+    title: "Mobile Game Development",
+    description:
+      "A versatile suite of mobile titles spanning Hyper-Casual, RPG, and Idle genres, featuring engaging mechanics and seamless performance across all devices.",
+
+    linkColor: "#7DD6FF",
+    link: "/portfolio",
+    image: mobileImage,
     imageAlt: "Porsche Club of America Website",
   },
   {

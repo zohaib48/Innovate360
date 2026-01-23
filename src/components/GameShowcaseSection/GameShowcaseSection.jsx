@@ -6,15 +6,20 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Aew from '../../assets/videos/Aew.mp4';
 import Crime from '../../assets/videos/Crimeweb.mp4';
 import Golf from '../../assets/videos/Minigolfweb.mp4';
+import Catchthesuspect from '../../assets/videos/Catchthesuspect.mp4';
+import SneakInto from '../../assets/videos/Sneakin.mp4';
+import Trickortreat from '../../assets/videos/Trickortreat.mp4'; 
+import BladesofBattle from '../../assets/videos/Bladesofbattle-1.mp4';
+import ActionRogueAdventure from '../../assets/videos/Archero.mp4';
 
 const gameData = [
   {
-    genre: 'IDEAL GAMES',
+    genre: 'IDLE GAMES',
     description: 'Idle Games are designed around progressive automation and rewarding gameplay loops, allowing players to grow their power, resources, or teams even while away from the game.',
     games: [
       {
         id: 1,
-        title: 'Aew - Rise to the top',
+        title: 'AEW - Rise to the top',
         description: 'Build and strategize with legendary superstars in this licensed wrestling idle RPG. Progress through automated combat and lead your team to championship glory.',
         video: Aew, // Replace with your video URL
       },
@@ -26,7 +31,7 @@ const gameData = [
       },
       {
         id: 3,
-        title: 'Idle Golf',
+        title: 'IDLE Golf',
         description: 'A licensed idle golf simulation combining collection, upgrades, and automated gameplay, with a built-in mini-golf mode for variety and engagement.',
         video: Golf, // Replace with your video URL
       },
@@ -38,15 +43,15 @@ const gameData = [
     games: [
       {
         id: 4,
-        title: 'Mystic Realms',
-        description: 'Immersive RPG with deep character customization and epic quests.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4', // Replace with your video URL
+        title: 'Blades of Battle',
+        description: 'A fast-paced licensed mobile action RPG featuring real-time strategic combat and hero customization. It blends deep character progression with seamless PvE and PvP multiplayer battles.',
+        video: BladesofBattle, // Replace with your video URL
       },
       {
         id: 5,
-        title: 'Dragon Quest',
-        description: 'Fantasy RPG featuring magical creatures and strategic turn-based combat.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', // Replace with your video URL
+        title: 'Action Rogue Adventure',
+        description: 'Action Rogue Adventure is a licensed full-scale rogue-like action project inspired by Archero, featuring multiple heroes, diverse enemies, and procedurally generated dungeon rooms.',
+        video: ActionRogueAdventure, // Replace with your video URL
       },
       {
         id: 6,
@@ -57,26 +62,26 @@ const gameData = [
     ],
   },
   {
-    genre: 'Puzzle',
-    description: 'Challenge your mind with engaging puzzles and brain-teasing gameplay mechanics.',
+    genre: 'HYPER CASUAL',
+    description: 'Hyper-casual games deliver fast, intuitive gameplay with simple mechanics and short sessions.They focus on smooth controls, instant feedback, and engaging visuals for quick, replayable fun.',
     games: [
       {
         id: 7,
-        title: 'Mind Bender',
-        description: 'Challenging puzzle game that tests your logic and problem-solving skills.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4', // Replace with your video URL
+        title: 'Trick or Treat',
+        description: 'A licensed zombie-themed survival game where players save civilians while avoiding zombie detection across progressive levels.',
+        video: Trickortreat, // Replace with your video URL
       },
       {
         id: 8,
-        title: 'Color Match',
-        description: 'Addictive puzzle game with vibrant colors and satisfying match mechanics.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4', // Replace with your video URL
+        title: 'Master Robber',
+        description: 'A licensed stealth-based game developed in collaboration with another developer. Players must reach the safe undetected by guards through a series of mini-games.',
+        video: SneakInto, // Replace with your video URL
       },
       {
         id: 9,
-        title: 'Block Master',
-        description: 'Classic block puzzle game reimagined with modern graphics and new challenges.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4', // Replace with your video URL
+        title: 'Catch the Suspect',
+        description: 'A licensed reflex-based casual game where players catch the suspect in a moving crowd, our contributions focused on crowd spawning logic and UI feedback improvements.',
+        video: Catchthesuspect, // Replace with your video URLA reflex-based casual game focused on catching suspects in crowds. Optimized via custom crowd-spawning logic and enhanced UI feedback
       },
     ],
   },
@@ -84,7 +89,7 @@ const gameData = [
 
 const GameShowcaseSection = () => {
   const [currentSection, setCurrentSection] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);     
   const containerRef = useRef(null);
   const sectionRefs = useRef([]);
   const autoPlayTimerRef = useRef(null);
@@ -215,43 +220,51 @@ const GameShowcaseSection = () => {
 
           {/* Game Sections */}
           <div className="sections-container">
-            {gameData.map((section, sectionIndex) => (
-              <div
-                key={sectionIndex}
-                ref={(el) => (sectionRefs.current[sectionIndex] = el)}
-                className={`game-section ${sectionIndex === currentSection ? 'active' : ''}`}
-              >
-                <Container>
-                  <Row className="g-4">
-                    {section.games.map((game) => (
-                      <Col key={game.id} xs={12} md={6} lg={4}>
-                        <div className="game-card">
-                          <div className="mobile-frame">
-                            <div className="mobile-screen">
-                              <div className="notch"></div>
-                              <div className="video-wrapper">
-                                <video
-                                  src={game.video}
-                                  autoPlay
-                                  loop
-                                  muted
-                                  playsInline
-                                  className="game-video"
-                                />
+            {gameData.map((section, sectionIndex) => {
+              const isActive = sectionIndex === currentSection;
+
+              return (
+                <div
+                  key={sectionIndex}
+                  ref={(el) => (sectionRefs.current[sectionIndex] = el)}
+                  className={`game-section ${isActive ? 'active' : ''}`}
+                >
+                  {/* Only render videos and heavy content for the active section */}
+                  {isActive && (
+                    <Container>
+                      <Row className="g-4">
+                        {section.games.map((game) => (
+                          <Col key={game.id} xs={12} md={6} lg={4}>
+                            <div className="game-card">
+                              <div className="mobile-frame">
+                                <div className="mobile-screen">
+                                  <div className="notch"></div>
+                                  <div className="video-wrapper">
+                                    <video
+                                      src={game.video}
+                                      autoPlay
+                                      loop
+                                      muted
+                                      playsInline
+                                      preload="none"
+                                      className="game-video"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="game-content">
+                                <h3 className="game-title">{game.title}</h3>
+                                <p className="game-description">{game.description}</p>
                               </div>
                             </div>
-                          </div>
-                          <div className="game-content">
-                            <h3 className="game-title">{game.title}</h3>
-                            <p className="game-description">{game.description}</p>
-                          </div>
-                        </div>
-                      </Col>
-                    ))}
-                  </Row>
-                </Container>
-              </div>
-            ))}
+                          </Col>
+                        ))}
+                      </Row>
+                    </Container>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </Container>

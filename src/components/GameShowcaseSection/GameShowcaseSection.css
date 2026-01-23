@@ -163,7 +163,7 @@
   width: 100%;
   max-width: 280px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 10px;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   border-radius: 32px;
   box-shadow: 
@@ -206,7 +206,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
-  height: 24px;
+  height: 18px;
   background: #1a1a1a;
   border-radius: 0 0 16px 16px;
   z-index: 10;
@@ -269,7 +269,7 @@
 
 .game-title {
   font-family: 'Noyh';
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
   color: #121212;
   margin: 0 0 16px 0;
@@ -278,7 +278,7 @@
 
 .game-description {
   font-family: 'Noyh';
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   color: #666666;
   margin: 0;
@@ -341,7 +341,7 @@
   }
 
   .genre-description {
-    font-size: 18px;
+    font-size: 20px;
     max-width: 600px;
   }
 
@@ -378,7 +378,7 @@
   }
 
   .genre-description {
-    font-size: 17px;
+    font-size: 18px;
     max-width: 550px;
   }
 
@@ -477,7 +477,7 @@
   }
 
   .game-description {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -493,7 +493,7 @@
   }
 
   .genre-description {
-    font-size: 15px;
+    font-size: 16px;
     max-width: 100%;
     padding: 0 16px;
   }
@@ -559,7 +559,7 @@
   }
 
   .game-description {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
@@ -570,7 +570,7 @@
   }
 
   .genre-description {
-    font-size: 14px;
+    font-size: 20px;
     padding: 0 12px;
   }
 
@@ -589,7 +589,7 @@
   }
 
   .game-description {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .mobile-frame {

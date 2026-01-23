@@ -38,7 +38,7 @@ const FooterSection = ({ showCalWidget2 }) => {
       // Refresh ScrollTrigger to recalculate positions
       ScrollTrigger.refresh();
 
-      const ctx = gsap.context(() => {
+      gsap.context(() => {
         // Animate brand text on scroll
         gsap.fromTo(
           brandEl,
@@ -170,7 +170,7 @@ const FooterSection = ({ showCalWidget2 }) => {
 
           {/* Copyright Bar */}
           <div className="footer-bottom">
-            <p className="copyright" >© 2025 INNOVATE360</p>
+              <p className="copyright" >© {year} INNOVATE360</p>
 
             <button className="scroll-top-btn" onClick={scrollToTop} aria-label="Scroll to top">
               <svg

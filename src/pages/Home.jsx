@@ -23,7 +23,7 @@ function Home() {
             <LargeText />
             <AboutSection />
             <AgencySection />
-            <TeamSection />
+            {/* <TeamSection /> */}
             <ParallaxImageSection />
             <TestimonialsSection />
             <FooterSection showCalWidget2={true} />

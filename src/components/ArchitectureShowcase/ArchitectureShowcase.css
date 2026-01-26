@@ -10,14 +10,12 @@
   width: 100%;
 }
 
-.arch__right .img-wrapper:last-child {
+/* .arch__right .img-wrapper:last-child {
   top: 49%;
   height: 380px;
-}
-
-/* .arch__right .img-wrapper:nth-last-child(2) {
-  top: 50%;
 } */
+
+
 
 
 .arch {

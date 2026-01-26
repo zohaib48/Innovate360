@@ -11,6 +11,7 @@ import SneakInto from '../../assets/videos/Sneakin.mp4';
 import Trickortreat from '../../assets/videos/Trickortreat.mp4'; 
 import BladesofBattle from '../../assets/videos/Bladesofbattle-1.mp4';
 import ActionRogueAdventure from '../../assets/videos/Archero.mp4';
+import ZombieCatchers from '../../assets/videos/Zombiecatchers.mp4';
 
 const gameData = [
   {
@@ -47,17 +48,18 @@ const gameData = [
         description: 'A fast-paced licensed mobile action RPG featuring real-time strategic combat and hero customization. It blends deep character progression with seamless PvE and PvP multiplayer battles.',
         video: BladesofBattle, // Replace with your video URL
       },
+    
       {
         id: 5,
-        title: 'Action Rogue Adventure',
-        description: 'Action Rogue Adventure is a licensed full-scale rogue-like action project inspired by Archero, featuring multiple heroes, diverse enemies, and procedurally generated dungeon rooms.',
-        video: ActionRogueAdventure, // Replace with your video URL
+        title: 'Zombie Catchers',
+        description: 'Zombie Catchers is a licensed fun and fast-paced action game where players hunt and capture zombies using traps, gadgets, and jetpacks. The gameplay blends reflex-based catching with strategic upgrades to keep players engaged across levels.',
+        video: ZombieCatchers, // Replace with your video URL
       },
       {
         id: 6,
-        title: 'Chronicles of Legends',
-        description: 'Story-driven RPG with branching narratives and meaningful choices.',
-        video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', // Replace with your video URL
+        title: 'Action Rogue Adventure',
+        description: 'Action Rogue Adventure is a licensed full-scale rogue-like action project inspired by Archero, featuring multiple heroes, diverse enemies, and procedurally generated dungeon rooms.',
+        video: ActionRogueAdventure, // Replace with your video URL
       },
     ],
   },
@@ -233,32 +235,52 @@ const GameShowcaseSection = () => {
                   {isActive && (
                     <Container>
                       <Row className="g-4">
-                        {section.games.map((game) => (
-                          <Col key={game.id} xs={12} md={6} lg={4}>
-                            <div className="game-card">
-                              <div className="mobile-frame">
-                                <div className="mobile-screen">
-                                  <div className="notch"></div>
-                                  <div className="video-wrapper">
-                                    <video
-                                      src={game.video}
-                                      autoPlay
-                                      loop
-                                      muted
-                                      playsInline
-                                      preload="none"
-                                      className="game-video"
-                                    />
+                        {section.games.map((game, gameIndex) => {
+                          // Check if this is the second game in the RPG section (index 1)
+                          const isRPGSecondGame = sectionIndex === 1 && gameIndex === 1;
+                          const isRPGSection = sectionIndex === 1;
+                          // For RPG section: make middle column wider, others narrower
+                          let colProps = { xs: 12, md: 4, lg: 4 };
+                          if (isRPGSection) {
+                            if (isRPGSecondGame) {
+                              colProps = { xs: 12, md: 6, lg: 6 }; // Middle column - wider
+                            } else {
+                              colProps = { xs: 12, md: 3, lg: 3 }; // Side columns - narrower
+                            }
+                          }
+                          return (
+                            <Col 
+                              key={game.id} 
+                              xs={colProps.xs}
+                              md={colProps.md}
+                              lg={colProps.lg}
+                              className={isRPGSecondGame ? 'tablet-column' : ''}
+                            >
+                              <div className={`game-card ${isRPGSecondGame ? 'tablet-card' : ''}`}>
+                                <div className={`mobile-frame ${isRPGSecondGame ? 'tablet-frame' : ''}`}>
+                                  <div className={`mobile-screen ${isRPGSecondGame ? 'tablet-screen' : ''}`}>
+                                    {!isRPGSecondGame && <div className="notch"></div>}
+                                    <div className={`video-wrapper ${isRPGSecondGame ? 'tablet-video-wrapper' : ''}`}>
+                                      <video
+                                        src={game.video}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        preload="none"
+                                        className={`game-video ${isRPGSecondGame ? 'tablet-video' : ''}`}
+                                      />
+                                    </div>
                                   </div>
                                 </div>
+                                <div className="game-content">
+                                  <h3 className="game-title">{game.title}</h3>
+                                  <p className="game-description">{game.description}</p>
+                                </div>
                               </div>
-                              <div className="game-content">
-                                <h3 className="game-title">{game.title}</h3>
-                                <p className="game-description">{game.description}</p>
-                              </div>
-                            </div>
-                          </Col>
-                        ))}
+                            </Col>
+                          );
+                        })}
                       </Row>
                     </Container>
                   )}

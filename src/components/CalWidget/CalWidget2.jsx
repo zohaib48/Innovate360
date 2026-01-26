@@ -16,48 +16,14 @@ export default function CalWidget2({ id = 'cal-widget' }) {
 
     const showDifferentDescription = !['/'].includes(location.pathname);
 
-    // Function to handle iframe scroll events and prevent scroll locking
-    const handleIframeScroll = (iframe) => {
-        if (!iframe) return;
 
-        try {
-            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-            const iframeBody = iframeDocument.body;
-            const iframeHtml = iframeDocument.documentElement;
-
-            // Check if we've scrolled to the bottom of the iframe
-            const scrollTop = iframeHtml.scrollTop || iframeBody.scrollTop;
-            const scrollHeight = iframeHtml.scrollHeight || iframeBody.scrollHeight;
-            const clientHeight = iframeHtml.clientHeight || iframeBody.clientHeight;
-
-            const isAtBottom = scrollHeight - scrollTop <= clientHeight + 5;
-            const isAtTop = scrollTop <= 5;
-
-            // Add/remove classes based on scroll position
-            if (isAtBottom) {
-                iframe.classList.add('at-bottom');
-            } else {
-                iframe.classList.remove('at-bottom');
-            }
-
-            if (isAtTop) {
-                iframe.classList.add('at-top');
-            } else {
-                iframe.classList.remove('at-top');
-            }
-
-            return { isAtBottom, isAtTop, scrollTop };
-        } catch (e) {
-            console.warn('Could not access iframe document:', e);
-            return { isAtBottom: false, isAtTop: false, scrollTop: 0 };
-        }
-    };
-
+    // 1. Handle Cal.com Embed Script - Lazy Load
     // 1. Handle Cal.com Embed Script - Lazy Load
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) {
+                    // Load Cal.com script only when visible
                     (function (C, A, L) {
                         let p = function (a, ar) {
                             a.q.push(ar);
@@ -92,9 +58,8 @@ export default function CalWidget2({ id = 'cal-widget' }) {
                     })(window, 'https://app.cal.com/embed/embed.js', 'init');
 
                     // Initialize Cal
-                    window.Cal('init', 'metting', {
+                    window.Cal('init', '30min', {
                         origin: 'https://app.cal.com',
-                        // Add configuration to make the iframe more mobile-friendly
                         config: {
                             layout: 'month_view',
                             theme: 'light',
@@ -103,27 +68,27 @@ export default function CalWidget2({ id = 'cal-widget' }) {
                     });
 
                     // Configure Inline Embed
-                    window.Cal.ns.metting('inline', {
-                        elementOrSelector: '#my-cal-inline-metting',
+                    window.Cal.ns["30min"]("inline", {
+                        elementOrSelector: "#my-cal-inline-30min",
                         config: {
                             layout: 'month_view',
                             theme: 'light',
                             isMobile: window.innerWidth <= 768,
                         },
-                        calLink: 'zohaib-shafique-mql6e9/metting',
+                        calLink: "waris-shahid-c2uhum/30min",
                     });
 
                     // UI Configuration
-                    window.Cal.ns.metting('ui', {
+                    window.Cal.ns["30min"]("ui", {
                         theme: 'light',
                         hideEventTypeDetails: true,
                         layout: 'month_view',
                     });
 
-                    observer.disconnect();
+                    observer.disconnect(); // Stop observing once loaded
                 }
             },
-            { rootMargin: '200px' }
+            { rootMargin: '200px' } // Load slightly before it comes into view
         );
 
         const widget = document.getElementById(id);
@@ -134,48 +99,41 @@ export default function CalWidget2({ id = 'cal-widget' }) {
         return () => observer.disconnect();
     }, [id]);
 
+    // 3. Fix scroll and click issues with Cal.com iframe
     useEffect(() => {
-        if (leftColumnRef.current && rightColumnRef.current) {
+        // Wait for Cal.com to load and create its iframe
+        const checkForIframe = setInterval(() => {
+            const calContainer = document.querySelector('#my-cal-inline-30min');
+            const iframe = calContainer?.querySelector('iframe');
 
-            gsap.set(leftColumnRef.current, {
-                x: -100,
-                opacity: 0,
-            });
-            gsap.set(rightColumnRef.current, {
-                x: 100,
-                opacity: 0,
-            });
+            if (iframe) {
+                clearInterval(checkForIframe);
 
+                // Fix pointer-events to allow proper scrolling
+                iframe.style.pointerEvents = 'auto';
 
-            gsap.to(leftColumnRef.current, {
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: leftColumnRef.current,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse',
-                },
-            });
+                // Prevent the double-click issue by stopping event propagation
+                const preventDoubleClick = (e) => {
+                    // Only prevent propagation on actual calendar interactions
+                    const target = e.target;
+                    if (target.closest('[role="button"]') || target.closest('button')) {
+                        e.stopPropagation();
+                    }
+                };
 
+                // Add event listener to the container instead of iframe
+                calContainer.addEventListener('click', preventDoubleClick, true);
 
-            gsap.to(rightColumnRef.current, {
-                x: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: rightColumnRef.current,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse',
-                },
-            });
-        }
+                // Ensure smooth scrolling over the calendar
+                calContainer.style.overflow = 'visible';
+                calContainer.style.position = 'relative';
+            }
+        }, 100);
 
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
+        // Cleanup after 10 seconds
+        setTimeout(() => clearInterval(checkForIframe), 10000);
+
+        return () => clearInterval(checkForIframe);
     }, []);
 
     return (
@@ -194,7 +152,7 @@ export default function CalWidget2({ id = 'cal-widget' }) {
                 <div className="cal-calendar-column" ref={rightColumnRef}>
                     <div className="cal-embed-container">
                         <div
-                            id="my-cal-inline-metting"
+                            id="my-cal-inline-30min"
                             className="cal-iframe-container"
                             style={{ width: '100%', height: '100%' }}
                         ></div>

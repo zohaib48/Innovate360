@@ -111,7 +111,7 @@
     background-color: transparent;
     padding-right: 4px;
     position: relative;
-    overscroll-behavior: contain;
+    /* overscroll-behavior: contain; */
 
     /* Webkit (Chrome, Safari, newer versions of Opera) */
     &::-webkit-scrollbar {
